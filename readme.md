@@ -42,6 +42,7 @@ Singletons are resources of which only one can ever exist. Singletons are thus a
 They have no trailing slash, as they represent a single resource.
 
 Examples:
+- Get info about the current user: `GET /user`
 - Update the title of an event: `PUT /events/{eventId}/title`
 
 ### PATCH requests
