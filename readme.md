@@ -45,20 +45,29 @@ Examples:
 - Get info about the current user: `GET /user`
 - Update the title of an event: `PUT /events/{eventId}/title`
 
-### PATCH requests
+### POST vs PUT vs PATCH
 
-PATCH requests should differentiate their different payload types by adding a `domain-model` value to the `content-type` header of the request.
+Use `POST` requests when creating new resources in a collection, and when you don't know the resource id beforehand.
+Send all data using a JSON payload.
+For example: `POST /events/`, `POST /places/`, ...
 
-Example:
+Use `PUT` requests when creating/updating resources in a collection, and when you already know the resource id.
+Send any additional data in a JSON payload just like a `POST` request.
+For example: `PUT /events/{eventId}/labels/{labelName}`
 
-    PATCH /events/{eventId}
-    Content-Type: application/ld+json;domain-model=SetTitle
-    
-    {
-        "title": "New title"
-    }
-    
-For more information, see: [5 levels of media type (5LMT)](http://byterot.blogspot.be/2012/12/5-levels-of-media-type-rest-csds.html)
+Additionally, use `PUT` requests when making partial changes to resources. Structure the request so the property being updated acts as a singleton.
+Send any additional data in a JSON payload just like a `POST` request.
+For example: `PUT /events/{eventId}/title`, ...
+
+When linking two resources to each other, use a `PUT` request to a resource in a collection OR a singleton (many vs single), on the parent resource.
+For example: `PUT /events/{eventId}/labels/{labelName}` for one-to-many relations, `PUT /events/{eventId}/organizer` for one-to-one relations.
+
+Never use `PATCH`.
+
+### DELETE
+
+Specify the resource id in the URL, never in a JSON payload.
+For example: `DELETE /events/{eventId}`, `DELETE /events/{eventId}/labels/{labelName}`
 
 ### Casing
 
