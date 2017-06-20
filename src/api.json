@@ -1,0 +1,35 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "UiTdatabank v3",
+        "description": "Version 3 of the UiTdatabank, a central database of cultural offers in the Flanders region.\\n Most operations require that you authenticate first with your UiTID.",
+        "contact": {
+            "name": "CultuurNet Vlaanderen vzw",
+            "url": "http://www.cultuurnet.be",
+            "email": "info@uitdatabank.be"
+        },
+        "version": "3.0.0"
+    },
+    "host": "io.uitdatabank.be",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "tags": [
+        {
+            "name": "User",
+            "description": "Operations related to users"
+        }
+    ],
+    "paths": {
+        "/user": {
+            "$ref": "user/user.path.json"
+        }
+    }
+}

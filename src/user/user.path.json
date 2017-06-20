@@ -1,0 +1,24 @@
+{
+    "get": {
+        "tags": [
+            "User"
+        ],
+        "summary": "Retrieve all information about the authenticated user.",
+        "description": "Authentication is required.",
+        "operationId": "getUserInformation",
+        "produces": [
+            "application/json"
+        ],
+        "responses": {
+            "200": {
+                "description": "The information available about the authenticated user.",
+                "schema": {
+                    "$ref": "user-information.definition.json"
+                }
+            },
+            "401": {
+                "$ref": "../authorization/unauthorized.response.json"
+            }
+        }
+    }
+}
