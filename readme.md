@@ -4,6 +4,25 @@
 
 Swagger documentation for the udb3 api.
 
+## Folder structure and file naming
+
+The `swagger.json` file at the root of the project is bundled from content of `src/`. You should not edit this file manually. It is generated using the command-line by running `npm run bundle`. Each sub-folder of `src/` contains the files relevant to a specific domain like `user/` or `authorization/`.
+
+We use the following file naming pattern to quicly identify object files: `thing.type.json`. Following this convention, the file describing the content of a `user/` response is named `user-information.response.json`.
+
+## Contributing
+
+Install the npm dependencies:
+
+    npm install
+    
+Bundle and validate your changes:
+
+    npm run bundle
+    npm run validate
+    
+The same scripts run on Travis for every push event.
+
 ## Design Guidelines
 
 The following guidelines should always be followed when making changes, even though existing docs may not always follow them.
@@ -76,22 +95,3 @@ Endpoints should use casing that matches their use in request and response conte
 Example: The path to update the `typicalAgeRange` property of an event with a given `eventId`.
 
     PUT /events/{eventId}/typicalAgeRange
-
-## Folder structure and file naming
-
-The `swagger.json` file at the root of the project is bundled from content of `src/`. You should not edit this file manually. It is generated using the command-line by running `npm run bundle`. Each sub-folder of `src/` contains the files relevant to a specific domain like `user/` or `authorization/`.
-
-We use the following file naming pattern to quicly identify object files: `thing.type.json`. Following this convention, the file describing the content of a `user/` response is named `user-information.response.json`.
-
-## Contributing
-
-Install the npm dependencies:
-
-    npm install
-    
-Bundle and validate your changes:
-
-    npm run bundle
-    npm run validate
-    
- The same scripts run on Travis for every push event.
