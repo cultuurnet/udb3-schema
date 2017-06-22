@@ -1,0 +1,53 @@
+{
+  "required": [
+    "name",
+    "type",
+    "theme",
+    "location",
+    "calendarType",
+    "startDate"
+  ],
+  "properties": {
+    "name": {
+      "$ref": "../offer/name.parameter.json"
+    },
+    "type": {
+      "$ref": "../offer/type.parameter.json"
+    },
+    "location": {
+      "$ref": "../offer/location.parameter.json"
+    },
+    "calendarType": {
+      "$ref": "calender-type.parameter.json"
+    },
+    "openingHours": {
+      "$ref": "opening-hours.parameter.json"
+    },
+    "timestamps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "date.parameter.json"
+          },
+          "startHour": {
+            "$ref": "time.parameter.json"
+          },
+          "endHour": {
+            "$ref": "time.parameter.json"
+          }
+        }
+      }
+    },
+    "startDate": {
+      "$ref": "date-time.parameter.json"
+    },
+    "endDate": {
+      "$ref": "date-time.parameter.json"
+    },
+    "theme": {
+      "$ref": "../offer/theme.parameter.json"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "post": {
+    "tags": [
+      "Event"
+    ],
+    "summary": "Create a new cultural event.",
+    "operationId": "createEvent",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "name": "body",
+        "in": "body",
+        "description": "An object containing the necessary information to create a new cultural event.",
+        "required": true,
+        "schema": {
+          "$ref": "event.definition.json"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Details of the created event.",
+        "schema": {
+          "$ref": "event.definition.json"
+        }
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      }
+    }
+  }
+}
