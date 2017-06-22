@@ -45,6 +45,9 @@
         },
         "/events/": {
             "$ref": "event/event.path.json"
+        },
+        "/events/{cdbid}": {
+            "$ref": "event/event-detail.path.json"
         }
     }
 }

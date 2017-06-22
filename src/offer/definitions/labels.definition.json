@@ -1,0 +1,17 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string",
+        "format": "uuid",
+        "example": "80f63f49-5de2-42ea-9642-59fc0400f2c5"
+      },
+      "name": {
+        "type": "string",
+        "example": "Mijn label"
+      }
+    }
+  }
+}

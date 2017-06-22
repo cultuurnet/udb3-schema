@@ -9,13 +9,13 @@
   ],
   "properties": {
     "name": {
-      "$ref": "../../offer/name.definition.json"
+      "$ref": "../../offer/definitions/name.definition.json"
     },
     "type": {
-      "$ref": "../../offer/type.definition.json"
+      "$ref": "../../offer/definitions/type.definition.json"
     },
     "location": {
-      "$ref": "../../offer/location.definition.json"
+      "$ref": "../../offer/definitions/location.definition.json"
     },
     "calendarType": {
       "$ref": "calender-type.definition.json"
@@ -47,7 +47,7 @@
       "$ref": "date-time.definition.json"
     },
     "theme": {
-      "$ref": "../../offer/theme.definition.json"
+      "$ref": "../../offer/definitions/theme.definition.json"
     }
   }
 }

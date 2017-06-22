@@ -1,5 +1,5 @@
 {
-    "name": "cdbId",
+    "name": "cdbid",
     "in": "path",
     "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
     "required": true,

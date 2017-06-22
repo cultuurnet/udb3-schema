@@ -153,24 +153,31 @@
                       "properties": {
                         "addressCountry": {
                           "type": "string",
-                          "example": "BE",
-                          "format": "ISO 3166-1 alpha-2"
+                          "description": "The country code of the location.",
+                          "example": "BE"
                         },
                         "addressLocality": {
                           "type": "string",
-                          "example": "Hasselt"
+                          "description": "The locality name of the location.",
+                          "example": "Leuven"
                         },
                         "postalCode": {
                           "type": "string",
-                          "format": "postal code",
-                          "example": "3500"
+                          "description": "The postalcode of the location.",
+                          "example": 3000
                         },
                         "streetAddress": {
                           "type": "string",
-                          "example": "Gouverneur Verwilghensingel 70",
-                          "format": "street name and number"
+                          "description": "The street name and number information of the location.",
+                          "example": "Sluisstraat 79"
                         }
-                      }
+                      },
+                      "required": [
+                        "addressCountry",
+                        "addressLocality",
+                        "postalCode",
+                        "streetAddress"
+                      ]
                     }
                   }
                 },
@@ -293,6 +300,587 @@
           },
           "401": {
             "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        }
+      }
+    },
+    "/events/{cdbid}": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "View the details of a specific cultural event.",
+        "operationId": "getEvent",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An event detail.",
+            "schema": {
+              "required": [
+                "@id",
+                "name",
+                "description",
+                "creator",
+                "created",
+                "publisher",
+                "calendarType"
+              ],
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "example": "http://culudb-silex.dev:8080/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                },
+                "name": {
+                  "required": [
+                    "nl"
+                  ],
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Nederlands"
+                    },
+                    "de": {
+                      "type": "string",
+                      "example": "Deutch"
+                    },
+                    "en": {
+                      "type": "string",
+                      "example": "English"
+                    },
+                    "fr": {
+                      "type": "string",
+                      "example": "Français"
+                    }
+                  }
+                },
+                "description": {
+                  "required": [
+                    "nl"
+                  ],
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Nederlands"
+                    },
+                    "de": {
+                      "type": "string",
+                      "example": "Deutch"
+                    },
+                    "en": {
+                      "type": "string",
+                      "example": "English"
+                    },
+                    "fr": {
+                      "type": "string",
+                      "example": "Français"
+                    }
+                  }
+                },
+                "available": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "image": {
+                  "type": "string",
+                  "example": "http://media.uitdatabank.be/20150416/153cfa0f-0d22-451e-bfd1-490b7c4ef109.jpg"
+                },
+                "labels": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "tagged"
+                  }
+                },
+                "calendarSummary": {
+                  "type": "string",
+                  "example": "Every first day of the month"
+                },
+                "location": {
+                  "required": [
+                    "name",
+                    "address"
+                  ],
+                  "properties": {
+                    "description": {
+                      "required": [
+                        "nl"
+                      ],
+                      "properties": {
+                        "nl": {
+                          "type": "string",
+                          "example": "Nederlands"
+                        },
+                        "de": {
+                          "type": "string",
+                          "example": "Deutch"
+                        },
+                        "en": {
+                          "type": "string",
+                          "example": "English"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Français"
+                        }
+                      }
+                    },
+                    "name": {
+                      "required": [
+                        "nl"
+                      ],
+                      "properties": {
+                        "nl": {
+                          "type": "string",
+                          "example": "Nederlands"
+                        },
+                        "de": {
+                          "type": "string",
+                          "example": "Deutch"
+                        },
+                        "en": {
+                          "type": "string",
+                          "example": "English"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Français"
+                        }
+                      }
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "addressCountry": {
+                          "type": "string",
+                          "description": "The country code of the location.",
+                          "example": "BE"
+                        },
+                        "addressLocality": {
+                          "type": "string",
+                          "description": "The locality name of the location.",
+                          "example": "Leuven"
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "description": "The postalcode of the location.",
+                          "example": 3000
+                        },
+                        "streetAddress": {
+                          "type": "string",
+                          "description": "The street name and number information of the location.",
+                          "example": "Sluisstraat 79"
+                        }
+                      },
+                      "required": [
+                        "addressCountry",
+                        "addressLocality",
+                        "postalCode",
+                        "streetAddress"
+                      ]
+                    },
+                    "geo": {
+                      "properties": {
+                        "latitude": {
+                          "type": "string",
+                          "description": "The latitude of the location.",
+                          "example": "40.75"
+                        },
+                        "longitude": {
+                          "type": "string",
+                          "description": "The longitude of the location.",
+                          "example": "73.98"
+                        }
+                      }
+                    },
+                    "bookingInfo": {
+                      "required": [
+                        "price",
+                        "priceCurrency",
+                        "description"
+                      ],
+                      "properties": {
+                        "priceCurrency": {
+                          "type": "string",
+                          "example": "EUR"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "No need to pay anything"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Free"
+                        },
+                        "price": {
+                          "type": "number",
+                          "format": "float",
+                          "example": 0
+                        }
+                      }
+                    },
+                    "priceInfo": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "category",
+                          "name",
+                          "price",
+                          "priceCurrency"
+                        ],
+                        "properties": {
+                          "category": {
+                            "type": "string",
+                            "enum": [
+                              "base",
+                              "tariff"
+                            ]
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Senioren"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "example": 10
+                          },
+                          "priceCurrency": {
+                            "type": "string",
+                            "example": "EUR"
+                          }
+                        }
+                      }
+                    },
+                    "terms": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "label",
+                          "domain",
+                          "id"
+                        ],
+                        "properties": {
+                          "label": {
+                            "type": "string",
+                            "example": "Cycling"
+                          },
+                          "domain": {
+                            "type": "string",
+                            "example": "activities"
+                          },
+                          "id": {
+                            "type": "string",
+                            "example": "10.0.0.1"
+                          }
+                        }
+                      }
+                    },
+                    "workflowStatus": {
+                      "type": "string",
+                      "enum": [
+                        "DRAFT",
+                        "READY_FOR_VALIDATION",
+                        "APPROVED",
+                        "REJECTED",
+                        "DELETED"
+                      ]
+                    }
+                  }
+                },
+                "organizer": {
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "STUK"
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "addressCountry": {
+                          "type": "string",
+                          "description": "The country code of the location.",
+                          "example": "BE"
+                        },
+                        "addressLocality": {
+                          "type": "string",
+                          "description": "The locality name of the location.",
+                          "example": "Leuven"
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "description": "The postalcode of the location.",
+                          "example": 3000
+                        },
+                        "streetAddress": {
+                          "type": "string",
+                          "description": "The street name and number information of the location.",
+                          "example": "Sluisstraat 79"
+                        }
+                      },
+                      "required": [
+                        "addressCountry",
+                        "addressLocality",
+                        "postalCode",
+                        "streetAddress"
+                      ]
+                    },
+                    "contactPoint": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "format": "url",
+                            "example": "http://google.be"
+                          }
+                        },
+                        "email": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "format": "email",
+                            "example": "joske@2dotstwice.be"
+                          }
+                        },
+                        "phone": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "format": "phone",
+                            "example": "0123456789"
+                          }
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "email",
+                        "phone"
+                      ]
+                    },
+                    "creator": {
+                      "type": "string",
+                      "example": "evenementen@stad.diksmuide.be"
+                    },
+                    "created": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T12:02:53+00:00"
+                    },
+                    "modified": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T12:02:53+00:00"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "url",
+                      "example": "http://www.stuk.be/"
+                    },
+                    "labels": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "80f63f49-5de2-42ea-9642-59fc0400f2c5"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Mijn label"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "bookingInfo": {
+                  "required": [
+                    "price",
+                    "priceCurrency",
+                    "description"
+                  ],
+                  "properties": {
+                    "priceCurrency": {
+                      "type": "string",
+                      "example": "EUR"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "No need to pay anything"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Free"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "example": 0
+                    }
+                  }
+                },
+                "priceInfo": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "category",
+                      "name",
+                      "price",
+                      "priceCurrency"
+                    ],
+                    "properties": {
+                      "category": {
+                        "type": "string",
+                        "enum": [
+                          "base",
+                          "tariff"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Senioren"
+                      },
+                      "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 10
+                      },
+                      "priceCurrency": {
+                        "type": "string",
+                        "example": "EUR"
+                      }
+                    }
+                  }
+                },
+                "terms": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "label",
+                      "domain",
+                      "id"
+                    ],
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "Cycling"
+                      },
+                      "domain": {
+                        "type": "string",
+                        "example": "activities"
+                      },
+                      "id": {
+                        "type": "string",
+                        "example": "10.0.0.1"
+                      }
+                    }
+                  }
+                },
+                "creator": {
+                  "type": "string",
+                  "example": "evenementen@stad.diksmuide.be"
+                },
+                "created": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "modified": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "publisher": {
+                  "type": "string",
+                  "example": "Invoerders Algemeen "
+                },
+                "endDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "startDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "calendarType": {
+                  "type": "string",
+                  "enum": [
+                    "unknown",
+                    "permanent",
+                    "periodic",
+                    "single"
+                  ],
+                  "example": "permanent"
+                },
+                "typicalAgeRange": {
+                  "type": "string",
+                  "example": "+18"
+                },
+                "performer": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the performer.",
+                        "example": "Sindicato Sonico"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                },
+                "sameAs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "http://www.uitinvlaanderen.be/agenda/e/zomerse-vrijdagen-den-engel/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                  }
+                },
+                "seeAlso": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "www.leuven.be"
+                  }
+                },
+                "workflowStatus": {
+                  "type": "string",
+                  "enum": [
+                    "DRAFT",
+                    "READY_FOR_VALIDATION",
+                    "APPROVED",
+                    "REJECTED",
+                    "DELETED"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Offer not found."
           }
         }
       }

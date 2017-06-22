@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "enum": [
+    "DRAFT",
+    "READY_FOR_VALIDATION",
+    "APPROVED",
+    "REJECTED",
+    "DELETED"
+  ]
+}
