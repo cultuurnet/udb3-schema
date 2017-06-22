@@ -25,11 +25,41 @@
         {
             "name": "User",
             "description": "Operations related to users"
+        },
+        {
+            "name": "Place",
+            "description": "Operations related to places."
+        },
+        {
+            "name": "Event",
+            "description": "Operations related to events."
+        },
+        {
+            "name": "Offer",
+            "description": "Operations related to all offer types."
         }
     ],
     "paths": {
         "/user": {
             "$ref": "user/user.path.json"
+        },
+        "/events/{cdbId}/{lang}/name": {
+            "$ref": "offer/name.path.json"
+        },
+        "/events/{cdbId}/theme/{themeId}": {
+            "$ref": "offer/theme.path.json"
+        },
+        "/events/{cdbId}/type/{typeId}": {
+            "$ref": "event/type.path.json"
+        },
+        "/places/{cdbId}/{lang}/name": {
+            "$ref": "offer/name.path.json"
+        },
+        "/places/{cdbId}/theme/{themeId}": {
+            "$ref": "offer/theme.path.json"
+        },
+        "/places/{cdbId}/type/{typeId}": {
+            "$ref": "place/type.path.json"
         }
     }
 }

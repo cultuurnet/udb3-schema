@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "type": {
+            "type": "string",
+            "format": "url"
+        },
+        "title": {
+            "type": "string"
+        },
+        "status": {
+            "type": "integer"
+        },
+        "validation_messages": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "title",
+        "type",
+        "status"
+    ]
+}

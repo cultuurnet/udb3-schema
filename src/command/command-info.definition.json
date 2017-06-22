@@ -1,0 +1,10 @@
+{
+    "required": [
+        "commandId"
+    ],
+    "properties": {
+        "commandId": {
+            "$ref": "../uuid.definition.json"
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "description": "An API specific problem occurred.",
+    "schema": {
+        "$ref": "api-problem.definition.json"
+    }
+}

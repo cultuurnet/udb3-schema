@@ -1,0 +1,14 @@
+{
+    "name": "lang",
+    "in": "path",
+    "description": "The unique ISO 639-1 2 character language code.",
+    "required": true,
+    "type": "string",
+    "format": "string",
+    "enum": [
+        "nl",
+        "fr",
+        "en",
+        "du"
+    ]
+}

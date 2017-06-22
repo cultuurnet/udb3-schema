@@ -1,0 +1,6 @@
+{
+    "description": "Info on the command that was queued.",
+    "schema": {
+        "$ref": "command-info.definition.json"
+    }
+}
