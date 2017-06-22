@@ -1,0 +1,31 @@
+{
+    "put": {
+        "tags": [
+            "Offer",
+            "Event"
+        ],
+        "summary": "Update the calendar of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateCalendar",
+        "produces": [
+            "application/json"
+        ],
+        "parameters": [
+            { 
+                "$ref": "../offer/cdb-id.parameter.json"
+            },
+            {
+                "name": "body",
+                "in": "body",
+                "description": "The data required to update the event calendar",
+                "required": true,
+                "schema": {
+                    "$ref": "calendar.definition.json"
+                }
+            }
+        ],
+        "responses": {
+             "$ref": "../offer/command-responses.json"
+        }
+    }
+}

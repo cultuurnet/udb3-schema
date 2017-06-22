@@ -1,9 +1,7 @@
 {
     "put": {
         "tags": [
-            "Offer",
-            "Event",
-            "Place"
+            "Offer"
         ],
         "summary": "Update the name of an offer.",
         "description": "Authentication is required.",

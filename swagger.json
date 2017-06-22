@@ -82,9 +82,7 @@
     "/events/{cdbId}/{lang}/name": {
       "put": {
         "tags": [
-          "Offer",
-          "Event",
-          "Place"
+          "Offer"
         ],
         "summary": "Update the name of an offer.",
         "description": "Authentication is required.",
@@ -176,9 +174,7 @@
     "/events/{cdbId}/theme/{themeId}": {
       "put": {
         "tags": [
-          "Offer",
-          "Event",
-          "Place"
+          "Offer"
         ],
         "summary": "Update the theme of an offer.",
         "description": "Authentication is required.",
@@ -346,12 +342,156 @@
         }
       }
     },
-    "/places/{cdbId}/{lang}/name": {
+    "/events/{cdbId}/calendar": {
       "put": {
         "tags": [
           "Offer",
-          "Event",
-          "Place"
+          "Event"
+        ],
+        "summary": "Update the calendar of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateCalendar",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The data required to update the event calendar",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timeSpans": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2015-05-07T12:02:53+00:00"
+                      },
+                      "end": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2015-05-07T12:02:53+00:00"
+                      }
+                    }
+                  }
+                },
+                "startDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "endDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "openingHours": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dayOfWeek": {
+                        "type": "string",
+                        "enum": [
+                          "maandag",
+                          "dinsdag",
+                          "woensdag",
+                          "donderdag",
+                          "vrijdag",
+                          "zaterdag",
+                          "zondag"
+                        ]
+                      },
+                      "opens": {
+                        "type": "string",
+                        "example": "04:20"
+                      },
+                      "closes": {
+                        "type": "string",
+                        "example": "06:66"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/{lang}/name": {
+      "put": {
+        "tags": [
+          "Offer"
         ],
         "summary": "Update the name of an offer.",
         "description": "Authentication is required.",
@@ -443,9 +583,7 @@
     "/places/{cdbId}/theme/{themeId}": {
       "put": {
         "tags": [
-          "Offer",
-          "Event",
-          "Place"
+          "Offer"
         ],
         "summary": "Update the theme of an offer.",
         "description": "Authentication is required.",
@@ -554,6 +692,134 @@
             "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/actortype/classification that have parent id 8.15.0.0.0",
             "required": true,
             "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/calendar": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Place"
+        ],
+        "summary": "Update the calendar of a place.",
+        "description": "Authentication is required.",
+        "operationId": "EditPlaceRestController:updateCalendar",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The data required to update the place calendar",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "startDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "endDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "openingHours": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dayOfWeek": {
+                        "type": "string",
+                        "enum": [
+                          "maandag",
+                          "dinsdag",
+                          "woensdag",
+                          "donderdag",
+                          "vrijdag",
+                          "zaterdag",
+                          "zondag"
+                        ]
+                      },
+                      "opens": {
+                        "type": "string",
+                        "example": "04:20"
+                      },
+                      "closes": {
+                        "type": "string",
+                        "example": "06:66"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         ],
         "responses": {
