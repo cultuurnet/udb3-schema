@@ -1,0 +1,26 @@
+{
+    "put": {
+        "tags": [
+            "Offer",
+            "Event",
+            "Place"
+        ],
+        "summary": "Update the name of an offer.",
+        "description": "Authentication is required.",
+        "operationId": "OfferRestBaseController:updateName",
+        "produces": [
+            "application/json"
+        ],
+        "parameters": [
+            { 
+                "$ref": "../lang.parameter.json"
+            },
+            {
+                "$ref": "cdb-id.parameter.json"
+            }
+        ],
+        "responses": {
+             "$ref": "command-responses.json"
+        }
+    }
+}

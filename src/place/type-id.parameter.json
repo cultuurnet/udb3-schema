@@ -1,0 +1,7 @@
+{
+    "name": "typeId",
+    "in": "path",
+    "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/actortype/classification that have parent id 8.15.0.0.0",
+    "required": true,
+    "type": "string"
+}

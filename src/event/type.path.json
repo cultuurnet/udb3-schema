@@ -1,0 +1,25 @@
+{
+    "put": {
+        "tags": [
+            "Offer",
+            "Event"
+        ],
+        "summary": "Update the type of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateType",
+        "produces": [
+            "application/json"
+        ],
+        "parameters": [
+            { 
+                "$ref": "../offer/cdb-id.parameter.json"
+            },
+            { 
+                "$ref": "type-id.parameter.json"
+            }
+        ],
+        "responses": {
+             "$ref": "../offer/command-responses.json"
+        }
+    }
+}
