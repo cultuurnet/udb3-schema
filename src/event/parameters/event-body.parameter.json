@@ -4,6 +4,6 @@
   "description": "An object containing the necessary information to create a new cultural event.",
   "required": true,
   "schema": {
-    "$ref": "definitions/event-major-info.definition.json"
+    "$ref": "../definitions/event-major-info.definition.json"
   }
 }

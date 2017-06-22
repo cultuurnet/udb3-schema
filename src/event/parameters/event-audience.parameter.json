@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An object containing the audience information to set for the event.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/event-audience.definition.json"
+  }
+}

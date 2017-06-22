@@ -10,7 +10,7 @@
     ],
     "parameters": [
       {
-        "$ref": "event-body.parameter.json"
+        "$ref": "parameters/event-body.parameter.json"
       }
     ],
     "responses": {
