@@ -1,0 +1,31 @@
+{
+    "put": {
+        "tags": [
+            "Offer",
+            "Place"
+        ],
+        "summary": "Update the address of a place.",
+        "description": "Authentication is required.",
+        "operationId": "EditPlaceRestController:updateAddress",
+        "produces": [
+            "application/json"
+        ],
+        "parameters": [
+            { 
+                "$ref": "../offer/cdb-id.parameter.json"
+            },
+            {
+                "name": "body",
+                "in": "body",
+                "description": "The new address info to update the place",
+                "required": true,
+                "schema": {
+                    "$ref": "address.definition.json"
+                }
+            }
+        ],
+        "responses": {
+             "$ref": "../offer/command-responses.json"
+        }
+    }
+}

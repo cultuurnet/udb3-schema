@@ -55,6 +55,9 @@
         "/events/{cdbId}/calendar": {
             "$ref": "event/calendar.path.json"
         },
+        "/events/{cdbId}/location/{locationId}": {
+            "$ref": "event/location.path.json"
+        },
         "/places/{cdbId}/{lang}/name": {
             "$ref": "offer/name.path.json"
         },
@@ -66,6 +69,9 @@
         },
         "/places/{cdbId}/calendar": {
             "$ref": "place/calendar.path.json"
+        },
+        "/places/{cdbId}/address": {
+            "$ref": "place/address.path.json"
         }
     }
 }

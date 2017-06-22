@@ -488,6 +488,93 @@
         }
       }
     },
+    "/events/{cdbId}/location/{locationId}": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Event"
+        ],
+        "summary": "Update the location of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateLocation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "description": "The universally unique identifier of a place.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
     "/places/{cdbId}/{lang}/name": {
       "put": {
         "tags": [
@@ -817,6 +904,115 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/address": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Place"
+        ],
+        "summary": "Update the address of a place.",
+        "description": "Authentication is required.",
+        "operationId": "EditPlaceRestController:updateAddress",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new address info to update the place",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressCountry": {
+                  "type": "string",
+                  "example": "BE",
+                  "format": "ISO 3166-1 alpha-2"
+                },
+                "addressLocality": {
+                  "type": "string",
+                  "example": "Hasselt"
+                },
+                "postalCode": {
+                  "type": "string",
+                  "format": "postal code",
+                  "example": "3500"
+                },
+                "streetAddress": {
+                  "type": "string",
+                  "example": "Gouverneur Verwilghensingel 70",
+                  "format": "street name and number"
                 }
               }
             }

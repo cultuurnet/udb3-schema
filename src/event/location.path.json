@@ -1,0 +1,25 @@
+{
+    "put": {
+        "tags": [
+            "Offer",
+            "Event"
+        ],
+        "summary": "Update the location of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateLocation",
+        "produces": [
+            "application/json"
+        ],
+        "parameters": [
+            { 
+                "$ref": "../offer/cdb-id.parameter.json"
+            },
+            {
+                "$ref": "location-id.parameter.json"
+            }
+        ],
+        "responses": {
+             "$ref": "../offer/command-responses.json"
+        }
+    }
+}
