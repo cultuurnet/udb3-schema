@@ -9,19 +9,19 @@
   ],
   "properties": {
     "name": {
-      "$ref": "../offer/name.parameter.json"
+      "$ref": "../../offer/name.definition.json"
     },
     "type": {
-      "$ref": "../offer/type.parameter.json"
+      "$ref": "../../offer/type.definition.json"
     },
     "location": {
-      "$ref": "../offer/location.parameter.json"
+      "$ref": "../../offer/location.definition.json"
     },
     "calendarType": {
-      "$ref": "calender-type.parameter.json"
+      "$ref": "calender-type.definition.json"
     },
     "openingHours": {
-      "$ref": "opening-hours.parameter.json"
+      "$ref": "opening-hours.definition.json"
     },
     "timestamps": {
       "type": "array",
@@ -29,25 +29,25 @@
         "type": "object",
         "properties": {
           "date": {
-            "$ref": "date.parameter.json"
+            "$ref": "date.definition.json"
           },
           "startHour": {
-            "$ref": "time.parameter.json"
+            "$ref": "time.definition.json"
           },
           "endHour": {
-            "$ref": "time.parameter.json"
+            "$ref": "time.definition.json"
           }
         }
       }
     },
     "startDate": {
-      "$ref": "date-time.parameter.json"
+      "$ref": "date-time.definition.json"
     },
     "endDate": {
-      "$ref": "date-time.parameter.json"
+      "$ref": "date-time.definition.json"
     },
     "theme": {
-      "$ref": "../offer/theme.parameter.json"
+      "$ref": "../../offer/theme.definition.json"
     }
   }
 }

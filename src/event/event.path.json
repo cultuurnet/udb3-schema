@@ -10,20 +10,14 @@
     ],
     "parameters": [
       {
-        "name": "body",
-        "in": "body",
-        "description": "An object containing the necessary information to create a new cultural event.",
-        "required": true,
-        "schema": {
-          "$ref": "event.definition.json"
-        }
+        "$ref": "event-body.parameter.json"
       }
     ],
     "responses": {
       "200": {
         "description": "Details of the created event.",
         "schema": {
-          "$ref": "event.definition.json"
+          "$ref": "event.response.json"
         }
       },
       "401": {
