@@ -54,6 +54,9 @@
         },
         "/events/{cdbid}/bookingInfo": {
             "$ref": "event/event-booking-info.path.json"
+        },
+        "/events/{cdbid}/contactPoint": {
+            "$ref": "event/event-contact-point.path.json"
         }
     }
 }
