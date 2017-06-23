@@ -70,7 +70,7 @@
         "/places/{cdbId}/calendar": {
             "$ref": "place/calendar.path.json"
         },
-        "/places/{cdbId}/address": {
+        "/places/{cdbId}/{lang}/address": {
             "$ref": "place/address.path.json"
         }
     }

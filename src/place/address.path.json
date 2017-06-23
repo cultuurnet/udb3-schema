@@ -15,6 +15,9 @@
                 "$ref": "../offer/cdb-id.parameter.json"
             },
             {
+                "$ref": "../lang.parameter.json"
+            },
+            {
                 "name": "body",
                 "in": "body",
                 "description": "The new address info to update the place",
