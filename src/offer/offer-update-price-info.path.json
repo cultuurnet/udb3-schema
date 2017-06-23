@@ -1,0 +1,23 @@
+{
+  "put": {
+    "tags": [
+      "Event"
+    ],
+    "summary": "Update the event price info.",
+    "operationId": "updateEventPriceInfo",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/price-info.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}
