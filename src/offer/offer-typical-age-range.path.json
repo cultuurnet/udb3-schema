@@ -19,5 +19,23 @@
     "responses": {
       "$ref": "command-responses.json"
     }
+  },
+  "delete": {
+    "tags": [
+      "Event"
+    ],
+    "summary": "Remove the typical age range from an event.",
+    "operationId": "removeEventTypicalAgeRange",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
   }
 }
