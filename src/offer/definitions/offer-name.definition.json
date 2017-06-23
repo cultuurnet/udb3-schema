@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "title": {
+      "type": "string",
+      "example": "An event title"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

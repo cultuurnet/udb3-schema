@@ -86,6 +86,9 @@
         },
         "/events/{cdbid}/{lang}/description": {
             "$ref": "offer/offer-update-description.path.json"
+        },
+        "/events/{cdbid}/{lang}/name": {
+            "$ref": "offer/offer-update-name.path.json"
         }
     }
 }
