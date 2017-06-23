@@ -80,6 +80,9 @@
         },
         "/events/{cdbid}/priceInfo": {
             "$ref": "offer/offer-update-price-info.path.json"
+        },
+        "/events/{cdbid}/typicalAgeRange": {
+            "$ref": "offer/offer-typical-age-range.path.json"
         }
     }
 }
