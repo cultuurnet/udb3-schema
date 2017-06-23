@@ -1,12 +1,12 @@
 {
-  "put": {
+  "delete": {
     "tags": [
       "Event",
       "Label"
     ],
-    "summary": "Add a label to a single cultural event.",
+    "summary": "Remove a label from a cultural event.",
     "description": "Authentication is required.",
-    "operationId": "addLabelToEvent",
+    "operationId": "removeLabelFromEvent",
     "produces": [
       "application/json"
     ],
@@ -15,7 +15,7 @@
         "$ref": "../offer/parameters/cdb-id.parameter.json"
       },
       {
-        "$ref": "../offer/parameters/add-label.parameter.json"
+        "$ref": "../offer/parameters/label.parameter.json"
       }
     ],
     "responses": {

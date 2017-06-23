@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An object containing the label to attach to the cultural event.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/label.definition.json"
+  }
+}

@@ -64,6 +64,9 @@
         },
         "/events/{cdbid}/labels/": {
             "$ref": "event/event-add-label.path.json"
+        },
+        "/events/{cdbid}/labels/{label}": {
+            "$ref": "event/event-delete-label.path.json"
         }
     }
 }
