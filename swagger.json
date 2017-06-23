@@ -37,6 +37,10 @@
     {
       "name": "Offer",
       "description": "Operations related to all offer types."
+    },
+    {
+      "name": "Label",
+      "description": "Operations related to labels."
     }
   ],
   "paths": {
@@ -1160,6 +1164,105 @@
                     "format": "phone",
                     "example": "0123456789"
                   }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/events/{cdbid}/labels/": {
+      "put": {
+        "tags": [
+          "Event",
+          "Label"
+        ],
+        "summary": "Add a label to a single cultural event.",
+        "description": "Authentication is required.",
+        "operationId": "addLabelToEvent",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the label to attach to the cultural event.",
+            "required": true,
+            "schema": {
+              "required": [
+                "label"
+              ],
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "description": "A label name must have a minimum of 2 characters and a maximum of 255 characters and cannot contain a semicolon.",
+                  "example": "Bio",
+                  "minLength": 2,
+                  "maxLength": 255
                 }
               }
             }

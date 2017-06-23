@@ -37,6 +37,10 @@
         {
             "name": "Offer",
             "description": "Operations related to all offer types."
+        },
+        {
+            "name": "Label",
+            "description": "Operations related to labels."
         }
     ],
     "paths": {
@@ -57,6 +61,9 @@
         },
         "/events/{cdbid}/contactPoint": {
             "$ref": "event/event-contact-point.path.json"
+        },
+        "/events/{cdbid}/labels/": {
+            "$ref": "event/event-add-label.path.json"
         }
     }
 }
