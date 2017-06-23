@@ -1,0 +1,8 @@
+{
+  "name": "organizerId",
+  "in": "path",
+  "description": "The unique identifier of an organizer.",
+  "required": true,
+  "type": "string",
+  "format": "uuid"
+}

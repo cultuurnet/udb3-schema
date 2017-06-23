@@ -70,6 +70,9 @@
         },
         "/events/{cdbid}/majorInfo": {
             "$ref": "event/event-update-major-info.path.json"
+        },
+        "/events/{cdbid}/organizer/{organizerId}": {
+            "$ref": "event/event-add-organizer.path.json"
         }
     }
 }
