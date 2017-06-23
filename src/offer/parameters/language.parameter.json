@@ -1,0 +1,12 @@
+{
+  "name": "lang",
+  "in": "path",
+  "description": "The language of the translation.",
+  "required": true,
+  "type": "string",
+  "enum": [
+    "fr",
+    "de",
+    "en"
+  ]
+}

@@ -83,6 +83,9 @@
         },
         "/events/{cdbid}/typicalAgeRange": {
             "$ref": "offer/offer-typical-age-range.path.json"
+        },
+        "/events/{cdbid}/{lang}/description": {
+            "$ref": "offer/offer-update-description.path.json"
         }
     }
 }
