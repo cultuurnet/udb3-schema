@@ -41,6 +41,10 @@
         {
             "name": "Label",
             "description": "Operations related to labels."
+        },
+        {
+            "name": "Organizer",
+            "description": "Operations related to organizers."
         }
     ],
     "paths": {
@@ -72,7 +76,7 @@
             "$ref": "event/event-update-major-info.path.json"
         },
         "/events/{cdbid}/organizer/{organizerId}": {
-            "$ref": "event/event-add-organizer.path.json"
+            "$ref": "event/event-organizer.path.json"
         }
     }
 }
