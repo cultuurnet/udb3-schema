@@ -95,7 +95,10 @@
             "$ref": "offer/offer-update-name.path.json"
         },
         "/events/{cdbid}/images/": {
-            "$ref": "offer/offer-add-media-object.path.json"
+            "$ref": "offer/offer-add-image.path.json"
+        },
+        "/events/{cdbid}/images/main": {
+            "$ref": "offer/offer-main-image.path.json"
         }
     }
 }
