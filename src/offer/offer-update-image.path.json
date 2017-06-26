@@ -1,0 +1,25 @@
+{
+  "delete": {
+    "tags": [
+      "Event",
+      "Media"
+    ],
+    "summary": "Remove an image from the event.",
+    "description": "Authentication is required",
+    "operationId": "EventRemoveImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/media-object-id.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}

@@ -99,6 +99,9 @@
         },
         "/events/{cdbid}/images/main": {
             "$ref": "offer/offer-main-image.path.json"
+        },
+        "/events/{cdbid}/images/{mediaObjectId}": {
+            "$ref": "offer/offer-update-image.path.json"
         }
     }
 }
