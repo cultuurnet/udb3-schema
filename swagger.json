@@ -2729,6 +2729,53 @@
           }
         }
       }
+    },
+    "/events/{cdbid}/permissions/": {
+      "get": {
+        "summary": "A list of permissions the current user has to an offer.",
+        "operationId": "getOfferPermissions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": [
+                  "Aanbod bewerken",
+                  "Aanbod modereren",
+                  "Aanbod verwijderen",
+                  "Organisaties beheren",
+                  "Gebruikers beheren",
+                  "Labels beheren"
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Event"
+        ]
+      }
     }
   }
 }

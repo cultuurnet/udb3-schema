@@ -102,6 +102,9 @@
         },
         "/events/{cdbid}/images/{mediaObjectId}": {
             "$ref": "offer/offer-update-image.path.json"
+        },
+        "/events/{cdbid}/permissions/": {
+            "$ref": "offer/offer-permissions.path.json"
         }
     }
 }
