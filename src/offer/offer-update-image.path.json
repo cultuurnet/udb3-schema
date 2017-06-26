@@ -21,5 +21,31 @@
     "responses": {
       "$ref": "command-responses.json"
     }
+  },
+  "put": {
+    "tags": [
+      "Event",
+      "Media"
+    ],
+    "summary": "Update the info of an image.",
+    "description": "Authentication is required.",
+    "operationId": "updateEventImage",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/media-object-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/image-info.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
   }
 }
