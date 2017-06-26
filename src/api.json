@@ -45,6 +45,10 @@
         {
             "name": "Organizer",
             "description": "Operations related to organizers."
+        },
+        {
+            "name": "Media",
+            "description": "Operations related to media."
         }
     ],
     "paths": {
@@ -89,6 +93,9 @@
         },
         "/events/{cdbid}/{lang}/name": {
             "$ref": "offer/offer-update-name.path.json"
+        },
+        "/events/{cdbid}/images/": {
+            "$ref": "offer/offer-add-media-object.path.json"
         }
     }
 }

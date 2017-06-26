@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "The UUID of the image to add",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/media-object.definition.json"
+  }
+}
