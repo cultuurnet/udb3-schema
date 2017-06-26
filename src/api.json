@@ -105,6 +105,9 @@
         },
         "/events/{cdbid}/permissions/": {
             "$ref": "offer/offer-permissions.path.json"
+        },
+        "/events/{cdbid}/permissions/{userId}": {
+            "$ref": "offer/offer-user-permissions.path.json"
         }
     }
 }
