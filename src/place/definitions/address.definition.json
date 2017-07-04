@@ -14,7 +14,7 @@
     "postalCode": {
       "type": "string",
       "description": "The postalcode of the location.",
-      "example": 3000
+      "example": "3000"
     },
     "streetAddress": {
       "type": "string",
