@@ -1,9 +1,0 @@
-{
-  "name": "body",
-  "in": "body",
-  "description": "An object containing major info for an event.",
-  "required": true,
-  "schema": {
-    "$ref": "../definitions/event-major-info.definition.json"
-  }
-}

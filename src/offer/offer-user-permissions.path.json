@@ -1,7 +1,7 @@
 {
   "get": {
     "summary": "A list of permissions the current user has to an offer.",
-    "operationId": "getOfferPermissions",
+    "operationId": "getOfferPermissionsPerUser",
     "produces": [
       "application/json"
     ],
