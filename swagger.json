@@ -1170,38 +1170,45 @@
             "description": "An object containing the contact point for an event.",
             "required": true,
             "schema": {
-              "type": "object",
-              "required": [
-                "url",
-                "email",
-                "phone"
-              ],
               "properties": {
-                "url": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "url",
-                    "example": "http://google.be"
-                  }
-                },
-                "email": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "email",
-                    "example": "joske@2dotstwice.be"
-                  }
-                },
-                "phone": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "phone",
-                    "example": "0123456789"
+                "contactPoint": {
+                  "type": "object",
+                  "required": [
+                    "url",
+                    "email",
+                    "phone"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url",
+                        "example": "http://google.be"
+                      }
+                    },
+                    "email": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "joske@2dotstwice.be"
+                      }
+                    },
+                    "phone": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "phone",
+                        "example": "0123456789"
+                      }
+                    }
                   }
                 }
-              }
+              },
+              "required": [
+                "contactPoint"
+              ]
             }
           }
         ],

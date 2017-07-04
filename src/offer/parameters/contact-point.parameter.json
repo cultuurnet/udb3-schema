@@ -4,6 +4,13 @@
   "description": "An object containing the contact point for an event.",
   "required": true,
   "schema": {
-    "$ref": "../definitions/contact-point.definition.json"
+    "properties": {
+      "contactPoint": {
+        "$ref": "../definitions/contact-point.definition.json"
+      }
+    },
+    "required": [
+      "contactPoint"
+    ]
   }
 }
