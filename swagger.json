@@ -1454,7 +1454,7 @@
         }
       }
     },
-    "/events/{cdbid}/organizer/{organizerId}": {
+    "/events/{cdbid}/organizer": {
       "put": {
         "tags": [
           "Event",
@@ -1475,12 +1475,22 @@
             "format": "uuid"
           },
           {
-            "name": "organizerId",
-            "in": "path",
-            "description": "The unique identifier of an organizer.",
+            "name": "body",
+            "in": "body",
+            "description": "The UUID of the organizer to add",
             "required": true,
-            "type": "string",
-            "format": "uuid"
+            "schema": {
+              "properties": {
+                "organizer": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "3aad5023-84e2-4ba9-b1ce-201cee64504c"
+                }
+              },
+              "required": [
+                "organizer"
+              ]
+            }
           }
         ],
         "responses": {
@@ -1538,14 +1548,16 @@
             "description": "Offer not found."
           }
         }
-      },
+      }
+    },
+    "/events/{cdbid}/organizer/{organizerId}": {
       "delete": {
         "tags": [
           "Event",
           "Organizer"
         ],
         "summary": "Remove the current organisation from an event.",
-        "operationId": "removeEventOrganisation",
+        "operationId": "removeEventOrganizer",
         "produces": [
           "application/json"
         ],

@@ -76,8 +76,11 @@
         "/events/{cdbid}/labels/{label}": {
             "$ref": "event/event-delete-label.path.json"
         },
+        "/events/{cdbid}/organizer": {
+            "$ref": "event/event-update-organizer.path.json"
+        },
         "/events/{cdbid}/organizer/{organizerId}": {
-            "$ref": "event/event-organizer.path.json"
+            "$ref": "event/event-delete-organizer.path.json"
         },
         "/events/{cdbid}/priceInfo": {
             "$ref": "offer/offer-update-price-info.path.json"
