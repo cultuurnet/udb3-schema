@@ -20,6 +20,9 @@
           "$ref": "event.response.json"
         }
       },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
       "401": {
         "$ref": "../authorization/unauthorized.response.json"
       }
