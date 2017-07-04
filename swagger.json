@@ -208,16 +208,19 @@
                     "type": "object",
                     "properties": {
                       "dayOfWeek": {
-                        "type": "string",
-                        "enum": [
-                          "maandag",
-                          "dinsdag",
-                          "woensdag",
-                          "donderdag",
-                          "vrijdag",
-                          "zaterdag",
-                          "zondag"
-                        ]
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
                       },
                       "opens": {
                         "type": "string",
