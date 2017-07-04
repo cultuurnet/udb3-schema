@@ -14,7 +14,7 @@
         "$ref": "parameters/language.parameter.json"
       },
       {
-        "$ref": "parameters/description.parameter.json"
+        "$ref": "parameters/name.parameter.json"
       }
     ],
     "responses": {

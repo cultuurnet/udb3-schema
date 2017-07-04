@@ -1940,6 +1940,7 @@
             "required": true,
             "type": "string",
             "enum": [
+              "nl",
               "fr",
               "de",
               "en"
@@ -2047,6 +2048,7 @@
             "required": true,
             "type": "string",
             "enum": [
+              "nl",
               "fr",
               "de",
               "en"
@@ -2055,17 +2057,17 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An object containing the description in the given language for the given cultural event.",
+            "description": "An object containing the name in the given language.",
             "required": true,
             "schema": {
               "properties": {
-                "description": {
+                "title": {
                   "type": "string",
-                  "example": "This is a description."
+                  "example": "An event title"
                 }
               },
               "required": [
-                "description"
+                "title"
               ]
             }
           }
