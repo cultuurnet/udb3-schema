@@ -1,0 +1,25 @@
+{
+  "put": {
+    "tags": [
+      "Event",
+      "Media"
+    ],
+    "summary": "Select the main image of an event.",
+    "description": "Authentication is required",
+    "operationId": "SelectEventMainImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/image.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}

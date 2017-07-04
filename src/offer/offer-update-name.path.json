@@ -1,0 +1,27 @@
+{
+  "put": {
+    "summary": "Translate the title of a cultural event.",
+    "description": "Authentication is required.",
+    "operationId": "translateEventTitle",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/language.parameter.json"
+      },
+      {
+        "$ref": "parameters/name.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    },
+    "tags": [
+      "Event"
+    ]
+  }
+}

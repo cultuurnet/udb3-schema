@@ -1,0 +1,25 @@
+{
+  "post": {
+    "tags": [
+      "Event",
+      "Media"
+    ],
+    "summary": "Add an MediaObject to the Event",
+    "description": "Authentication is required",
+    "operationId": "OfferAddImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/image.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}

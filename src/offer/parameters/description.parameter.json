@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An object containing the description in the given language for the given cultural event.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/offer-description.definition.json"
+  }
+}

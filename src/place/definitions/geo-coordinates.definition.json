@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "latitude": {
+      "type": "string",
+      "description": "The latitude of the location.",
+      "example": "40.75"
+    },
+    "longitude": {
+      "type": "string",
+      "description": "The longitude of the location.",
+      "example": "73.98"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "STUK"
+    },
+    "address": {
+      "$ref": "../../place/definitions/address.definition.json"
+    },
+    "contactPoint": {
+      "$ref": "contact-point.definition.json"
+    },
+    "creator": {
+      "type": "string",
+      "example": "evenementen@stad.diksmuide.be"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2015-05-07T12:02:53+00:00"
+    },
+    "modified": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2015-05-07T12:02:53+00:00"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "http://www.stuk.be/"
+    },
+    "labels": {
+      "$ref": "../../offer/definitions/labels.definition.json"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "nl": {
+            "type": "string",
+            "example": "Super Awesome Party Night"
+        }
+    }
+}

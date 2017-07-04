@@ -1,0 +1,26 @@
+{
+  "required": [
+    "price",
+    "priceCurrency",
+    "description"
+  ],
+  "properties": {
+    "priceCurrency": {
+      "type": "string",
+      "example": "EUR"
+    },
+    "description": {
+      "type": "string",
+      "example": "No need to pay anything"
+    },
+    "name": {
+      "type": "string",
+      "example": "Free"
+    },
+    "price": {
+      "type": "number",
+      "format": "float",
+      "example": 0
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "required": [
+    "label"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "A label name must have a minimum of 2 characters and a maximum of 255 characters and cannot contain a semicolon.",
+      "example": "Bio",
+      "minLength": 2,
+      "maxLength": 255
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "required": [
+    "label",
+    "domain",
+    "id"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "example": "Cycling"
+    },
+    "domain": {
+      "type": "string",
+      "example": "activities"
+    },
+    "id": {
+      "type": "string",
+      "example": "10.0.0.1"
+    }
+  }
+}

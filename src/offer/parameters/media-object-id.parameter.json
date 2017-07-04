@@ -1,0 +1,8 @@
+{
+  "name": "mediaObjectId",
+  "in": "path",
+  "description": "The universally unique identifier of an image.",
+  "required": true,
+  "type": "string",
+  "format": "uuid"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "label",
+  "in": "path",
+  "description": "The label to remove from the cultural event.",
+  "required": true,
+  "type": "string"
+}

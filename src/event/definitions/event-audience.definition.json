@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "audienceType": {
+      "type": "string",
+      "enum": [
+        "everyone",
+        "members",
+        "education"
+      ],
+      "example": "everyone"
+    }
+  }
+}

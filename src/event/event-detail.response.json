@@ -1,0 +1,121 @@
+{
+  "required": [
+    "@id",
+    "name",
+    "description",
+    "creator",
+    "created",
+    "publisher",
+    "calendarType"
+  ],
+  "properties": {
+    "@id": {
+      "type": "string",
+      "example": "http://culudb-silex.dev:8080/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+    },
+    "name": {
+      "$ref": "../offer/definitions/translatable-string.definition.json"
+    },
+    "description": {
+      "$ref": "../offer/definitions/translatable-string.definition.json"
+    },
+    "available": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "image": {
+      "type": "string",
+      "example": "http://media.uitdatabank.be/20150416/153cfa0f-0d22-451e-bfd1-490b7c4ef109.jpg"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "tagged"
+      }
+    },
+    "calendarSummary": {
+      "type": "string",
+      "example": "Every first day of the month"
+    },
+    "location": {
+      "$ref": "../place/definitions/place.definition.json"
+    },
+    "organizer": {
+      "$ref": "../organizer/definitions/organizer.definition.json"
+    },
+    "bookingInfo": {
+      "$ref": "../offer/definitions/booking-info.definition.json"
+    },
+    "priceInfo": {
+      "type": "array",
+      "items": {
+        "$ref": "../offer/definitions/price-info.definition.json"
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "$ref": "../offer/definitions/term.definition.json"
+      }
+    },
+    "creator": {
+      "type": "string",
+      "example": "evenementen@stad.diksmuide.be"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2015-05-07T12:02:53+00:00"
+    },
+    "modified": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "publisher": {
+      "type": "string",
+      "example": "Invoerders Algemeen "
+    },
+    "endDate": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "startDate": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "calendarType": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "permanent",
+        "periodic",
+        "single"
+      ],
+      "example": "permanent"
+    },
+    "typicalAgeRange": {
+      "type": "string",
+      "example": "+18"
+    },
+    "performer": {
+      "type": "array",
+      "items": {
+        "$ref": "definitions/performer.definition.json"
+      }
+    },
+    "sameAs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "http://www.uitinvlaanderen.be/agenda/e/zomerse-vrijdagen-den-engel/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+      }
+    },
+    "seeAlso": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "www.leuven.be"
+      }
+    },
+    "workflowStatus": {
+      "$ref": "../offer/definitions/workflow-status.definition.json"
+    }
+  }
+}

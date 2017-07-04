@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "description": {
+      "type": "string",
+      "example": "This is a description."
+    }
+  },
+  "required": [
+    "description"
+  ]
+}

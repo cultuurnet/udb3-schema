@@ -1,0 +1,41 @@
+{
+  "put": {
+    "tags": [
+      "Event"
+    ],
+    "summary": "Set the typical age range of an event.",
+    "operationId": "setEventTypicalAgeRange",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/typical-age-range.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  },
+  "delete": {
+    "tags": [
+      "Event"
+    ],
+    "summary": "Remove the typical age range from an event.",
+    "operationId": "removeEventTypicalAgeRange",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}

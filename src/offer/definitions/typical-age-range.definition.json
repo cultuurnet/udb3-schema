@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "typicalAgeRange": {
+      "type": "string",
+      "example": "1-12"
+    }
+  },
+  "required": [
+    "typicalAgeRange"
+  ]
+}
