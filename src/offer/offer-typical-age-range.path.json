@@ -1,9 +1,10 @@
 {
   "put": {
     "tags": [
-      "Event"
+      "Event",
+      "Place"
     ],
-    "summary": "Set the typical age range of an event.",
+    "summary": "Set the typical age range of an event or place.",
     "operationId": "setEventTypicalAgeRange",
     "produces": [
       "application/json"
@@ -22,9 +23,10 @@
   },
   "delete": {
     "tags": [
-      "Event"
+      "Event",
+      "Place"
     ],
-    "summary": "Remove the typical age range from an event.",
+    "summary": "Remove the typical age range from an event of place.",
     "operationId": "removeEventTypicalAgeRange",
     "produces": [
       "application/json"

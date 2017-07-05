@@ -135,6 +135,9 @@
         },
         "/places/{cdbid}/priceInfo": {
             "$ref": "offer/offer-update-price-info.path.json"
+        },
+        "/places/{cdbid}/typicalAgeRange": {
+            "$ref": "offer/offer-typical-age-range.path.json"
         }
     }
 }
