@@ -121,5 +121,8 @@
         "/places/{cdbid}/contactPoint": {
             "$ref": "place/place-contact-point.path.json"
         },
+        "/places/{cdbid}/labels/": {
+            "$ref": "place/place-add-label.path.json"
+        }
     }
 }
