@@ -126,6 +126,9 @@
         },
         "/places/{cdbid}/labels/{label}": {
             "$ref": "place/place-delete-label.path.json"
+        },
+        "/places/{cdbid}/organizer/{organizerId}": {
+            "$ref": "place/place-delete-organizer.path.json"
         }
     }
 }
