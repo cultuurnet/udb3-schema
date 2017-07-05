@@ -147,6 +147,9 @@
         },
         "/places/{cdbid}/images/": {
             "$ref": "offer/offer-add-image.path.json"
-        }
+        },
+        "/places/{cdbid}/images/main": {
+            "$ref": "offer/offer-main-image.path.json"
+        },
     }
 }

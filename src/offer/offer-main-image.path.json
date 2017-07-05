@@ -2,9 +2,10 @@
   "put": {
     "tags": [
       "Event",
+      "Place",
       "Media"
     ],
-    "summary": "Select the main image of an event.",
+    "summary": "Select the main image of an event or place.",
     "description": "Authentication is required",
     "operationId": "SelectEventMainImage",
     "produces": [
