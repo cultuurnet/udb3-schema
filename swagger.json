@@ -2931,6 +2931,448 @@
             "description": "Authentication with UiTID and a valid JWT is required."
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "List places.",
+        "description": "",
+        "operationId": "listPlaces",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "zipcode",
+            "in": "query",
+            "description": "Limit the list to places located in the area with this postal code.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of places matching the supplied criteria.",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "itemsPerPage": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 30
+                    },
+                    "totalItems": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 1
+                    },
+                    "member": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "name",
+                          "address"
+                        ],
+                        "properties": {
+                          "description": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "name": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "addressCountry": {
+                                "type": "string",
+                                "description": "The country code of the location.",
+                                "example": "BE"
+                              },
+                              "addressLocality": {
+                                "type": "string",
+                                "description": "The locality name of the location.",
+                                "example": "Leuven"
+                              },
+                              "postalCode": {
+                                "type": "string",
+                                "description": "The postalcode of the location.",
+                                "example": "3000"
+                              },
+                              "streetAddress": {
+                                "type": "string",
+                                "description": "The street name and number information of the location.",
+                                "example": "Sluisstraat 79"
+                              }
+                            },
+                            "required": [
+                              "addressCountry",
+                              "addressLocality",
+                              "postalCode",
+                              "streetAddress"
+                            ]
+                          },
+                          "geo": {
+                            "properties": {
+                              "latitude": {
+                                "type": "string",
+                                "description": "The latitude of the location.",
+                                "example": "40.75"
+                              },
+                              "longitude": {
+                                "type": "string",
+                                "description": "The longitude of the location.",
+                                "example": "73.98"
+                              }
+                            }
+                          },
+                          "bookingInfo": {
+                            "required": [
+                              "price",
+                              "priceCurrency",
+                              "description"
+                            ],
+                            "properties": {
+                              "priceCurrency": {
+                                "type": "string",
+                                "example": "EUR"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "No need to pay anything"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Free"
+                              },
+                              "price": {
+                                "type": "number",
+                                "format": "float",
+                                "example": 0
+                              }
+                            }
+                          },
+                          "priceInfo": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "category",
+                                "name",
+                                "price",
+                                "priceCurrency"
+                              ],
+                              "properties": {
+                                "category": {
+                                  "type": "string",
+                                  "enum": [
+                                    "base",
+                                    "tariff"
+                                  ]
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Senioren"
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "example": 10
+                                },
+                                "priceCurrency": {
+                                  "type": "string",
+                                  "example": "EUR"
+                                }
+                              }
+                            }
+                          },
+                          "terms": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "label",
+                                "domain",
+                                "id"
+                              ],
+                              "properties": {
+                                "label": {
+                                  "type": "string",
+                                  "example": "Cycling"
+                                },
+                                "domain": {
+                                  "type": "string",
+                                  "example": "activities"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "example": "10.0.0.1"
+                                }
+                              }
+                            }
+                          },
+                          "workflowStatus": {
+                            "type": "string",
+                            "enum": [
+                              "DRAFT",
+                              "READY_FOR_VALIDATION",
+                              "APPROVED",
+                              "REJECTED",
+                              "DELETED"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "itemsPerPage",
+                    "totalItems",
+                    "member"
+                  ]
+                },
+                {
+                  "properties": {
+                    "member": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "name",
+                          "address"
+                        ],
+                        "properties": {
+                          "description": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "name": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "addressCountry": {
+                                "type": "string",
+                                "description": "The country code of the location.",
+                                "example": "BE"
+                              },
+                              "addressLocality": {
+                                "type": "string",
+                                "description": "The locality name of the location.",
+                                "example": "Leuven"
+                              },
+                              "postalCode": {
+                                "type": "string",
+                                "description": "The postalcode of the location.",
+                                "example": "3000"
+                              },
+                              "streetAddress": {
+                                "type": "string",
+                                "description": "The street name and number information of the location.",
+                                "example": "Sluisstraat 79"
+                              }
+                            },
+                            "required": [
+                              "addressCountry",
+                              "addressLocality",
+                              "postalCode",
+                              "streetAddress"
+                            ]
+                          },
+                          "geo": {
+                            "properties": {
+                              "latitude": {
+                                "type": "string",
+                                "description": "The latitude of the location.",
+                                "example": "40.75"
+                              },
+                              "longitude": {
+                                "type": "string",
+                                "description": "The longitude of the location.",
+                                "example": "73.98"
+                              }
+                            }
+                          },
+                          "bookingInfo": {
+                            "required": [
+                              "price",
+                              "priceCurrency",
+                              "description"
+                            ],
+                            "properties": {
+                              "priceCurrency": {
+                                "type": "string",
+                                "example": "EUR"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "No need to pay anything"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Free"
+                              },
+                              "price": {
+                                "type": "number",
+                                "format": "float",
+                                "example": 0
+                              }
+                            }
+                          },
+                          "priceInfo": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "category",
+                                "name",
+                                "price",
+                                "priceCurrency"
+                              ],
+                              "properties": {
+                                "category": {
+                                  "type": "string",
+                                  "enum": [
+                                    "base",
+                                    "tariff"
+                                  ]
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Senioren"
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "example": 10
+                                },
+                                "priceCurrency": {
+                                  "type": "string",
+                                  "example": "EUR"
+                                }
+                              }
+                            }
+                          },
+                          "terms": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "label",
+                                "domain",
+                                "id"
+                              ],
+                              "properties": {
+                                "label": {
+                                  "type": "string",
+                                  "example": "Cycling"
+                                },
+                                "domain": {
+                                  "type": "string",
+                                  "example": "activities"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "example": "10.0.0.1"
+                                }
+                              }
+                            }
+                          },
+                          "workflowStatus": {
+                            "type": "string",
+                            "enum": [
+                              "DRAFT",
+                              "READY_FOR_VALIDATION",
+                              "APPROVED",
+                              "REJECTED",
+                              "DELETED"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
       }
     },
     "/places/{cdbid}": {

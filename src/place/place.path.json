@@ -27,5 +27,29 @@
         "$ref": "../authorization/unauthorized.response.json"
       }
     }
+  },
+  "get": {
+    "tags": [
+      "Place"
+    ],
+    "summary": "List places.",
+    "description": "",
+    "operationId": "listPlaces",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/zipcode.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A list of places matching the supplied criteria.",
+        "schema": {
+          "$ref": "places-list.response.json"
+        }
+      }
+    }
   }
 }
