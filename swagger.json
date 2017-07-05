@@ -2859,6 +2859,228 @@
           }
         }
       }
+    },
+    "/places/{cdbid}": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "View the details of a specific place.",
+        "operationId": "getPlace",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A place detail.",
+            "schema": {
+              "required": [
+                "name",
+                "address"
+              ],
+              "properties": {
+                "name": {
+                  "required": [
+                    "nl"
+                  ],
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Nederlands"
+                    },
+                    "de": {
+                      "type": "string",
+                      "example": "Deutch"
+                    },
+                    "en": {
+                      "type": "string",
+                      "example": "English"
+                    },
+                    "fr": {
+                      "type": "string",
+                      "example": "Français"
+                    }
+                  }
+                },
+                "description": {
+                  "required": [
+                    "nl"
+                  ],
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Nederlands"
+                    },
+                    "de": {
+                      "type": "string",
+                      "example": "Deutch"
+                    },
+                    "en": {
+                      "type": "string",
+                      "example": "English"
+                    },
+                    "fr": {
+                      "type": "string",
+                      "example": "Français"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "addressCountry": {
+                      "type": "string",
+                      "description": "The country code of the location.",
+                      "example": "BE"
+                    },
+                    "addressLocality": {
+                      "type": "string",
+                      "description": "The locality name of the location.",
+                      "example": "Leuven"
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "description": "The postalcode of the location.",
+                      "example": "3000"
+                    },
+                    "streetAddress": {
+                      "type": "string",
+                      "description": "The street name and number information of the location.",
+                      "example": "Sluisstraat 79"
+                    }
+                  },
+                  "required": [
+                    "addressCountry",
+                    "addressLocality",
+                    "postalCode",
+                    "streetAddress"
+                  ]
+                },
+                "geo": {
+                  "properties": {
+                    "latitude": {
+                      "type": "string",
+                      "description": "The latitude of the location.",
+                      "example": "40.75"
+                    },
+                    "longitude": {
+                      "type": "string",
+                      "description": "The longitude of the location.",
+                      "example": "73.98"
+                    }
+                  }
+                },
+                "bookingInfo": {
+                  "required": [
+                    "price",
+                    "priceCurrency",
+                    "description"
+                  ],
+                  "properties": {
+                    "priceCurrency": {
+                      "type": "string",
+                      "example": "EUR"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "No need to pay anything"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Free"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "example": 0
+                    }
+                  }
+                },
+                "priceInfo": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "category",
+                      "name",
+                      "price",
+                      "priceCurrency"
+                    ],
+                    "properties": {
+                      "category": {
+                        "type": "string",
+                        "enum": [
+                          "base",
+                          "tariff"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Senioren"
+                      },
+                      "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 10
+                      },
+                      "priceCurrency": {
+                        "type": "string",
+                        "example": "EUR"
+                      }
+                    }
+                  }
+                },
+                "terms": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "label",
+                      "domain",
+                      "id"
+                    ],
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "Cycling"
+                      },
+                      "domain": {
+                        "type": "string",
+                        "example": "activities"
+                      },
+                      "id": {
+                        "type": "string",
+                        "example": "10.0.0.1"
+                      }
+                    }
+                  }
+                },
+                "workflowStatus": {
+                  "type": "string",
+                  "enum": [
+                    "DRAFT",
+                    "READY_FOR_VALIDATION",
+                    "APPROVED",
+                    "REJECTED",
+                    "DELETED"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
     }
   }
 }

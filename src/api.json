@@ -111,6 +111,9 @@
         },
         "/places/": {
             "$ref": "place/place.path.json"
+        },
+        "/places/{cdbid}": {
+            "$ref": "place/place-detail.path.json"
         }
     }
 }
