@@ -1,7 +1,7 @@
 {
   "name": "body",
   "in": "body",
-  "description": "An object containing the contact point for an event.",
+  "description": "An object containing the contact point for an event or place.",
   "required": true,
   "schema": {
     "properties": {
