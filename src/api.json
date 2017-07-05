@@ -138,6 +138,9 @@
         },
         "/places/{cdbid}/typicalAgeRange": {
             "$ref": "offer/offer-typical-age-range.path.json"
+        },
+        "/places/{cdbid}/{lang}/description": {
+            "$ref": "offer/offer-update-description.path.json"
         }
     }
 }
