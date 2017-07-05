@@ -2654,15 +2654,47 @@
               }
             }
           },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
           "401": {
             "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
           },
           "404": {
             "description": "Offer not found."
           }
         },
         "tags": [
-          "Event"
+          "Event",
+          "Place"
         ]
       }
     },
@@ -4652,6 +4684,93 @@
             "name": "cdbid",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": [
+                  "Aanbod bewerken",
+                  "Aanbod modereren",
+                  "Aanbod verwijderen",
+                  "Organisaties beheren",
+                  "Gebruikers beheren",
+                  "Labels beheren"
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Event",
+          "Place"
+        ]
+      }
+    },
+    "/places/{cdbid}/permissions/{userId}": {
+      "get": {
+        "summary": "A list of permissions the current user has to an offer.",
+        "operationId": "getOfferPermissionsPerUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of a user.",
             "required": true,
             "type": "string",
             "format": "uuid"
