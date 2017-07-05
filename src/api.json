@@ -132,6 +132,9 @@
         },
         "/places/{cdbid}/organizer/{organizerId}": {
             "$ref": "place/place-delete-organizer.path.json"
+        },
+        "/places/{cdbid}/priceInfo": {
+            "$ref": "offer/offer-update-price-info.path.json"
         }
     }
 }
