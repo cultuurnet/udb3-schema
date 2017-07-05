@@ -2,11 +2,12 @@
   "delete": {
     "tags": [
       "Event",
+      "Place",
       "Media"
     ],
-    "summary": "Remove an image from the event.",
+    "summary": "Remove an image from the event or place.",
     "description": "Authentication is required",
-    "operationId": "EventRemoveImage",
+    "operationId": "RemoveOfferImage",
     "produces": [
       "application/ld+json"
     ],
@@ -25,11 +26,12 @@
   "put": {
     "tags": [
       "Event",
+      "Place",
       "Media"
     ],
     "summary": "Update the info of an image.",
     "description": "Authentication is required.",
-    "operationId": "updateEventImage",
+    "operationId": "updateOfferImage",
     "produces": [
       "application/json"
     ],

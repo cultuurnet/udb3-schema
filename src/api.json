@@ -151,5 +151,8 @@
         "/places/{cdbid}/images/main": {
             "$ref": "offer/offer-main-image.path.json"
         },
+        "/places/{cdbid}/images/{mediaObjectId}": {
+            "$ref": "offer/offer-update-image.path.json"
+        },
     }
 }
