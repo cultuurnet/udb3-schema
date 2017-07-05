@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "facilities": {
+      "type": "array",
+      "items": {
+        "$ref": "facility.definition.json"
+      }
+    }
+  }
+}
