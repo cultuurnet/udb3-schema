@@ -114,6 +114,9 @@
         },
         "/places/{cdbid}": {
             "$ref": "place/place-detail.path.json"
+        },
+        "/places/{cdbid}/bookingInfo": {
+            "$ref": "place/place-booking-info.path.json"
         }
     }
 }

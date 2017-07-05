@@ -1,7 +1,7 @@
 {
   "name": "body",
   "in": "body",
-  "description": "An object containing the audience information to set for the event.",
+  "description": "An object containing the booking info for an event or place.",
   "required": true,
   "schema": {
     "$ref": "../definitions/update-booking-info.definition.json"
