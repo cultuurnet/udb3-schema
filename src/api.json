@@ -123,6 +123,9 @@
         },
         "/places/{cdbid}/labels/": {
             "$ref": "place/place-add-label.path.json"
+        },
+        "/places/{cdbid}/labels/{label}": {
+            "$ref": "place/place-delete-label.path.json"
         }
     }
 }

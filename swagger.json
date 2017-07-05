@@ -1396,7 +1396,7 @@
           {
             "name": "label",
             "in": "path",
-            "description": "The label to remove from the cultural event.",
+            "description": "The label to remove from the cultural event or place.",
             "required": true,
             "type": "string"
           }
@@ -3369,6 +3369,92 @@
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/labels/{label}": {
+      "delete": {
+        "tags": [
+          "Place",
+          "Label"
+        ],
+        "summary": "Remove a label from a place.",
+        "description": "Authentication is required.",
+        "operationId": "removeLabelFromPlace",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "label",
+            "in": "path",
+            "description": "The label to remove from the cultural event or place.",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
