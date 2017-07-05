@@ -2,9 +2,10 @@
   "post": {
     "tags": [
       "Event",
+      "Place",
       "Media"
     ],
-    "summary": "Add an MediaObject to the Event",
+    "summary": "Add an MediaObject to the event or place",
     "description": "Authentication is required",
     "operationId": "OfferAddImage",
     "produces": [

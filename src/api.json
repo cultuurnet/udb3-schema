@@ -144,6 +144,9 @@
         },
         "/places/{cdbid}/{lang}/name": {
             "$ref": "offer/offer-update-name.path.json"
+        },
+        "/places/{cdbid}/images/": {
+            "$ref": "offer/offer-add-image.path.json"
         }
     }
 }
