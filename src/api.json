@@ -154,5 +154,8 @@
         "/places/{cdbid}/images/{mediaObjectId}": {
             "$ref": "offer/offer-update-image.path.json"
         },
+        "/places/{cdbid}/permissions/": {
+            "$ref": "offer/offer-permissions.path.json"
+        }
     }
 }
