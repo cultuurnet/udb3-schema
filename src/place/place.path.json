@@ -1,0 +1,31 @@
+{
+  "post": {
+    "tags": [
+      "Place"
+    ],
+    "summary": "Create a new place.",
+    "operationId": "createPlace",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/place-body.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Details of the created event.",
+        "schema": {
+          "$ref": "place.response.json"
+        }
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      }
+    }
+  }
+}

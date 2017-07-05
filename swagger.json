@@ -122,7 +122,7 @@
                   "properties": {
                     "nl": {
                       "type": "string",
-                      "example": "Super Awesome Party Night"
+                      "example": "Name example"
                     }
                   }
                 },
@@ -200,7 +200,8 @@
                     "multiple",
                     "periodic",
                     "permanent"
-                  ]
+                  ],
+                  "example": "permanent"
                 },
                 "openingHours": {
                   "type": "array",
@@ -2622,6 +2623,241 @@
         "tags": [
           "Event"
         ]
+      }
+    },
+    "/places/": {
+      "post": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Create a new place.",
+        "operationId": "createPlace",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the necessary information to create a new place.",
+            "required": true,
+            "schema": {
+              "required": [
+                "name",
+                "type",
+                "address",
+                "calendarType",
+                "openingHours"
+              ],
+              "properties": {
+                "name": {
+                  "type": "object",
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Name example"
+                    }
+                  }
+                },
+                "type": {
+                  "type": "object",
+                  "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "0.50.4.0.0"
+                    },
+                    "label": {
+                      "type": "string",
+                      "example": "Concert"
+                    },
+                    "domain": {
+                      "type": "string",
+                      "enum": [
+                        "eventtype"
+                      ]
+                    }
+                  }
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "A universally unique identifier.",
+                      "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the location.",
+                      "example": "Versuz"
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "addressCountry": {
+                          "type": "string",
+                          "description": "The country code of the location.",
+                          "example": "BE"
+                        },
+                        "addressLocality": {
+                          "type": "string",
+                          "description": "The locality name of the location.",
+                          "example": "Leuven"
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "description": "The postalcode of the location.",
+                          "example": "3000"
+                        },
+                        "streetAddress": {
+                          "type": "string",
+                          "description": "The street name and number information of the location.",
+                          "example": "Sluisstraat 79"
+                        }
+                      },
+                      "required": [
+                        "addressCountry",
+                        "addressLocality",
+                        "postalCode",
+                        "streetAddress"
+                      ]
+                    }
+                  }
+                },
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "addressCountry": {
+                      "type": "string",
+                      "description": "The country code of the location.",
+                      "example": "BE"
+                    },
+                    "addressLocality": {
+                      "type": "string",
+                      "description": "The locality name of the location.",
+                      "example": "Leuven"
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "description": "The postalcode of the location.",
+                      "example": "3000"
+                    },
+                    "streetAddress": {
+                      "type": "string",
+                      "description": "The street name and number information of the location.",
+                      "example": "Sluisstraat 79"
+                    }
+                  },
+                  "required": [
+                    "addressCountry",
+                    "addressLocality",
+                    "postalCode",
+                    "streetAddress"
+                  ]
+                },
+                "calendarType": {
+                  "type": "string",
+                  "enum": [
+                    "single",
+                    "multiple",
+                    "periodic",
+                    "permanent"
+                  ],
+                  "example": "permanent"
+                },
+                "openingHours": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dayOfWeek": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
+                      },
+                      "opens": {
+                        "type": "string",
+                        "example": "04:20"
+                      },
+                      "closes": {
+                        "type": "string",
+                        "example": "06:66"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the created event.",
+            "schema": {
+              "required": [
+                "placeId",
+                "url"
+              ],
+              "properties": {
+                "placeId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "The unique identifier of the place.",
+                  "example": "0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "The URL of the place.",
+                  "example": "http://culudb-silex.dev:8080/place/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        }
       }
     }
   }
