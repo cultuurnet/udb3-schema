@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "@id": {
+      "type": "string",
+      "example": "http://udb-silex.dev/images/04C47992-B01E-4EE4-96ED-289F22638324"
+    },
+    "@type": {
+      "type": "string",
+      "example": "schema:MediaObject"
+    },
+    "contentUrl": {
+      "type": "string",
+      "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
+    },
+    "thumbnailUrl": {
+      "type": "string",
+      "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
+    },
+    "description": {
+      "type": "string",
+      "example": "Allemaal Roze konijnen"
+    },
+    "copyrightHolder": {
+      "type": "string",
+      "example": "Toto het roze konijn"
+    }
+  }
+}
