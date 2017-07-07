@@ -55,6 +55,9 @@
         "/user": {
             "$ref": "user/user.path.json"
         },
+        "/user/offers/": {
+            "$ref": "user/user-offers.path.json"
+        },
         "/events/": {
             "$ref": "event/event.path.json"
         },

@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "itemsPerPage": {
+      "type": "integer",
+      "format": "int32",
+      "example": 30
+    },
+    "totalItems": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "member": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "http://udb-silex.dev/event/7616a359-b95c-48c0-9981-502732b8d957"
+          },
+          "type": {
+            "type": "string",
+            "example": "Event"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "itemsPerPage",
+    "totalItems",
+    "member"
+  ]
+}
