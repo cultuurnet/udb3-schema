@@ -1,6 +1,6 @@
 {
   "get": {
-    "summary": "A list of permissions the current user has to an offer.",
+    "summary": "A list of permissions the current user has to an event or place.",
     "operationId": "getOfferPermissionsPerUser",
     "produces": [
       "application/json"
@@ -25,7 +25,8 @@
       }
     },
     "tags": [
-      "Event"
+      "Event",
+      "Place"
     ]
   }
 }

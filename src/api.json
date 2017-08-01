@@ -108,6 +108,12 @@
         },
         "/events/{cdbid}/permissions/{userId}": {
             "$ref": "offer/offer-user-permissions.path.json"
+        },
+        "/places/{cdbid}/permissions/": {
+            "$ref": "offer/offer-permissions.path.json"
+        },
+        "/places/{cdbid}/permissions/{userId}": {
+            "$ref": "offer/offer-user-permissions.path.json"
         }
     }
 }
