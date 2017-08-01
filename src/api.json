@@ -74,7 +74,7 @@
             "$ref": "event/event-add-label.path.json"
         },
         "/events/{cdbid}/labels/{label}": {
-            "$ref": "event/event-delete-label.path.json"
+            "$ref": "offer/offer-manage-labels.path.json"
         },
         "/events/{cdbid}/organizer": {
             "$ref": "event/event-update-organizer.path.json"
@@ -108,6 +108,9 @@
         },
         "/events/{cdbid}/permissions/{userId}": {
             "$ref": "offer/offer-user-permissions.path.json"
+        },
+        "/places/{cdbid}/labels/{label}": {
+            "$ref": "offer/offer-manage-labels.path.json"
         }
     }
 }
