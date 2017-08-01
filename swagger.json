@@ -114,6 +114,14 @@
             "description": "A list of offers",
             "schema": {
               "properties": {
+                "@context": {
+                  "type": "string",
+                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "PagedCollection"
+                },
                 "itemsPerPage": {
                   "type": "integer",
                   "format": "int32",
@@ -139,6 +147,18 @@
                       }
                     }
                   }
+                },
+                "firstPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=1"
+                },
+                "lastPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=29"
+                },
+                "nextPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=2"
                 }
               },
               "required": [
