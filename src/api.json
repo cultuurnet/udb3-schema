@@ -70,9 +70,6 @@
         "/events/{cdbid}/contactPoint": {
             "$ref": "event/event-contact-point.path.json"
         },
-        "/events/{cdbid}/labels/": {
-            "$ref": "event/event-add-label.path.json"
-        },
         "/events/{cdbid}/labels/{label}": {
             "$ref": "offer/offer-manage-labels.path.json"
         },
