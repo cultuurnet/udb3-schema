@@ -2524,7 +2524,7 @@
     },
     "/events/{cdbid}/permissions/": {
       "get": {
-        "summary": "A list of permissions the current user has to an event or place.",
+        "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissions",
         "produces": [
           "application/json"
@@ -2543,14 +2543,15 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
             }
           },
@@ -2562,14 +2563,13 @@
           }
         },
         "tags": [
-          "Event",
-          "Place"
+          "Offer"
         ]
       }
     },
     "/events/{cdbid}/permissions/{userId}": {
       "get": {
-        "summary": "A list of permissions the current user has to an event or place.",
+        "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissionsPerUser",
         "produces": [
           "application/json"
@@ -2596,14 +2596,15 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
             }
           },
@@ -2615,14 +2616,13 @@
           }
         },
         "tags": [
-          "Event",
-          "Place"
+          "Offer"
         ]
       }
     },
     "/places/{cdbid}/permissions/": {
       "get": {
-        "summary": "A list of permissions the current user has to an event or place.",
+        "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissions",
         "produces": [
           "application/json"
@@ -2641,14 +2641,15 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
             }
           },
@@ -2660,14 +2661,13 @@
           }
         },
         "tags": [
-          "Event",
-          "Place"
+          "Offer"
         ]
       }
     },
     "/places/{cdbid}/permissions/{userId}": {
       "get": {
-        "summary": "A list of permissions the current user has to an event or place.",
+        "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissionsPerUser",
         "produces": [
           "application/json"
@@ -2694,14 +2694,15 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
             }
           },
@@ -2713,8 +2714,7 @@
           }
         },
         "tags": [
-          "Event",
-          "Place"
+          "Offer"
         ]
       }
     }

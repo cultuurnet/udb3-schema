@@ -1,6 +1,6 @@
 {
   "get": {
-    "summary": "A list of permissions the current user has to an event or place.",
+    "summary": "A list of permissions the current user has to an offer.",
     "operationId": "getOfferPermissions",
     "produces": [
       "application/json"
@@ -12,7 +12,10 @@
     ],
     "responses": {
       "200": {
-        "$ref": "permission.response.json"
+        "description": "An array of permissions",
+        "schema": {
+          "$ref": "permission.response.json"
+        }
       },
       "401": {
         "$ref": "../authorization/unauthorized.response.json"
@@ -22,8 +25,7 @@
       }
     },
     "tags": [
-      "Event",
-      "Place"
+      "Offer"
     ]
   }
 }
