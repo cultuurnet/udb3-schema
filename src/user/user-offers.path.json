@@ -1,0 +1,32 @@
+{
+  "get": {
+    "summary": "Retrieve all offers for the current user",
+    "description": "Authentication required",
+    "operationId": "getUserOffers",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "../pager.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A list of offers",
+        "schema": {
+          "$ref": "../offer/offer-list.response.json"
+        }
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      }
+    },
+    "tags": [
+      "User"
+    ]
+  }
+}

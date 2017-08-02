@@ -91,6 +91,120 @@
         }
       }
     },
+    "/user/offers/": {
+      "get": {
+        "summary": "Retrieve all offers for the current user",
+        "description": "Authentication required",
+        "operationId": "getUserOffers",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The number of the page which the paged result should return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of offers",
+            "schema": {
+              "properties": {
+                "@context": {
+                  "type": "string",
+                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "PagedCollection"
+                },
+                "itemsPerPage": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 30
+                },
+                "totalItems": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 1
+                },
+                "member": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "http://udb-silex.dev/event/7616a359-b95c-48c0-9981-502732b8d957"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "Event"
+                      }
+                    }
+                  }
+                },
+                "firstPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=1"
+                },
+                "lastPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=29"
+                },
+                "nextPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=2"
+                }
+              },
+              "required": [
+                "itemsPerPage",
+                "totalItems",
+                "member"
+              ]
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
     "/events/": {
       "post": {
         "tags": [
