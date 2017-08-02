@@ -1275,11 +1275,10 @@
     "/events/{cdbid}/labels/{label}": {
       "put": {
         "tags": [
-          "Event",
-          "Place",
+          "Offer",
           "Label"
         ],
-        "summary": "Add a label to a single cultural event or place.",
+        "summary": "Add a label to an offer.",
         "description": "Authentication is required.",
         "operationId": "addLabelToOffer",
         "produces": [
@@ -1360,11 +1359,10 @@
       },
       "delete": {
         "tags": [
-          "Event",
-          "Place",
+          "Offer",
           "Label"
         ],
-        "summary": "Remove a label from a cultural event or place.",
+        "summary": "Remove a label from an offer.",
         "description": "Authentication is required.",
         "operationId": "removeLabelFromOffer",
         "produces": [
@@ -2614,11 +2612,10 @@
     "/places/{cdbid}/labels/{label}": {
       "put": {
         "tags": [
-          "Event",
-          "Place",
+          "Offer",
           "Label"
         ],
-        "summary": "Add a label to a single cultural event or place.",
+        "summary": "Add a label to an offer.",
         "description": "Authentication is required.",
         "operationId": "addLabelToOffer",
         "produces": [
@@ -2699,11 +2696,10 @@
       },
       "delete": {
         "tags": [
-          "Event",
-          "Place",
+          "Offer",
           "Label"
         ],
-        "summary": "Remove a label from a cultural event or place.",
+        "summary": "Remove a label from an offer.",
         "description": "Authentication is required.",
         "operationId": "removeLabelFromOffer",
         "produces": [
