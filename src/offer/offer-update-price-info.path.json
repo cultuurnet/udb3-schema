@@ -1,10 +1,9 @@
 {
   "put": {
     "tags": [
-      "Event",
-      "Place"
+      "Offer"
     ],
-    "summary": "Update the price info of an event or place.",
+    "summary": "Update the price info of an offer.",
     "operationId": "updateOfferPriceInfo",
     "produces": [
       "application/json"

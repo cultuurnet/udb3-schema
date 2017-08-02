@@ -1,11 +1,10 @@
 {
   "delete": {
     "tags": [
-      "Event",
-      "Place",
+      "Offer",
       "Media"
     ],
-    "summary": "Remove an image from the event or place.",
+    "summary": "Remove an image from an offer.",
     "description": "Authentication is required",
     "operationId": "RemoveOfferImage",
     "produces": [
@@ -25,8 +24,7 @@
   },
   "put": {
     "tags": [
-      "Event",
-      "Place",
+      "Offer",
       "Media"
     ],
     "summary": "Update the info of an image.",
