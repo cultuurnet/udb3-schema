@@ -2642,17 +2642,15 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen",
-                  "Organisaties beheren",
-                  "Gebruikers beheren",
-                  "Labels beheren"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
             }
           },
@@ -2664,7 +2662,7 @@
           }
         },
         "tags": [
-          "Event"
+          "Offer"
         ]
       }
     },
@@ -2697,17 +2695,15 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen",
-                  "Organisaties beheren",
-                  "Gebruikers beheren",
-                  "Labels beheren"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
             }
           },
@@ -2719,7 +2715,7 @@
           }
         },
         "tags": [
-          "Event"
+          "Offer"
         ]
       }
     },
@@ -2891,6 +2887,104 @@
             "description": "Offer not found."
           }
         }
+      }
+    },
+    "/places/{cdbid}/permissions/": {
+      "get": {
+        "summary": "A list of permissions the current user has to an offer.",
+        "operationId": "getOfferPermissions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Offer"
+        ]
+      }
+    },
+    "/places/{cdbid}/permissions/{userId}": {
+      "get": {
+        "summary": "A list of permissions the current user has to an offer.",
+        "operationId": "getOfferPermissionsPerUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of a user.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Offer"
+        ]
       }
     }
   }
