@@ -40,7 +40,7 @@
     ],
     "parameters": [
       {
-        "$ref": "parameters/zipcode.parameter.json"
+        "$ref": "parameters/postal-code.parameter.json"
       }
     ],
     "responses": {
