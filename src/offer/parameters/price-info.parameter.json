@@ -1,7 +1,7 @@
 {
   "name": "body",
   "in": "body",
-  "description": "An array containing price info objects for an event.",
+  "description": "An array containing price info objects for an offer.",
   "required": true,
   "schema": {
     "type": "array",

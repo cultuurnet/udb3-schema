@@ -1,12 +1,12 @@
 {
   "delete": {
     "tags": [
-      "Event",
+      "Offer",
       "Media"
     ],
-    "summary": "Remove an image from the event.",
+    "summary": "Remove an image from an offer.",
     "description": "Authentication is required",
-    "operationId": "EventRemoveImage",
+    "operationId": "RemoveOfferImage",
     "produces": [
       "application/ld+json"
     ],
@@ -24,12 +24,12 @@
   },
   "put": {
     "tags": [
-      "Event",
+      "Offer",
       "Media"
     ],
     "summary": "Update the info of an image.",
     "description": "Authentication is required.",
-    "operationId": "updateEventImage",
+    "operationId": "updateOfferImage",
     "produces": [
       "application/json"
     ],

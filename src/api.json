@@ -112,6 +112,45 @@
         "/places/{cdbid}/labels/{label}": {
             "$ref": "offer/offer-manage-labels.path.json"
         },
+        "/places/": {
+            "$ref": "place/place.path.json"
+        },
+        "/places/{cdbid}": {
+            "$ref": "place/place-detail.path.json"
+        },
+        "/places/{cdbid}/bookingInfo": {
+            "$ref": "place/place-booking-info.path.json"
+        },
+        "/places/{cdbid}/contactPoint": {
+            "$ref": "place/place-contact-point.path.json"
+        },
+        "/places/{cdbid}/facilities/": {
+            "$ref": "place/place-facilities.path.json"
+        },
+        "/places/{cdbid}/organizer/{organizerId}": {
+            "$ref": "place/place-delete-organizer.path.json"
+        },
+        "/places/{cdbid}/priceInfo": {
+            "$ref": "offer/offer-update-price-info.path.json"
+        },
+        "/places/{cdbid}/typicalAgeRange": {
+            "$ref": "offer/offer-typical-age-range.path.json"
+        },
+        "/places/{cdbid}/{lang}/description": {
+            "$ref": "offer/offer-update-description.path.json"
+        },
+        "/places/{cdbid}/{lang}/name": {
+            "$ref": "offer/offer-update-name.path.json"
+        },
+        "/places/{cdbid}/images/": {
+            "$ref": "offer/offer-add-image.path.json"
+        },
+        "/places/{cdbid}/images/main": {
+            "$ref": "offer/offer-main-image.path.json"
+        },
+        "/places/{cdbid}/images/{mediaObjectId}": {
+            "$ref": "offer/offer-update-image.path.json"
+        },
         "/places/{cdbid}/permissions/": {
             "$ref": "offer/offer-permissions.path.json"
         },

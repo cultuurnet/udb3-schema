@@ -1,12 +1,12 @@
 {
   "put": {
     "tags": [
-      "Event",
+      "Offer",
       "Media"
     ],
-    "summary": "Select the main image of an event.",
+    "summary": "Select the main image of an offer.",
     "description": "Authentication is required",
-    "operationId": "SelectEventMainImage",
+    "operationId": "SelectOfferMainImage",
     "produces": [
       "application/ld+json"
     ],
