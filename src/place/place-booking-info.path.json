@@ -1,12 +1,10 @@
 {
   "put": {
     "tags": [
-      "Event",
-      "Label"
+      "Place"
     ],
-    "summary": "Add a label to a single cultural event.",
-    "description": "Authentication is required.",
-    "operationId": "addLabelToEvent",
+    "summary": "Update the place booking info.",
+    "operationId": "updatePlaceBookingInfo",
     "produces": [
       "application/json"
     ],
@@ -15,7 +13,7 @@
         "$ref": "../offer/parameters/cdb-id.parameter.json"
       },
       {
-        "$ref": "../offer/parameters/add-label.parameter.json"
+        "$ref": "../offer/parameters/booking-info.parameter.json"
       }
     ],
     "responses": {

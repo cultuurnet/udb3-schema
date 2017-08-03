@@ -41,7 +41,7 @@
       "$ref": "../place/definitions/place.definition.json"
     },
     "organizer": {
-      "$ref": "../organizer/definitions/organizer.definition.json"
+      "$ref": "../organizer/definitions/organization.definition.json"
     },
     "bookingInfo": {
       "$ref": "../offer/definitions/booking-info.definition.json"

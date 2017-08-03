@@ -1,11 +1,10 @@
 {
-  "delete": {
+  "put": {
     "tags": [
-      "Event",
-      "Organizer"
+      "Place"
     ],
-    "summary": "Remove the current organisation from an event.",
-    "operationId": "removeEventOrganizer",
+    "summary": "Update the place contact point.",
+    "operationId": "updatePlaceContactPoint",
     "produces": [
       "application/json"
     ],
@@ -14,7 +13,7 @@
         "$ref": "../offer/parameters/cdb-id.parameter.json"
       },
       {
-        "$ref": "../offer/parameters/organizer-id.parameter.json"
+        "$ref": "../offer/parameters/contact-point.parameter.json"
       }
     ],
     "responses": {

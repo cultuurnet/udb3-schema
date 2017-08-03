@@ -1,0 +1,38 @@
+{
+  "required": [
+    "name",
+    "address"
+  ],
+  "properties": {
+    "name": {
+      "$ref": "../offer/definitions/translatable-string.definition.json"
+    },
+    "description": {
+      "$ref": "../offer/definitions/translatable-string.definition.json"
+    },
+    "address": {
+      "$ref": "definitions/address.definition.json"
+    },
+    "geo": {
+      "$ref": "definitions/geo-coordinates.definition.json"
+    },
+    "bookingInfo": {
+      "$ref": "../offer/definitions/booking-info.definition.json"
+    },
+    "priceInfo": {
+      "type": "array",
+      "items": {
+        "$ref": "../offer/definitions/price-info.definition.json"
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "$ref": "../offer/definitions/term.definition.json"
+      }
+    },
+    "workflowStatus": {
+      "$ref": "../offer/definitions/workflow-status.definition.json"
+    }
+  }
+}

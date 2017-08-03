@@ -1,0 +1,8 @@
+{
+  "name": "page",
+  "in": "query",
+  "description": "The number of the page which the paged result should return",
+  "required": false,
+  "type": "integer",
+  "format": "int32"
+}

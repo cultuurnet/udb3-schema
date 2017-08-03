@@ -1,0 +1,29 @@
+{
+  "required": [
+    "name",
+    "type",
+    "address",
+    "calendarType",
+    "openingHours"
+  ],
+  "properties": {
+    "name": {
+      "$ref": "../../offer/definitions/name.definition.json"
+    },
+    "type": {
+      "$ref": "../../offer/definitions/type.definition.json"
+    },
+    "location": {
+      "$ref": "../../offer/definitions/location.definition.json"
+    },
+    "address": {
+      "$ref": "address.definition.json"
+    },
+    "calendarType": {
+      "$ref": "../../event/definitions/calender-type.definition.json"
+    },
+    "openingHours": {
+      "$ref": "../../event/definitions/opening-hours.definition.json"
+    }
+  }
+}

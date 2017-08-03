@@ -1,16 +1,11 @@
 {
-  "description": "An array of permissions",
-  "schema": {
-    "type": "array",
-    "items": {
-      "type": "string",
+  "properties": {
+    "permissions": {
+      "type": "array",
       "example": [
         "Aanbod bewerken",
         "Aanbod modereren",
-        "Aanbod verwijderen",
-        "Organisaties beheren",
-        "Gebruikers beheren",
-        "Labels beheren"
+        "Aanbod verwijderen"
       ]
     }
   }

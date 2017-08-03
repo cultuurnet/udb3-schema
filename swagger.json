@@ -91,6 +91,120 @@
         }
       }
     },
+    "/user/offers/": {
+      "get": {
+        "summary": "Retrieve all offers for the current user",
+        "description": "Authentication required",
+        "operationId": "getUserOffers",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The number of the page which the paged result should return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of offers",
+            "schema": {
+              "properties": {
+                "@context": {
+                  "type": "string",
+                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "PagedCollection"
+                },
+                "itemsPerPage": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 30
+                },
+                "totalItems": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 1
+                },
+                "member": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "http://udb-silex.dev/event/7616a359-b95c-48c0-9981-502732b8d957"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "Event"
+                      }
+                    }
+                  }
+                },
+                "firstPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=1"
+                },
+                "lastPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=29"
+                },
+                "nextPage": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/dashboard/items?page=2"
+                }
+              },
+              "required": [
+                "itemsPerPage",
+                "totalItems",
+                "member"
+              ]
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
     "/events/": {
       "post": {
         "tags": [
@@ -122,7 +236,7 @@
                   "properties": {
                     "nl": {
                       "type": "string",
-                      "example": "Super Awesome Party Night"
+                      "example": "Name example"
                     }
                   }
                 },
@@ -200,7 +314,8 @@
                     "multiple",
                     "periodic",
                     "permanent"
-                  ]
+                  ],
+                  "example": "permanent"
                 },
                 "openingHours": {
                   "type": "array",
@@ -1047,7 +1162,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An object containing the audience information to set for the event.",
+            "description": "An object containing the booking info for an offer.",
             "required": true,
             "schema": {
               "required": [
@@ -1170,7 +1285,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An object containing the contact point for an event.",
+            "description": "An object containing the contact point for an offer.",
             "required": true,
             "schema": {
               "properties": {
@@ -1272,15 +1387,15 @@
         }
       }
     },
-    "/events/{cdbid}/labels/": {
+    "/events/{cdbid}/labels/{label}": {
       "put": {
         "tags": [
-          "Event",
+          "Offer",
           "Label"
         ],
-        "summary": "Add a label to a single cultural event.",
+        "summary": "Add a label to an offer.",
         "description": "Authentication is required.",
-        "operationId": "addLabelToEvent",
+        "operationId": "addLabelToOffer",
         "produces": [
           "application/json"
         ],
@@ -1294,24 +1409,11 @@
             "format": "uuid"
           },
           {
-            "name": "body",
-            "in": "body",
-            "description": "An object containing the label to attach to the cultural event.",
+            "name": "label",
+            "in": "path",
+            "description": "The label to remove from an offer.",
             "required": true,
-            "schema": {
-              "required": [
-                "label"
-              ],
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "description": "A label name must have a minimum of 2 characters and a maximum of 255 characters and cannot contain a semicolon.",
-                  "example": "Bio",
-                  "minLength": 2,
-                  "maxLength": 255
-                }
-              }
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -1369,17 +1471,15 @@
             "description": "Offer not found."
           }
         }
-      }
-    },
-    "/events/{cdbid}/labels/{label}": {
+      },
       "delete": {
         "tags": [
-          "Event",
+          "Offer",
           "Label"
         ],
-        "summary": "Remove a label from a cultural event.",
+        "summary": "Remove a label from an offer.",
         "description": "Authentication is required.",
-        "operationId": "removeLabelFromEvent",
+        "operationId": "removeLabelFromOffer",
         "produces": [
           "application/json"
         ],
@@ -1395,7 +1495,7 @@
           {
             "name": "label",
             "in": "path",
-            "description": "The label to remove from the cultural event.",
+            "description": "The label to remove from an offer.",
             "required": true,
             "type": "string"
           }
@@ -1457,14 +1557,14 @@
         }
       }
     },
-    "/events/{cdbid}/organizer": {
+    "/events/{cdbid}/organizer/{organizerId}": {
       "put": {
         "tags": [
-          "Event",
+          "Offer",
           "Organizer"
         ],
-        "summary": "Add an organizer to an event.",
-        "operationId": "addEventOrganizer",
+        "summary": "Set the organization for an offer.",
+        "operationId": "addOfferOrganization",
         "produces": [
           "application/json"
         ],
@@ -1478,22 +1578,12 @@
             "format": "uuid"
           },
           {
-            "name": "body",
-            "in": "body",
-            "description": "The UUID of the organizer to add",
+            "name": "organizerId",
+            "in": "path",
+            "description": "The unique identifier of an organization.",
             "required": true,
-            "schema": {
-              "properties": {
-                "organizer": {
-                  "type": "string",
-                  "format": "uuid",
-                  "example": "3aad5023-84e2-4ba9-b1ce-201cee64504c"
-                }
-              },
-              "required": [
-                "organizer"
-              ]
-            }
+            "type": "string",
+            "format": "uuid"
           }
         ],
         "responses": {
@@ -1551,16 +1641,14 @@
             "description": "Offer not found."
           }
         }
-      }
-    },
-    "/events/{cdbid}/organizer/{organizerId}": {
+      },
       "delete": {
         "tags": [
-          "Event",
+          "Offer",
           "Organizer"
         ],
-        "summary": "Remove the current organisation from an event.",
-        "operationId": "removeEventOrganizer",
+        "summary": "Remove the current organization from an offer.",
+        "operationId": "removeOfferOrganization",
         "produces": [
           "application/json"
         ],
@@ -1576,7 +1664,7 @@
           {
             "name": "organizerId",
             "in": "path",
-            "description": "The unique identifier of an organizer.",
+            "description": "The unique identifier of an organization.",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -1642,10 +1730,10 @@
     "/events/{cdbid}/priceInfo": {
       "put": {
         "tags": [
-          "Event"
+          "Offer"
         ],
-        "summary": "Update the event price info.",
-        "operationId": "updateEventPriceInfo",
+        "summary": "Update the price info of an offer.",
+        "operationId": "updateOfferPriceInfo",
         "produces": [
           "application/json"
         ],
@@ -1661,7 +1749,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An array containing price info objects for an event.",
+            "description": "An array containing price info objects for an offer.",
             "required": true,
             "schema": {
               "type": "array",
@@ -1753,10 +1841,10 @@
     "/events/{cdbid}/typicalAgeRange": {
       "put": {
         "tags": [
-          "Event"
+          "Offer"
         ],
-        "summary": "Set the typical age range of an event.",
-        "operationId": "setEventTypicalAgeRange",
+        "summary": "Set the typical age range of an offer.",
+        "operationId": "setOfferTypicalAgeRange",
         "produces": [
           "application/json"
         ],
@@ -1772,7 +1860,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "The age range to set for the event.",
+            "description": "The age range to set for an offer.",
             "required": true,
             "schema": {
               "properties": {
@@ -1845,10 +1933,10 @@
       },
       "delete": {
         "tags": [
-          "Event"
+          "Offer"
         ],
-        "summary": "Remove the typical age range from an event.",
-        "operationId": "removeEventTypicalAgeRange",
+        "summary": "Remove the typical age range from an offer.",
+        "operationId": "removeOfferTypicalAgeRange",
         "produces": [
           "application/json"
         ],
@@ -1921,9 +2009,9 @@
     },
     "/events/{cdbid}/{lang}/description": {
       "put": {
-        "summary": "Translate the description of a cultural event.",
+        "summary": "Translate the description of an offer.",
         "description": "Authentication is required.",
-        "operationId": "translateEventDescription",
+        "operationId": "translateOfferDescription",
         "produces": [
           "application/json"
         ],
@@ -1952,7 +2040,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An object containing the description in the given language for the given cultural event.",
+            "description": "An object containing the description in the given language for a given offer.",
             "required": true,
             "schema": {
               "properties": {
@@ -2023,15 +2111,15 @@
           }
         },
         "tags": [
-          "Event"
+          "Offer"
         ]
       }
     },
     "/events/{cdbid}/{lang}/name": {
       "put": {
-        "summary": "Translate the title of a cultural event.",
+        "summary": "Translate the title of an offer.",
         "description": "Authentication is required.",
-        "operationId": "translateEventTitle",
+        "operationId": "translateOfferTitle",
         "produces": [
           "application/json"
         ],
@@ -2131,17 +2219,17 @@
           }
         },
         "tags": [
-          "Event"
+          "Offer"
         ]
       }
     },
     "/events/{cdbid}/images/": {
       "post": {
         "tags": [
-          "Event",
+          "Offer",
           "Media"
         ],
-        "summary": "Add an MediaObject to the Event",
+        "summary": "Add a MediaObject to an offer",
         "description": "Authentication is required",
         "operationId": "OfferAddImage",
         "produces": [
@@ -2234,12 +2322,12 @@
     "/events/{cdbid}/images/main": {
       "put": {
         "tags": [
-          "Event",
+          "Offer",
           "Media"
         ],
-        "summary": "Select the main image of an event.",
+        "summary": "Select the main image of an offer.",
         "description": "Authentication is required",
-        "operationId": "SelectEventMainImage",
+        "operationId": "SelectOfferMainImage",
         "produces": [
           "application/ld+json"
         ],
@@ -2330,12 +2418,12 @@
     "/events/{cdbid}/images/{mediaObjectId}": {
       "delete": {
         "tags": [
-          "Event",
+          "Offer",
           "Media"
         ],
-        "summary": "Remove an image from the event.",
+        "summary": "Remove an image from an offer.",
         "description": "Authentication is required",
-        "operationId": "EventRemoveImage",
+        "operationId": "RemoveOfferImage",
         "produces": [
           "application/ld+json"
         ],
@@ -2415,12 +2503,12 @@
       },
       "put": {
         "tags": [
-          "Event",
+          "Offer",
           "Media"
         ],
         "summary": "Update the info of an image.",
         "description": "Authentication is required.",
-        "operationId": "updateEventImage",
+        "operationId": "updateOfferImage",
         "produces": [
           "application/json"
         ],
@@ -2543,29 +2631,58 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen",
-                  "Organisaties beheren",
-                  "Gebruikers beheren",
-                  "Labels beheren"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
             }
           },
           "401": {
             "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
           },
           "404": {
             "description": "Offer not found."
           }
         },
         "tags": [
-          "Event"
+          "Offer"
         ]
       }
     },
@@ -2598,29 +2715,2693 @@
           "200": {
             "description": "An array of permissions",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": [
-                  "Aanbod bewerken",
-                  "Aanbod modereren",
-                  "Aanbod verwijderen",
-                  "Organisaties beheren",
-                  "Gebruikers beheren",
-                  "Labels beheren"
-                ]
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
               }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
             }
           },
           "401": {
             "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
           },
           "404": {
             "description": "Offer not found."
           }
         },
         "tags": [
-          "Event"
+          "Offer"
+        ]
+      }
+    },
+    "/places/{cdbid}/labels/{label}": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Label"
+        ],
+        "summary": "Add a label to an offer.",
+        "description": "Authentication is required.",
+        "operationId": "addLabelToOffer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "label",
+            "in": "path",
+            "description": "The label to remove from an offer.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Offer",
+          "Label"
+        ],
+        "summary": "Remove a label from an offer.",
+        "description": "Authentication is required.",
+        "operationId": "removeLabelFromOffer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "label",
+            "in": "path",
+            "description": "The label to remove from an offer.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/": {
+      "post": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Create a new place.",
+        "operationId": "createPlace",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the necessary information to create a new place.",
+            "required": true,
+            "schema": {
+              "required": [
+                "name",
+                "type",
+                "address",
+                "calendarType",
+                "openingHours"
+              ],
+              "properties": {
+                "name": {
+                  "type": "object",
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Name example"
+                    }
+                  }
+                },
+                "type": {
+                  "type": "object",
+                  "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "0.50.4.0.0"
+                    },
+                    "label": {
+                      "type": "string",
+                      "example": "Concert"
+                    },
+                    "domain": {
+                      "type": "string",
+                      "enum": [
+                        "eventtype"
+                      ]
+                    }
+                  }
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "A universally unique identifier.",
+                      "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the location.",
+                      "example": "Versuz"
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "addressCountry": {
+                          "type": "string",
+                          "description": "The country code of the location.",
+                          "example": "BE"
+                        },
+                        "addressLocality": {
+                          "type": "string",
+                          "description": "The locality name of the location.",
+                          "example": "Leuven"
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "description": "The postalcode of the location.",
+                          "example": "3000"
+                        },
+                        "streetAddress": {
+                          "type": "string",
+                          "description": "The street name and number information of the location.",
+                          "example": "Sluisstraat 79"
+                        }
+                      },
+                      "required": [
+                        "addressCountry",
+                        "addressLocality",
+                        "postalCode",
+                        "streetAddress"
+                      ]
+                    }
+                  }
+                },
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "addressCountry": {
+                      "type": "string",
+                      "description": "The country code of the location.",
+                      "example": "BE"
+                    },
+                    "addressLocality": {
+                      "type": "string",
+                      "description": "The locality name of the location.",
+                      "example": "Leuven"
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "description": "The postalcode of the location.",
+                      "example": "3000"
+                    },
+                    "streetAddress": {
+                      "type": "string",
+                      "description": "The street name and number information of the location.",
+                      "example": "Sluisstraat 79"
+                    }
+                  },
+                  "required": [
+                    "addressCountry",
+                    "addressLocality",
+                    "postalCode",
+                    "streetAddress"
+                  ]
+                },
+                "calendarType": {
+                  "type": "string",
+                  "enum": [
+                    "single",
+                    "multiple",
+                    "periodic",
+                    "permanent"
+                  ],
+                  "example": "permanent"
+                },
+                "openingHours": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dayOfWeek": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
+                      },
+                      "opens": {
+                        "type": "string",
+                        "example": "04:20"
+                      },
+                      "closes": {
+                        "type": "string",
+                        "example": "06:66"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the created event.",
+            "schema": {
+              "required": [
+                "placeId",
+                "url"
+              ],
+              "properties": {
+                "placeId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "The unique identifier of the place.",
+                  "example": "0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "The URL of the place.",
+                  "example": "http://culudb-silex.dev:8080/place/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "List places.",
+        "description": "",
+        "operationId": "listPlaces",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "postalCode",
+            "in": "query",
+            "description": "Limit the list to places located in the area with this postal code.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of places matching the supplied criteria.",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "itemsPerPage": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 30
+                    },
+                    "totalItems": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 1
+                    },
+                    "member": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "name",
+                          "address"
+                        ],
+                        "properties": {
+                          "description": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "name": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "addressCountry": {
+                                "type": "string",
+                                "description": "The country code of the location.",
+                                "example": "BE"
+                              },
+                              "addressLocality": {
+                                "type": "string",
+                                "description": "The locality name of the location.",
+                                "example": "Leuven"
+                              },
+                              "postalCode": {
+                                "type": "string",
+                                "description": "The postalcode of the location.",
+                                "example": "3000"
+                              },
+                              "streetAddress": {
+                                "type": "string",
+                                "description": "The street name and number information of the location.",
+                                "example": "Sluisstraat 79"
+                              }
+                            },
+                            "required": [
+                              "addressCountry",
+                              "addressLocality",
+                              "postalCode",
+                              "streetAddress"
+                            ]
+                          },
+                          "geo": {
+                            "properties": {
+                              "latitude": {
+                                "type": "string",
+                                "description": "The latitude of the location.",
+                                "example": "40.75"
+                              },
+                              "longitude": {
+                                "type": "string",
+                                "description": "The longitude of the location.",
+                                "example": "73.98"
+                              }
+                            }
+                          },
+                          "bookingInfo": {
+                            "required": [
+                              "price",
+                              "priceCurrency",
+                              "description"
+                            ],
+                            "properties": {
+                              "priceCurrency": {
+                                "type": "string",
+                                "example": "EUR"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "No need to pay anything"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Free"
+                              },
+                              "price": {
+                                "type": "number",
+                                "format": "float",
+                                "example": 0
+                              }
+                            }
+                          },
+                          "priceInfo": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "category",
+                                "name",
+                                "price",
+                                "priceCurrency"
+                              ],
+                              "properties": {
+                                "category": {
+                                  "type": "string",
+                                  "enum": [
+                                    "base",
+                                    "tariff"
+                                  ]
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Senioren"
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "example": 10
+                                },
+                                "priceCurrency": {
+                                  "type": "string",
+                                  "example": "EUR"
+                                }
+                              }
+                            }
+                          },
+                          "terms": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "label",
+                                "domain",
+                                "id"
+                              ],
+                              "properties": {
+                                "label": {
+                                  "type": "string",
+                                  "example": "Cycling"
+                                },
+                                "domain": {
+                                  "type": "string",
+                                  "example": "activities"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "example": "10.0.0.1"
+                                }
+                              }
+                            }
+                          },
+                          "workflowStatus": {
+                            "type": "string",
+                            "enum": [
+                              "DRAFT",
+                              "READY_FOR_VALIDATION",
+                              "APPROVED",
+                              "REJECTED",
+                              "DELETED"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "itemsPerPage",
+                    "totalItems",
+                    "member"
+                  ]
+                },
+                {
+                  "properties": {
+                    "member": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "name",
+                          "address"
+                        ],
+                        "properties": {
+                          "description": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "name": {
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
+                          },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "addressCountry": {
+                                "type": "string",
+                                "description": "The country code of the location.",
+                                "example": "BE"
+                              },
+                              "addressLocality": {
+                                "type": "string",
+                                "description": "The locality name of the location.",
+                                "example": "Leuven"
+                              },
+                              "postalCode": {
+                                "type": "string",
+                                "description": "The postalcode of the location.",
+                                "example": "3000"
+                              },
+                              "streetAddress": {
+                                "type": "string",
+                                "description": "The street name and number information of the location.",
+                                "example": "Sluisstraat 79"
+                              }
+                            },
+                            "required": [
+                              "addressCountry",
+                              "addressLocality",
+                              "postalCode",
+                              "streetAddress"
+                            ]
+                          },
+                          "geo": {
+                            "properties": {
+                              "latitude": {
+                                "type": "string",
+                                "description": "The latitude of the location.",
+                                "example": "40.75"
+                              },
+                              "longitude": {
+                                "type": "string",
+                                "description": "The longitude of the location.",
+                                "example": "73.98"
+                              }
+                            }
+                          },
+                          "bookingInfo": {
+                            "required": [
+                              "price",
+                              "priceCurrency",
+                              "description"
+                            ],
+                            "properties": {
+                              "priceCurrency": {
+                                "type": "string",
+                                "example": "EUR"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "No need to pay anything"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Free"
+                              },
+                              "price": {
+                                "type": "number",
+                                "format": "float",
+                                "example": 0
+                              }
+                            }
+                          },
+                          "priceInfo": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "category",
+                                "name",
+                                "price",
+                                "priceCurrency"
+                              ],
+                              "properties": {
+                                "category": {
+                                  "type": "string",
+                                  "enum": [
+                                    "base",
+                                    "tariff"
+                                  ]
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Senioren"
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "example": 10
+                                },
+                                "priceCurrency": {
+                                  "type": "string",
+                                  "example": "EUR"
+                                }
+                              }
+                            }
+                          },
+                          "terms": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "label",
+                                "domain",
+                                "id"
+                              ],
+                              "properties": {
+                                "label": {
+                                  "type": "string",
+                                  "example": "Cycling"
+                                },
+                                "domain": {
+                                  "type": "string",
+                                  "example": "activities"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "example": "10.0.0.1"
+                                }
+                              }
+                            }
+                          },
+                          "workflowStatus": {
+                            "type": "string",
+                            "enum": [
+                              "DRAFT",
+                              "READY_FOR_VALIDATION",
+                              "APPROVED",
+                              "REJECTED",
+                              "DELETED"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/places/{cdbid}": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "View the details of a specific place.",
+        "operationId": "getPlace",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A place detail.",
+            "schema": {
+              "required": [
+                "name",
+                "address"
+              ],
+              "properties": {
+                "name": {
+                  "required": [
+                    "nl"
+                  ],
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Nederlands"
+                    },
+                    "de": {
+                      "type": "string",
+                      "example": "Deutch"
+                    },
+                    "en": {
+                      "type": "string",
+                      "example": "English"
+                    },
+                    "fr": {
+                      "type": "string",
+                      "example": "Français"
+                    }
+                  }
+                },
+                "description": {
+                  "required": [
+                    "nl"
+                  ],
+                  "properties": {
+                    "nl": {
+                      "type": "string",
+                      "example": "Nederlands"
+                    },
+                    "de": {
+                      "type": "string",
+                      "example": "Deutch"
+                    },
+                    "en": {
+                      "type": "string",
+                      "example": "English"
+                    },
+                    "fr": {
+                      "type": "string",
+                      "example": "Français"
+                    }
+                  }
+                },
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "addressCountry": {
+                      "type": "string",
+                      "description": "The country code of the location.",
+                      "example": "BE"
+                    },
+                    "addressLocality": {
+                      "type": "string",
+                      "description": "The locality name of the location.",
+                      "example": "Leuven"
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "description": "The postalcode of the location.",
+                      "example": "3000"
+                    },
+                    "streetAddress": {
+                      "type": "string",
+                      "description": "The street name and number information of the location.",
+                      "example": "Sluisstraat 79"
+                    }
+                  },
+                  "required": [
+                    "addressCountry",
+                    "addressLocality",
+                    "postalCode",
+                    "streetAddress"
+                  ]
+                },
+                "geo": {
+                  "properties": {
+                    "latitude": {
+                      "type": "string",
+                      "description": "The latitude of the location.",
+                      "example": "40.75"
+                    },
+                    "longitude": {
+                      "type": "string",
+                      "description": "The longitude of the location.",
+                      "example": "73.98"
+                    }
+                  }
+                },
+                "bookingInfo": {
+                  "required": [
+                    "price",
+                    "priceCurrency",
+                    "description"
+                  ],
+                  "properties": {
+                    "priceCurrency": {
+                      "type": "string",
+                      "example": "EUR"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "No need to pay anything"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Free"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "example": 0
+                    }
+                  }
+                },
+                "priceInfo": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "category",
+                      "name",
+                      "price",
+                      "priceCurrency"
+                    ],
+                    "properties": {
+                      "category": {
+                        "type": "string",
+                        "enum": [
+                          "base",
+                          "tariff"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Senioren"
+                      },
+                      "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 10
+                      },
+                      "priceCurrency": {
+                        "type": "string",
+                        "example": "EUR"
+                      }
+                    }
+                  }
+                },
+                "terms": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "label",
+                      "domain",
+                      "id"
+                    ],
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "Cycling"
+                      },
+                      "domain": {
+                        "type": "string",
+                        "example": "activities"
+                      },
+                      "id": {
+                        "type": "string",
+                        "example": "10.0.0.1"
+                      }
+                    }
+                  }
+                },
+                "workflowStatus": {
+                  "type": "string",
+                  "enum": [
+                    "DRAFT",
+                    "READY_FOR_VALIDATION",
+                    "APPROVED",
+                    "REJECTED",
+                    "DELETED"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/bookingInfo": {
+      "put": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Update the place booking info.",
+        "operationId": "updatePlaceBookingInfo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the booking info for an offer.",
+            "required": true,
+            "schema": {
+              "required": [
+                "bookingInfo"
+              ],
+              "properties": {
+                "bookingInfo": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "format": "url",
+                      "example": "http://google.be"
+                    },
+                    "urlLabel": {
+                      "type": "string",
+                      "example": "Reserveer plaatsen"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "example": "joske@2dotstwice.be"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "0123456789"
+                    },
+                    "availabilityStarts": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T12:02:53+00:00"
+                    },
+                    "availabilityEnds": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T12:02:53+00:00"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/contactPoint": {
+      "put": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Update the place contact point.",
+        "operationId": "updatePlaceContactPoint",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the contact point for an offer.",
+            "required": true,
+            "schema": {
+              "properties": {
+                "contactPoint": {
+                  "type": "object",
+                  "required": [
+                    "url",
+                    "email",
+                    "phone"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "url",
+                        "example": "http://google.be"
+                      }
+                    },
+                    "email": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "joske@2dotstwice.be"
+                      }
+                    },
+                    "phone": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "phone",
+                        "example": "0123456789"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "contactPoint"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/facilities/": {
+      "put": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Update the facilities of a specific place.",
+        "operationId": "updatePlaceFacilities",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An array containing the facilities to attach to the place.",
+            "required": true,
+            "schema": {
+              "properties": {
+                "facilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "example": "Voorzieningen voor rolstoelgebruikers"
+                      },
+                      "id": {
+                        "type": "string",
+                        "example": "3.23.1.0.0"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "id"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/organizer/{organizerId}": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Organizer"
+        ],
+        "summary": "Set the organization for an offer.",
+        "operationId": "addOfferOrganization",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "organizerId",
+            "in": "path",
+            "description": "The unique identifier of an organization.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Offer",
+          "Organizer"
+        ],
+        "summary": "Remove the current organization from an offer.",
+        "operationId": "removeOfferOrganization",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "organizerId",
+            "in": "path",
+            "description": "The unique identifier of an organization.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/priceInfo": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Update the price info of an offer.",
+        "operationId": "updateOfferPriceInfo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An array containing price info objects for an offer.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "required": [
+                  "category",
+                  "name",
+                  "price"
+                ],
+                "properties": {
+                  "category": {
+                    "type": "string",
+                    "enum": [
+                      "base",
+                      "tariff"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Senioren"
+                  },
+                  "price": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 10
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/typicalAgeRange": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Set the typical age range of an offer.",
+        "operationId": "setOfferTypicalAgeRange",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The age range to set for an offer.",
+            "required": true,
+            "schema": {
+              "properties": {
+                "typicalAgeRange": {
+                  "type": "string",
+                  "example": "1-12"
+                }
+              },
+              "required": [
+                "typicalAgeRange"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Remove the typical age range from an offer.",
+        "operationId": "removeOfferTypicalAgeRange",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/{lang}/description": {
+      "put": {
+        "summary": "Translate the description of an offer.",
+        "description": "Authentication is required.",
+        "operationId": "translateOfferDescription",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The language of the translation.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "de",
+              "en"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the description in the given language for a given offer.",
+            "required": true,
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "example": "This is a description."
+                }
+              },
+              "required": [
+                "description"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Offer"
+        ]
+      }
+    },
+    "/places/{cdbid}/{lang}/name": {
+      "put": {
+        "summary": "Translate the title of an offer.",
+        "description": "Authentication is required.",
+        "operationId": "translateOfferTitle",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The language of the translation.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "de",
+              "en"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the name in the given language.",
+            "required": true,
+            "schema": {
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "An event title"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Offer"
+        ]
+      }
+    },
+    "/places/{cdbid}/images/": {
+      "post": {
+        "tags": [
+          "Offer",
+          "Media"
+        ],
+        "summary": "Add a MediaObject to an offer",
+        "description": "Authentication is required",
+        "operationId": "OfferAddImage",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The UUID of the image",
+            "required": true,
+            "schema": {
+              "properties": {
+                "mediaObjectId": {
+                  "type": "string",
+                  "example": "73695986-e4cf-4b29-8699-13d7cd77af8c"
+                }
+              },
+              "required": [
+                "mediaObjectId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/images/main": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Media"
+        ],
+        "summary": "Select the main image of an offer.",
+        "description": "Authentication is required",
+        "operationId": "SelectOfferMainImage",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The UUID of the image",
+            "required": true,
+            "schema": {
+              "properties": {
+                "mediaObjectId": {
+                  "type": "string",
+                  "example": "73695986-e4cf-4b29-8699-13d7cd77af8c"
+                }
+              },
+              "required": [
+                "mediaObjectId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/images/{mediaObjectId}": {
+      "delete": {
+        "tags": [
+          "Offer",
+          "Media"
+        ],
+        "summary": "Remove an image from an offer.",
+        "description": "Authentication is required",
+        "operationId": "RemoveOfferImage",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "mediaObjectId",
+            "in": "path",
+            "description": "The universally unique identifier of an image.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Offer",
+          "Media"
+        ],
+        "summary": "Update the info of an image.",
+        "description": "Authentication is required.",
+        "operationId": "updateOfferImage",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "mediaObjectId",
+            "in": "path",
+            "description": "The universally unique identifier of an image.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the image information that has to be changed.",
+            "required": true,
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "A description of the image."
+                },
+                "copyrightHolder": {
+                  "type": "string",
+                  "example": "Dirk Dirkington",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": [
+                "description",
+                "copyrightHolder"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbid}/permissions/": {
+      "get": {
+        "summary": "A list of permissions the current user has to an offer.",
+        "operationId": "getOfferPermissions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Offer"
+        ]
+      }
+    },
+    "/places/{cdbid}/permissions/{userId}": {
+      "get": {
+        "summary": "A list of permissions the current user has to an offer.",
+        "operationId": "getOfferPermissionsPerUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of a user.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Aanbod bewerken",
+                    "Aanbod modereren",
+                    "Aanbod verwijderen"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Offer"
         ]
       }
     },

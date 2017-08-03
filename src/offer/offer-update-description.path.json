@@ -1,8 +1,8 @@
 {
   "put": {
-    "summary": "Translate the description of a cultural event.",
+    "summary": "Translate the description of an offer.",
     "description": "Authentication is required.",
-    "operationId": "translateEventDescription",
+    "operationId": "translateOfferDescription",
     "produces": [
       "application/json"
     ],
@@ -21,7 +21,7 @@
       "$ref": "command-responses.json"
     },
     "tags": [
-      "Event"
+      "Offer"
     ]
   }
 }

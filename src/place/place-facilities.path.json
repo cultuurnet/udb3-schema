@@ -1,12 +1,10 @@
 {
-  "delete": {
+  "put": {
     "tags": [
-      "Event",
-      "Label"
+      "Place"
     ],
-    "summary": "Remove a label from a cultural event.",
-    "description": "Authentication is required.",
-    "operationId": "removeLabelFromEvent",
+    "summary": "Update the facilities of a specific place.",
+    "operationId": "updatePlaceFacilities",
     "produces": [
       "application/json"
     ],
@@ -15,7 +13,7 @@
         "$ref": "../offer/parameters/cdb-id.parameter.json"
       },
       {
-        "$ref": "../offer/parameters/label.parameter.json"
+        "$ref": "parameters/facilities.parameter.json"
       }
     ],
     "responses": {

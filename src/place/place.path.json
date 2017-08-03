@@ -1,0 +1,55 @@
+{
+  "post": {
+    "tags": [
+      "Place"
+    ],
+    "summary": "Create a new place.",
+    "operationId": "createPlace",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/place-body.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Details of the created event.",
+        "schema": {
+          "$ref": "place.response.json"
+        }
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      }
+    }
+  },
+  "get": {
+    "tags": [
+      "Place"
+    ],
+    "summary": "List places.",
+    "description": "",
+    "operationId": "listPlaces",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/postal-code.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A list of places matching the supplied criteria.",
+        "schema": {
+          "$ref": "places-list.response.json"
+        }
+      }
+    }
+  }
+}

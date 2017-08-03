@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An array containing the facilities to attach to the place.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/facilities-array.definition.json"
+  }
+}
