@@ -2226,7 +2226,7 @@
             "description": "Access is not allowed for the provided authorization."
           },
           "404": {
-            "description": "Offer not found."
+            "description": "Image not found."
           }
         }
       }
