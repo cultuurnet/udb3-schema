@@ -1557,14 +1557,14 @@
         }
       }
     },
-    "/events/{cdbid}/organizer": {
+    "/events/{cdbid}/organizer/{organizerId}": {
       "put": {
         "tags": [
-          "Event",
+          "Offer",
           "Organizer"
         ],
-        "summary": "Add an organizer to an event.",
-        "operationId": "addEventOrganizer",
+        "summary": "Set the organization for an offer.",
+        "operationId": "addOfferOrganization",
         "produces": [
           "application/json"
         ],
@@ -1578,22 +1578,12 @@
             "format": "uuid"
           },
           {
-            "name": "body",
-            "in": "body",
-            "description": "The UUID of the organizer to add",
+            "name": "organizerId",
+            "in": "path",
+            "description": "The unique identifier of an organization.",
             "required": true,
-            "schema": {
-              "properties": {
-                "organizer": {
-                  "type": "string",
-                  "format": "uuid",
-                  "example": "3aad5023-84e2-4ba9-b1ce-201cee64504c"
-                }
-              },
-              "required": [
-                "organizer"
-              ]
-            }
+            "type": "string",
+            "format": "uuid"
           }
         ],
         "responses": {
@@ -1651,16 +1641,14 @@
             "description": "Offer not found."
           }
         }
-      }
-    },
-    "/events/{cdbid}/organizer/{organizerId}": {
+      },
       "delete": {
         "tags": [
-          "Event",
+          "Offer",
           "Organizer"
         ],
-        "summary": "Remove the current organisation from an event.",
-        "operationId": "removeEventOrganizer",
+        "summary": "Remove the current organization from an offer.",
+        "operationId": "removeOfferOrganization",
         "produces": [
           "application/json"
         ],
@@ -1676,7 +1664,7 @@
           {
             "name": "organizerId",
             "in": "path",
-            "description": "The unique identifier of an organizer.",
+            "description": "The unique identifier of an organization.",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -4205,13 +4193,13 @@
       }
     },
     "/places/{cdbid}/organizer/{organizerId}": {
-      "delete": {
+      "put": {
         "tags": [
-          "Place",
+          "Offer",
           "Organizer"
         ],
-        "summary": "Remove the current organisation from a place.",
-        "operationId": "removePlaceOrganizer",
+        "summary": "Set the organization for an offer.",
+        "operationId": "addOfferOrganization",
         "produces": [
           "application/json"
         ],
@@ -4227,7 +4215,91 @@
           {
             "name": "organizerId",
             "in": "path",
-            "description": "The unique identifier of an organizer.",
+            "description": "The unique identifier of an organization.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Offer",
+          "Organizer"
+        ],
+        "summary": "Remove the current organization from an offer.",
+        "operationId": "removeOfferOrganization",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "organizerId",
+            "in": "path",
+            "description": "The unique identifier of an organization.",
             "required": true,
             "type": "string",
             "format": "uuid"

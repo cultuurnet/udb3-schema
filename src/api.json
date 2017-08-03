@@ -76,11 +76,8 @@
         "/events/{cdbid}/labels/{label}": {
             "$ref": "offer/offer-manage-labels.path.json"
         },
-        "/events/{cdbid}/organizer": {
-            "$ref": "event/event-update-organizer.path.json"
-        },
         "/events/{cdbid}/organizer/{organizerId}": {
-            "$ref": "event/event-delete-organizer.path.json"
+            "$ref": "offer/offer-organization.path.json"
         },
         "/events/{cdbid}/priceInfo": {
             "$ref": "offer/offer-update-price-info.path.json"
@@ -128,7 +125,7 @@
             "$ref": "place/place-facilities.path.json"
         },
         "/places/{cdbid}/organizer/{organizerId}": {
-            "$ref": "place/place-delete-organizer.path.json"
+            "$ref": "offer/offer-organization.path.json"
         },
         "/places/{cdbid}/priceInfo": {
             "$ref": "offer/offer-update-price-info.path.json"
