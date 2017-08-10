@@ -106,6 +106,9 @@
         "/events/{cdbid}/permissions/{userId}": {
             "$ref": "offer/offer-user-permissions.path.json"
         },
+        "/images/{id}": {
+            "$ref": "image/image-detail.path.json"
+        },
         "/places/{cdbid}/labels/{label}": {
             "$ref": "offer/offer-manage-labels.path.json"
         },

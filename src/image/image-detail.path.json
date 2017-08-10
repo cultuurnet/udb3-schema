@@ -1,26 +1,22 @@
 {
-  "post": {
-    "tags": [
-      "Offer",
-      "Media"
-    ],
-    "summary": "Add a MediaObject to an offer",
+  "get": {
+    "summary": "View the details of a specific image.",
     "description": "Authentication is required",
-    "operationId": "OfferAddImage",
+    "operationId": "getImage",
     "produces": [
       "application/ld+json"
     ],
     "parameters": [
       {
-        "$ref": "parameters/cdb-id.parameter.json"
-      },
-      {
-        "$ref": "parameters/image.parameter.json"
+        "$ref": "parameters/image-id.parameter.json"
       }
     ],
     "responses": {
-      "202": {
-        "$ref": "../command/command-queued.response.json"
+      "200": {
+        "description": "An media object detail.",
+        "schema": {
+          "$ref": "image-detail.response.json"
+        }
       },
       "400": {
         "$ref": "../validation/api-problem.response.json"
@@ -32,8 +28,11 @@
         "$ref": "../authorization/forbidden.response.json"
       },
       "404": {
-        "$ref": "unknown-image.response.json"
+        "$ref": "../offer/unknown-offer.response.json"
       }
-    }
+    },
+    "tags": [
+      "Media"
+    ]
   }
 }
