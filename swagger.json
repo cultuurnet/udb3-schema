@@ -2770,6 +2770,99 @@
         ]
       }
     },
+    "/images/{id}": {
+      "get": {
+        "summary": "View the details of a specific image.",
+        "description": "Authentication is required",
+        "operationId": "getImage",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The universally unique identifier of the media object.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An media object detail.",
+            "schema": {
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/images/04C47992-B01E-4EE4-96ED-289F22638324"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "schema:MediaObject"
+                },
+                "contentUrl": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
+                },
+                "thumbnailUrl": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Allemaal Roze konijnen"
+                },
+                "copyrightHolder": {
+                  "type": "string",
+                  "example": "Toto het roze konijn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Media"
+        ]
+      }
+    },
     "/places/{cdbid}/labels/{label}": {
       "put": {
         "tags": [
@@ -4858,6 +4951,134 @@
         ]
       }
     },
+    "/places/{cdbid}/address/{lang}": {
+      "put": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Update the address of a place in a specific language.",
+        "operationId": "updatePlaceAddress",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbid",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The unique ISO 639-1 2 character language code.",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "en",
+              "du"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the address info of a place.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressCountry": {
+                  "type": "string",
+                  "description": "The country code of the location.",
+                  "example": "BE"
+                },
+                "addressLocality": {
+                  "type": "string",
+                  "description": "The locality name of the location.",
+                  "example": "Leuven"
+                },
+                "postalCode": {
+                  "type": "string",
+                  "description": "The postalcode of the location.",
+                  "example": "3000"
+                },
+                "streetAddress": {
+                  "type": "string",
+                  "description": "The street name and number information of the location.",
+                  "example": "Sluisstraat 79"
+                }
+              },
+              "required": [
+                "addressCountry",
+                "addressLocality",
+                "postalCode",
+                "streetAddress"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
     "/places/{cdbid}/images/": {
       "post": {
         "tags": [
@@ -4949,7 +5170,7 @@
             "description": "Access is not allowed for the provided authorization."
           },
           "404": {
-            "description": "Offer not found."
+            "description": "Image not found."
           }
         }
       }
@@ -5402,99 +5623,6 @@
         },
         "tags": [
           "Offer"
-        ]
-      }
-    },
-    "/images/{id}": {
-      "get": {
-        "summary": "View the details of a specific image.",
-        "description": "Authentication is required",
-        "operationId": "getImage",
-        "produces": [
-          "application/ld+json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The universally unique identifier of the media object.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An media object detail.",
-            "schema": {
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "example": "http://udb-silex.dev/images/04C47992-B01E-4EE4-96ED-289F22638324"
-                },
-                "@type": {
-                  "type": "string",
-                  "example": "schema:MediaObject"
-                },
-                "contentUrl": {
-                  "type": "string",
-                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
-                },
-                "thumbnailUrl": {
-                  "type": "string",
-                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Allemaal Roze konijnen"
-                },
-                "copyrightHolder": {
-                  "type": "string",
-                  "example": "Toto het roze konijn"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "An API specific problem occurred.",
-            "schema": {
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "format": "url"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "integer"
-                },
-                "validation_messages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "title",
-                "type",
-                "status"
-              ]
-            }
-          },
-          "401": {
-            "description": "Authentication with UiTID and a valid JWT is required."
-          },
-          "403": {
-            "description": "Access is not allowed for the provided authorization."
-          },
-          "404": {
-            "description": "Offer not found."
-          }
-        },
-        "tags": [
-          "Media"
         ]
       }
     }
