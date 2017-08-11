@@ -2770,6 +2770,99 @@
         ]
       }
     },
+    "/images/{id}": {
+      "get": {
+        "summary": "View the details of a specific image.",
+        "description": "Authentication is required",
+        "operationId": "getImage",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The universally unique identifier of the media object.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An media object detail.",
+            "schema": {
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/images/04C47992-B01E-4EE4-96ED-289F22638324"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "schema:MediaObject"
+                },
+                "contentUrl": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
+                },
+                "thumbnailUrl": {
+                  "type": "string",
+                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Allemaal Roze konijnen"
+                },
+                "copyrightHolder": {
+                  "type": "string",
+                  "example": "Toto het roze konijn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        },
+        "tags": [
+          "Media"
+        ]
+      }
+    },
     "/places/{cdbid}/labels/{label}": {
       "put": {
         "tags": [
@@ -4114,21 +4207,8 @@
                 "facilities": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "type": "string",
-                        "example": "Voorzieningen voor rolstoelgebruikers"
-                      },
-                      "id": {
-                        "type": "string",
-                        "example": "3.23.1.0.0"
-                      }
-                    },
-                    "required": [
-                      "label",
-                      "id"
-                    ]
+                    "type": "string",
+                    "example": "3.23.1.0.0"
                   }
                 }
               }
@@ -4949,7 +5029,7 @@
             "description": "Access is not allowed for the provided authorization."
           },
           "404": {
-            "description": "Offer not found."
+            "description": "Image not found."
           }
         }
       }
@@ -5402,99 +5482,6 @@
         },
         "tags": [
           "Offer"
-        ]
-      }
-    },
-    "/images/{id}": {
-      "get": {
-        "summary": "View the details of a specific image.",
-        "description": "Authentication is required",
-        "operationId": "getImage",
-        "produces": [
-          "application/ld+json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The universally unique identifier of the media object.",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An media object detail.",
-            "schema": {
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "example": "http://udb-silex.dev/images/04C47992-B01E-4EE4-96ED-289F22638324"
-                },
-                "@type": {
-                  "type": "string",
-                  "example": "schema:MediaObject"
-                },
-                "contentUrl": {
-                  "type": "string",
-                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
-                },
-                "thumbnailUrl": {
-                  "type": "string",
-                  "example": "http://udb-silex.dev/media/de305d54-75b4-431b-adb2-eb6b9e546014.png"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Allemaal Roze konijnen"
-                },
-                "copyrightHolder": {
-                  "type": "string",
-                  "example": "Toto het roze konijn"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "An API specific problem occurred.",
-            "schema": {
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "format": "url"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "integer"
-                },
-                "validation_messages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "title",
-                "type",
-                "status"
-              ]
-            }
-          },
-          "401": {
-            "description": "Authentication with UiTID and a valid JWT is required."
-          },
-          "403": {
-            "description": "Access is not allowed for the provided authorization."
-          },
-          "404": {
-            "description": "Offer not found."
-          }
-        },
-        "tags": [
-          "Media"
         ]
       }
     }
