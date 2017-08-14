@@ -3,7 +3,8 @@
     "facilities": {
       "type": "array",
       "items": {
-        "$ref": "facility.definition.json"
+        "type": "string",
+        "example": "3.23.1.0.0"
       }
     }
   }

@@ -4207,21 +4207,8 @@
                 "facilities": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "type": "string",
-                        "example": "Voorzieningen voor rolstoelgebruikers"
-                      },
-                      "id": {
-                        "type": "string",
-                        "example": "3.23.1.0.0"
-                      }
-                    },
-                    "required": [
-                      "label",
-                      "id"
-                    ]
+                    "type": "string",
+                    "example": "3.23.1.0.0"
                   }
                 }
               }
