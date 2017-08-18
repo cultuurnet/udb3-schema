@@ -405,24 +405,27 @@
                     "type": "object",
                     "properties": {
                       "dayOfWeek": {
-                        "type": "string",
-                        "enum": [
-                          "maandag",
-                          "dinsdag",
-                          "woensdag",
-                          "donderdag",
-                          "vrijdag",
-                          "zaterdag",
-                          "zondag"
-                        ]
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
                       },
                       "opens": {
                         "type": "string",
-                        "example": "04:20"
+                        "example": "08:00"
                       },
                       "closes": {
                         "type": "string",
-                        "example": "06:66"
+                        "example": "18:00"
                       }
                     }
                   }
@@ -883,24 +886,27 @@
                     "type": "object",
                     "properties": {
                       "dayOfWeek": {
-                        "type": "string",
-                        "enum": [
-                          "maandag",
-                          "dinsdag",
-                          "woensdag",
-                          "donderdag",
-                          "vrijdag",
-                          "zaterdag",
-                          "zondag"
-                        ]
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
                       },
                       "opens": {
                         "type": "string",
-                        "example": "04:20"
+                        "example": "08:00"
                       },
                       "closes": {
                         "type": "string",
-                        "example": "06:66"
+                        "example": "18:00"
                       }
                     }
                   }
