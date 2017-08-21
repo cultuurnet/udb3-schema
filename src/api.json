@@ -43,7 +43,7 @@
         "/user": {
             "$ref": "user/user.path.json"
         },
-        "/events/{cdbId}/{lang}/name": {
+        "/events/{cdbId}/name/{lang}": {
             "$ref": "offer/name.path.json"
         },
         "/events/{cdbId}/theme/{themeId}": {
@@ -58,7 +58,7 @@
         "/events/{cdbId}/location/{locationId}": {
             "$ref": "event/location.path.json"
         },
-        "/places/{cdbId}/{lang}/name": {
+        "/places/{cdbId}/name/{lang}": {
             "$ref": "offer/name.path.json"
         },
         "/places/{cdbId}/theme/{themeId}": {

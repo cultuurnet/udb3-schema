@@ -79,7 +79,7 @@
         }
       }
     },
-    "/events/{cdbId}/{lang}/name": {
+    "/events/{cdbId}/name/{lang}": {
       "put": {
         "tags": [
           "Offer"
@@ -578,7 +578,7 @@
         }
       }
     },
-    "/places/{cdbId}/{lang}/name": {
+    "/places/{cdbId}/name/{lang}": {
       "put": {
         "tags": [
           "Offer"
