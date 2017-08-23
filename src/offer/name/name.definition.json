@@ -1,7 +1,7 @@
 {
     "type": "object",
     "properties": {
-        "nl": {
+        "name": {
             "type": "string",
             "example": "De Sage van de Eenhoorn"
         }

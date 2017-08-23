@@ -84,7 +84,7 @@
         "tags": [
           "Offer"
         ],
-        "summary": "Update the name of an offer.",
+        "summary": "Update the name of an offer in a given language.",
         "description": "Authentication is required.",
         "operationId": "OfferRestBaseController:updateName",
         "produces": [
@@ -112,6 +112,21 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the name in the given language.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "De Sage van de Eenhoorn"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -583,7 +598,7 @@
         "tags": [
           "Offer"
         ],
-        "summary": "Update the name of an offer.",
+        "summary": "Update the name of an offer in a given language.",
         "description": "Authentication is required.",
         "operationId": "OfferRestBaseController:updateName",
         "produces": [
@@ -611,6 +626,21 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the name in the given language.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "De Sage van de Eenhoorn"
+                }
+              }
+            }
           }
         ],
         "responses": {

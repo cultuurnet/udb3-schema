@@ -3,7 +3,7 @@
         "tags": [
             "Offer"
         ],
-        "summary": "Update the name of an offer.",
+        "summary": "Update the name of an offer in a given language.",
         "description": "Authentication is required.",
         "operationId": "OfferRestBaseController:updateName",
         "produces": [
@@ -11,14 +11,17 @@
         ],
         "parameters": [
             { 
-                "$ref": "../lang.parameter.json"
+                "$ref": "../../lang.parameter.json"
             },
             {
-                "$ref": "cdb-id.parameter.json"
+                "$ref": "../cdb-id.parameter.json"
+            },
+            {
+                "$ref": "name.parameter.json"
             }
         ],
         "responses": {
-             "$ref": "command-responses.json"
+             "$ref": "../command-responses.json"
         }
     }
 }
