@@ -10,7 +10,7 @@
         },
         "version": "3.0.0"
     },
-    "host": "io.uitdatabank.be",
+    "host": "udb-silex.dev",
     "basePath": "/",
     "schemes": [
         "http"
