@@ -3229,7 +3229,7 @@
                   "type": "string",
                   "format": "url",
                   "description": "The URL of the place.",
-                  "example": "http://culudb-silex.dev:8080/place/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                  "example": "http://udb-backend.local/place/0823f57e-a6bd-450a-b4f5-8459b4b11043"
                 }
               }
             }
