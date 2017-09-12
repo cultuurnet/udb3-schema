@@ -9,7 +9,7 @@
         "url": {
           "type": "string",
           "format": "url",
-          "example": "http://google.be"
+          "example": "https://www.domain.be/reservations/eventname"
         },
         "urlLabel": {
           "type": "string",
@@ -18,7 +18,7 @@
         "email": {
           "type": "string",
           "format": "email",
-          "example": "joske@2dotstwice.be"
+          "example": "user@example.com"
         },
         "phone": {
           "type": "string",
