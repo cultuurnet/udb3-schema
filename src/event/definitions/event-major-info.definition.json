@@ -20,9 +20,6 @@
     "calendarType": {
       "$ref": "calender-type.definition.json"
     },
-    "openingHours": {
-      "$ref": "opening-hours.definition.json"
-    },
     "timestamps": {
       "type": "array",
       "items": {

@@ -20,10 +20,10 @@
       "$ref": "address.definition.json"
     },
     "calendarType": {
-      "$ref": "../../event/definitions/calender-type.definition.json"
+      "$ref": "../../place/definitions/calender-type.definition.json"
     },
     "openingHours": {
-      "$ref": "../../event/definitions/opening-hours.definition.json"
+      "$ref": "../../place/definitions/opening-hours.definition.json"
     }
   }
 }
