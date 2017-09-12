@@ -13,9 +13,6 @@
     "type": {
       "$ref": "../../place/definitions/type.definition.json"
     },
-    "location": {
-      "$ref": "../../offer/definitions/location.definition.json"
-    },
     "address": {
       "$ref": "address.definition.json"
     },
