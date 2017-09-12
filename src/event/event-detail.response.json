@@ -11,7 +11,7 @@
   "properties": {
     "@id": {
       "type": "string",
-      "example": "http://culudb-silex.dev:8080/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+      "example": "http://udb-backend.local/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
     },
     "name": {
       "$ref": "../offer/definitions/translatable-string.definition.json"
@@ -60,7 +60,7 @@
     },
     "creator": {
       "type": "string",
-      "example": "evenementen@stad.diksmuide.be"
+      "example": "user@example.com"
     },
     "created": {
       "type": "string",
@@ -92,13 +92,7 @@
     },
     "typicalAgeRange": {
       "type": "string",
-      "example": "+18"
-    },
-    "performer": {
-      "type": "array",
-      "items": {
-        "$ref": "definitions/performer.definition.json"
-      }
+      "example": "14-18"
     },
     "sameAs": {
       "type": "array",

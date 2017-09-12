@@ -392,7 +392,7 @@
                   "type": "string",
                   "format": "url",
                   "description": "The URL of the cultural event.",
-                  "example": "http://udb-silex.dev/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                  "example": "http://udb-backend.local/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
                 }
               }
             }
@@ -467,7 +467,7 @@
               "properties": {
                 "@id": {
                   "type": "string",
-                  "example": "http://culudb-silex.dev:8080/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+                  "example": "http://udb-backend.local/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
                 },
                 "name": {
                   "required": [
@@ -924,7 +924,7 @@
                 },
                 "creator": {
                   "type": "string",
-                  "example": "evenementen@stad.diksmuide.be"
+                  "example": "user@example.com"
                 },
                 "created": {
                   "type": "string",
@@ -962,22 +962,7 @@
                 },
                 "typicalAgeRange": {
                   "type": "string",
-                  "example": "+18"
-                },
-                "performer": {
-                  "type": "array",
-                  "items": {
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the performer.",
-                        "example": "Sindicato Sonico"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ]
-                  }
+                  "example": "14-18"
                 },
                 "sameAs": {
                   "type": "array",

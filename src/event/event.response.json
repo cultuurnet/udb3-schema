@@ -14,7 +14,7 @@
             "type": "string",
             "format": "url",
             "description": "The URL of the cultural event.",
-            "example": "http://udb-silex.dev/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+            "example": "http://udb-backend.local/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
         }
     },
 }
