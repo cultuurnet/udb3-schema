@@ -25,7 +25,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "example": "http://udb-silex.dev/event/7616a359-b95c-48c0-9981-502732b8d957"
+            "example": "http://udb-backend.local/event/7616a359-b95c-48c0-9981-502732b8d957"
           },
           "type": {
             "type": "string",
@@ -36,15 +36,15 @@
     },
     "firstPage": {
       "type": "string",
-      "example": "http://udb-silex.dev/dashboard/items?page=1"
+      "example": "http://udb-backend.local/user/offers?page=1"
     },
     "lastPage": {
       "type": "string",
-      "example": "http://udb-silex.dev/dashboard/items?page=29"
+      "example": "http://udb-backend.local/user/offers?page=29"
     },
     "nextPage": {
       "type": "string",
-      "example": "http://udb-silex.dev/dashboard/items?page=2"
+      "example": "http://udb-backend.local/user/offers?page=2"
     }
   },
   "required": [
