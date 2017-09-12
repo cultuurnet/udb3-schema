@@ -385,11 +385,11 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "1.2.1.0.0"
+                      "example": "1.8.2.0.0"
                     },
                     "label": {
                       "type": "string",
-                      "example": "Architectuur"
+                      "example": "Jazz en blues"
                     },
                     "domain": {
                       "type": "string",
@@ -3073,11 +3073,11 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "0.50.4.0.0"
+                      "example": "0.14.0.0.0"
                     },
                     "label": {
                       "type": "string",
-                      "example": "Concert"
+                      "example": "Monument"
                     },
                     "domain": {
                       "type": "string",

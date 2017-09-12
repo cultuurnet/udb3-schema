@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "description": "One of the available themes from http://taxonomy.uitdatabank.be/api/domain/theme/classification",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "1.8.2.0.0"
+    },
+    "label": {
+      "type": "string",
+      "example": "Jazz en blues"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "thema"
+      ],
+      "description": "This is hardcoded to 'thema' in the current application. It is passed to the API and then overwritten."
+    }
+  }
+}

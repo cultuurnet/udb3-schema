@@ -12,7 +12,7 @@
       "$ref": "../../offer/definitions/name.definition.json"
     },
     "type": {
-      "$ref": "../../offer/definitions/type.definition.json"
+      "$ref": "../../event/definitions/type.definition.json"
     },
     "location": {
       "$ref": "../../offer/definitions/location.definition.json"
@@ -47,7 +47,7 @@
       "$ref": "date-time.definition.json"
     },
     "theme": {
-      "$ref": "../../offer/definitions/theme.definition.json"
+      "$ref": "../../event/definitions/theme.definition.json"
     }
   }
 }

@@ -11,7 +11,7 @@
       "$ref": "../../offer/definitions/name.definition.json"
     },
     "type": {
-      "$ref": "../../offer/definitions/type.definition.json"
+      "$ref": "../../place/definitions/type.definition.json"
     },
     "location": {
       "$ref": "../../offer/definitions/location.definition.json"
