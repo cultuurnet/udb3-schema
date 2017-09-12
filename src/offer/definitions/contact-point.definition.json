@@ -19,7 +19,7 @@
       "items": {
         "type": "string",
         "format": "email",
-        "example": "joske@2dotstwice.be"
+        "example": "user@example.com"
       }
     },
     "phone": {
