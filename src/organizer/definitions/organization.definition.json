@@ -15,17 +15,17 @@
     },
     "creator": {
       "type": "string",
-      "example": "evenementen@stad.diksmuide.be"
+      "example": "user@example.com"
     },
     "created": {
       "type": "string",
       "format": "date-time",
-      "example": "2015-05-07T12:02:53+00:00"
+      "example": "2015-04-07T14:30:00+00:00"
     },
     "modified": {
       "type": "string",
       "format": "date-time",
-      "example": "2015-05-07T12:02:53+00:00"
+      "example": "2015-04-07T16:33:27+00:00"
     },
     "url": {
       "type": "string",
