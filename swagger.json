@@ -360,11 +360,11 @@
                       },
                       "startHour": {
                         "type": "string",
-                        "example": "04:20"
+                        "example": "14:30"
                       },
                       "endHour": {
                         "type": "string",
-                        "example": "04:20"
+                        "example": "14:30"
                       }
                     }
                   }
@@ -372,12 +372,12 @@
                 "startDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T12:30:00+00:00"
                 },
                 "endDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T12:30:00+00:00"
                 },
                 "theme": {
                   "type": "object",
@@ -549,7 +549,7 @@
                 "available": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T12:30:00+00:00"
                 },
                 "image": {
                   "type": "string",
@@ -965,7 +965,7 @@
                 "modified": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T12:30:00+00:00"
                 },
                 "publisher": {
                   "type": "string",
@@ -974,12 +974,12 @@
                 "endDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T12:30:00+00:00"
                 },
                 "startDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T12:30:00+00:00"
                 },
                 "calendarType": {
                   "type": "string",
@@ -1193,12 +1193,12 @@
                     "availabilityStarts": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:02:53+00:00"
+                      "example": "2015-05-07T12:30:00+00:00"
                     },
                     "availabilityEnds": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:02:53+00:00"
+                      "example": "2015-05-07T12:30:00+00:00"
                     }
                   }
                 }
@@ -3984,12 +3984,12 @@
                     "availabilityStarts": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:02:53+00:00"
+                      "example": "2015-05-07T12:30:00+00:00"
                     },
                     "availabilityEnds": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:02:53+00:00"
+                      "example": "2015-05-07T12:30:00+00:00"
                     }
                   }
                 }
