@@ -9,7 +9,7 @@
     },
     "de": {
       "type": "string",
-      "example": "Deutch"
+      "example": "Deutsch"
     },
     "en": {
       "type": "string",

@@ -511,7 +511,7 @@
                     },
                     "de": {
                       "type": "string",
-                      "example": "Deutch"
+                      "example": "Deutsch"
                     },
                     "en": {
                       "type": "string",
@@ -534,7 +534,7 @@
                     },
                     "de": {
                       "type": "string",
-                      "example": "Deutch"
+                      "example": "Deutsch"
                     },
                     "en": {
                       "type": "string",
@@ -583,7 +583,7 @@
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutch"
+                          "example": "Deutsch"
                         },
                         "en": {
                           "type": "string",
@@ -606,7 +606,7 @@
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutch"
+                          "example": "Deutsch"
                         },
                         "en": {
                           "type": "string",
@@ -3321,7 +3321,7 @@
                               },
                               "de": {
                                 "type": "string",
-                                "example": "Deutch"
+                                "example": "Deutsch"
                               },
                               "en": {
                                 "type": "string",
@@ -3344,7 +3344,7 @@
                               },
                               "de": {
                                 "type": "string",
-                                "example": "Deutch"
+                                "example": "Deutsch"
                               },
                               "en": {
                                 "type": "string",
@@ -3525,7 +3525,7 @@
                               },
                               "de": {
                                 "type": "string",
-                                "example": "Deutch"
+                                "example": "Deutsch"
                               },
                               "en": {
                                 "type": "string",
@@ -3548,7 +3548,7 @@
                               },
                               "de": {
                                 "type": "string",
-                                "example": "Deutch"
+                                "example": "Deutsch"
                               },
                               "en": {
                                 "type": "string",
@@ -3749,7 +3749,7 @@
                     },
                     "de": {
                       "type": "string",
-                      "example": "Deutch"
+                      "example": "Deutsch"
                     },
                     "en": {
                       "type": "string",
@@ -3772,7 +3772,7 @@
                     },
                     "de": {
                       "type": "string",
-                      "example": "Deutch"
+                      "example": "Deutsch"
                     },
                     "en": {
                       "type": "string",
