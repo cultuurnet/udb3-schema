@@ -9,17 +9,17 @@
     "addressLocality": {
       "type": "string",
       "description": "The locality name of the location.",
-      "example": "Leuven"
+      "example": "Scherpenheuvel-Zichem"
     },
     "postalCode": {
       "type": "string",
       "description": "The postalcode of the location.",
-      "example": "3000"
+      "example": "3271"
     },
     "streetAddress": {
       "type": "string",
       "description": "The street name and number information of the location.",
-      "example": "Sluisstraat 79"
+      "example": "Hoornblaas 107"
     }
   },
   "required": [

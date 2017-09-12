@@ -1,14 +1,14 @@
 {
   "type": "object",
-  "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+  "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification (for both events and places)",
   "properties": {
     "id": {
       "type": "string",
-      "example": "0.14.0.0.0"
+      "example": "ekdc4ATGoUitCa0e6me6xA"
     },
     "label": {
       "type": "string",
-      "example": "Monument"
+      "example": "Horeca"
     },
     "domain": {
       "type": "string",

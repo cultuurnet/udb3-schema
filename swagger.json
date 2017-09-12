@@ -272,7 +272,7 @@
                     "name": {
                       "type": "string",
                       "description": "The name of the location.",
-                      "example": "Versuz"
+                      "example": "Café Den Hemel"
                     },
                     "address": {
                       "type": "object",
@@ -285,17 +285,17 @@
                         "addressLocality": {
                           "type": "string",
                           "description": "The locality name of the location.",
-                          "example": "Leuven"
+                          "example": "Scherpenheuvel-Zichem"
                         },
                         "postalCode": {
                           "type": "string",
                           "description": "The postalcode of the location.",
-                          "example": "3000"
+                          "example": "3271"
                         },
                         "streetAddress": {
                           "type": "string",
                           "description": "The street name and number information of the location.",
-                          "example": "Sluisstraat 79"
+                          "example": "Hoornblaas 107"
                         }
                       },
                       "required": [
@@ -598,17 +598,17 @@
                         "addressLocality": {
                           "type": "string",
                           "description": "The locality name of the location.",
-                          "example": "Leuven"
+                          "example": "Scherpenheuvel-Zichem"
                         },
                         "postalCode": {
                           "type": "string",
                           "description": "The postalcode of the location.",
-                          "example": "3000"
+                          "example": "3271"
                         },
                         "streetAddress": {
                           "type": "string",
                           "description": "The street name and number information of the location.",
-                          "example": "Sluisstraat 79"
+                          "example": "Hoornblaas 107"
                         }
                       },
                       "required": [
@@ -747,17 +747,17 @@
                         "addressLocality": {
                           "type": "string",
                           "description": "The locality name of the location.",
-                          "example": "Leuven"
+                          "example": "Scherpenheuvel-Zichem"
                         },
                         "postalCode": {
                           "type": "string",
                           "description": "The postalcode of the location.",
-                          "example": "3000"
+                          "example": "3271"
                         },
                         "streetAddress": {
                           "type": "string",
                           "description": "The street name and number information of the location.",
-                          "example": "Sluisstraat 79"
+                          "example": "Hoornblaas 107"
                         }
                       },
                       "required": [
@@ -3038,15 +3038,15 @@
                 },
                 "type": {
                   "type": "object",
-                  "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+                  "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification (for both events and places)",
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "0.14.0.0.0"
+                      "example": "ekdc4ATGoUitCa0e6me6xA"
                     },
                     "label": {
                       "type": "string",
-                      "example": "Monument"
+                      "example": "Horeca"
                     },
                     "domain": {
                       "type": "string",
@@ -3068,7 +3068,7 @@
                     "name": {
                       "type": "string",
                       "description": "The name of the location.",
-                      "example": "Versuz"
+                      "example": "Café Den Hemel"
                     },
                     "address": {
                       "type": "object",
@@ -3081,17 +3081,17 @@
                         "addressLocality": {
                           "type": "string",
                           "description": "The locality name of the location.",
-                          "example": "Leuven"
+                          "example": "Scherpenheuvel-Zichem"
                         },
                         "postalCode": {
                           "type": "string",
                           "description": "The postalcode of the location.",
-                          "example": "3000"
+                          "example": "3271"
                         },
                         "streetAddress": {
                           "type": "string",
                           "description": "The street name and number information of the location.",
-                          "example": "Sluisstraat 79"
+                          "example": "Hoornblaas 107"
                         }
                       },
                       "required": [
@@ -3114,17 +3114,17 @@
                     "addressLocality": {
                       "type": "string",
                       "description": "The locality name of the location.",
-                      "example": "Leuven"
+                      "example": "Scherpenheuvel-Zichem"
                     },
                     "postalCode": {
                       "type": "string",
                       "description": "The postalcode of the location.",
-                      "example": "3000"
+                      "example": "3271"
                     },
                     "streetAddress": {
                       "type": "string",
                       "description": "The street name and number information of the location.",
-                      "example": "Sluisstraat 79"
+                      "example": "Hoornblaas 107"
                     }
                   },
                   "required": [
@@ -3336,17 +3336,17 @@
                               "addressLocality": {
                                 "type": "string",
                                 "description": "The locality name of the location.",
-                                "example": "Leuven"
+                                "example": "Scherpenheuvel-Zichem"
                               },
                               "postalCode": {
                                 "type": "string",
                                 "description": "The postalcode of the location.",
-                                "example": "3000"
+                                "example": "3271"
                               },
                               "streetAddress": {
                                 "type": "string",
                                 "description": "The street name and number information of the location.",
-                                "example": "Sluisstraat 79"
+                                "example": "Hoornblaas 107"
                               }
                             },
                             "required": [
@@ -3540,17 +3540,17 @@
                               "addressLocality": {
                                 "type": "string",
                                 "description": "The locality name of the location.",
-                                "example": "Leuven"
+                                "example": "Scherpenheuvel-Zichem"
                               },
                               "postalCode": {
                                 "type": "string",
                                 "description": "The postalcode of the location.",
-                                "example": "3000"
+                                "example": "3271"
                               },
                               "streetAddress": {
                                 "type": "string",
                                 "description": "The street name and number information of the location.",
-                                "example": "Sluisstraat 79"
+                                "example": "Hoornblaas 107"
                               }
                             },
                             "required": [
@@ -3764,17 +3764,17 @@
                     "addressLocality": {
                       "type": "string",
                       "description": "The locality name of the location.",
-                      "example": "Leuven"
+                      "example": "Scherpenheuvel-Zichem"
                     },
                     "postalCode": {
                       "type": "string",
                       "description": "The postalcode of the location.",
-                      "example": "3000"
+                      "example": "3271"
                     },
                     "streetAddress": {
                       "type": "string",
                       "description": "The street name and number information of the location.",
-                      "example": "Sluisstraat 79"
+                      "example": "Hoornblaas 107"
                     }
                   },
                   "required": [
@@ -4959,17 +4959,17 @@
                 "addressLocality": {
                   "type": "string",
                   "description": "The locality name of the location.",
-                  "example": "Leuven"
+                  "example": "Scherpenheuvel-Zichem"
                 },
                 "postalCode": {
                   "type": "string",
                   "description": "The postalcode of the location.",
-                  "example": "3000"
+                  "example": "3271"
                 },
                 "streetAddress": {
                   "type": "string",
                   "description": "The street name and number information of the location.",
-                  "example": "Sluisstraat 79"
+                  "example": "Hoornblaas 107"
                 }
               },
               "required": [
