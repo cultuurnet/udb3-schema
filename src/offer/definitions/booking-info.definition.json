@@ -1,26 +1,36 @@
 {
   "required": [
-    "price",
-    "priceCurrency",
-    "description"
+    "bookingInfo"
   ],
   "properties": {
-    "priceCurrency": {
-      "type": "string",
-      "example": "EUR"
-    },
-    "description": {
-      "type": "string",
-      "example": "No need to pay anything"
-    },
-    "name": {
-      "type": "string",
-      "example": "Free"
-    },
-    "price": {
-      "type": "number",
-      "format": "float",
-      "example": 0
+    "bookingInfo": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://www.domain.be/reservations/eventname"
+        },
+        "urlLabel": {
+          "type": "string",
+          "example": "Reserveer plaatsen"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "example": "user@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "0123456789"
+        },
+        "availabilityStarts": {
+          "$ref": "../../event/definitions/date-time.definition.json"
+        },
+        "availabilityEnds": {
+          "$ref": "../../event/definitions/date-time.definition.json"
+        }
+      }
     }
   }
 }
