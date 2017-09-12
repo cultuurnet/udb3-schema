@@ -677,7 +677,7 @@
                           },
                           "name": {
                             "type": "string",
-                            "example": "Senioren"
+                            "example": "Basistarief"
                           },
                           "price": {
                             "type": "number",
@@ -884,7 +884,7 @@
                       },
                       "name": {
                         "type": "string",
-                        "example": "Senioren"
+                        "example": "Basistarief"
                       },
                       "price": {
                         "type": "number",
@@ -1723,7 +1723,7 @@
                   },
                   "name": {
                     "type": "string",
-                    "example": "Senioren"
+                    "example": "Basistarief"
                   },
                   "price": {
                     "type": "number",
@@ -3400,7 +3400,7 @@
                                 },
                                 "name": {
                                   "type": "string",
-                                  "example": "Senioren"
+                                  "example": "Basistarief"
                                 },
                                 "price": {
                                   "type": "number",
@@ -3604,7 +3604,7 @@
                                 },
                                 "name": {
                                   "type": "string",
-                                  "example": "Senioren"
+                                  "example": "Basistarief"
                                 },
                                 "price": {
                                   "type": "number",
@@ -3828,7 +3828,7 @@
                       },
                       "name": {
                         "type": "string",
-                        "example": "Senioren"
+                        "example": "Basistarief"
                       },
                       "price": {
                         "type": "number",
@@ -4441,7 +4441,7 @@
                   },
                   "name": {
                     "type": "string",
-                    "example": "Senioren"
+                    "example": "Basistarief"
                   },
                   "price": {
                     "type": "number",
