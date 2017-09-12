@@ -13,7 +13,7 @@
     "domain": {
       "type": "string",
       "enum": [
-        "thema"
+        "theme"
       ],
       "description": "This is hardcoded to 'thema' in the current application. It is passed to the API and then overwritten."
     }

@@ -275,7 +275,7 @@
                     "domain": {
                       "type": "string",
                       "enum": [
-                        "thema"
+                        "theme"
                       ],
                       "description": "This is hardcoded to 'thema' in the current application. It is passed to the API and then overwritten."
                     }
@@ -346,7 +346,7 @@
                       "date": {
                         "type": "string",
                         "format": "date",
-                        "example": "2000-12-30"
+                        "example": "2015-05-07"
                       },
                       "startHour": {
                         "type": "string",
@@ -362,12 +362,12 @@
                 "startDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:30:00+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 },
                 "endDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:30:00+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 }
               }
             }
@@ -518,7 +518,7 @@
                 "available": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:30:00+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 },
                 "image": {
                   "type": "string",
@@ -661,12 +661,12 @@
                             "availabilityStarts": {
                               "type": "string",
                               "format": "date-time",
-                              "example": "2015-05-07T12:30:00+00:00"
+                              "example": "2015-05-07T14:30:00+00:00"
                             },
                             "availabilityEnds": {
                               "type": "string",
                               "format": "date-time",
-                              "example": "2015-05-07T12:30:00+00:00"
+                              "example": "2015-05-07T14:30:00+00:00"
                             }
                           }
                         }
@@ -882,12 +882,12 @@
                         "availabilityStarts": {
                           "type": "string",
                           "format": "date-time",
-                          "example": "2015-05-07T12:30:00+00:00"
+                          "example": "2015-05-07T14:30:00+00:00"
                         },
                         "availabilityEnds": {
                           "type": "string",
                           "format": "date-time",
-                          "example": "2015-05-07T12:30:00+00:00"
+                          "example": "2015-05-07T14:30:00+00:00"
                         }
                       }
                     }
@@ -962,7 +962,7 @@
                 "modified": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:30:00+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 },
                 "publisher": {
                   "type": "string",
@@ -971,12 +971,12 @@
                 "endDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:30:00+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 },
                 "startDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:30:00+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 },
                 "calendarType": {
                   "type": "string",
@@ -1175,12 +1175,12 @@
                     "availabilityStarts": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:30:00+00:00"
+                      "example": "2015-05-07T14:30:00+00:00"
                     },
                     "availabilityEnds": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:30:00+00:00"
+                      "example": "2015-05-07T14:30:00+00:00"
                     }
                   }
                 }
@@ -3365,12 +3365,12 @@
                                   "availabilityStarts": {
                                     "type": "string",
                                     "format": "date-time",
-                                    "example": "2015-05-07T12:30:00+00:00"
+                                    "example": "2015-05-07T14:30:00+00:00"
                                   },
                                   "availabilityEnds": {
                                     "type": "string",
                                     "format": "date-time",
-                                    "example": "2015-05-07T12:30:00+00:00"
+                                    "example": "2015-05-07T14:30:00+00:00"
                                   }
                                 }
                               }
@@ -3583,12 +3583,12 @@
                                   "availabilityStarts": {
                                     "type": "string",
                                     "format": "date-time",
-                                    "example": "2015-05-07T12:30:00+00:00"
+                                    "example": "2015-05-07T14:30:00+00:00"
                                   },
                                   "availabilityEnds": {
                                     "type": "string",
                                     "format": "date-time",
-                                    "example": "2015-05-07T12:30:00+00:00"
+                                    "example": "2015-05-07T14:30:00+00:00"
                                   }
                                 }
                               }
@@ -3821,12 +3821,12 @@
                         "availabilityStarts": {
                           "type": "string",
                           "format": "date-time",
-                          "example": "2015-05-07T12:30:00+00:00"
+                          "example": "2015-05-07T14:30:00+00:00"
                         },
                         "availabilityEnds": {
                           "type": "string",
                           "format": "date-time",
-                          "example": "2015-05-07T12:30:00+00:00"
+                          "example": "2015-05-07T14:30:00+00:00"
                         }
                       }
                     }
@@ -3961,12 +3961,12 @@
                     "availabilityStarts": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:30:00+00:00"
+                      "example": "2015-05-07T14:30:00+00:00"
                     },
                     "availabilityEnds": {
                       "type": "string",
                       "format": "date-time",
-                      "example": "2015-05-07T12:30:00+00:00"
+                      "example": "2015-05-07T14:30:00+00:00"
                     }
                   }
                 }

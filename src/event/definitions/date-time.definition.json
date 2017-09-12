@@ -1,5 +1,5 @@
 {
   "type": "string",
   "format": "date-time",
-  "example": "2015-05-07T12:30:00+00:00"
+  "example": "2015-05-07T14:30:00+00:00"
 }
