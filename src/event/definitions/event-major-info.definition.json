@@ -14,6 +14,9 @@
     "type": {
       "$ref": "../../event/definitions/type.definition.json"
     },
+    "theme": {
+      "$ref": "../../event/definitions/theme.definition.json"
+    },
     "location": {
       "$ref": "../../offer/definitions/location.definition.json"
     },
@@ -42,9 +45,6 @@
     },
     "endDate": {
       "$ref": "date-time.definition.json"
-    },
-    "theme": {
-      "$ref": "../../event/definitions/theme.definition.json"
     }
   }
 }
