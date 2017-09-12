@@ -515,7 +515,7 @@
                     }
                   }
                 },
-                "available": {
+                "availableFrom": {
                   "type": "string",
                   "format": "date-time",
                   "example": "2015-05-07T14:30:00+00:00"
@@ -528,7 +528,7 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "example": "tagged"
+                    "example": "Voorbeeld label"
                   }
                 },
                 "calendarSummary": {
@@ -957,16 +957,12 @@
                 "created": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-05-07T14:30:00+00:00"
                 },
                 "modified": {
                   "type": "string",
                   "format": "date-time",
                   "example": "2015-05-07T14:30:00+00:00"
-                },
-                "publisher": {
-                  "type": "string",
-                  "example": "Invoerders Algemeen "
                 },
                 "endDate": {
                   "type": "string",
