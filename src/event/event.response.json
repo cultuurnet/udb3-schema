@@ -1,0 +1,20 @@
+{
+    "required": [
+        "eventId",
+        "url"
+    ],
+    "properties": {
+        "eventId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier of the cultural event.",
+            "example": "0823f57e-a6bd-450a-b4f5-8459b4b11043"
+        },
+        "url": {
+            "type": "string",
+            "format": "url",
+            "description": "The URL of the cultural event.",
+            "example": "http://udb-backend.local/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+        }
+    },
+}

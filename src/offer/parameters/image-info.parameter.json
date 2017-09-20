@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An object containing the image information that has to be changed.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/image-update-info.definition.json"
+  }
+}

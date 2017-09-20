@@ -11,10 +11,10 @@
             "application/json"
         ],
         "parameters": [
-            { 
-                "$ref": "../offer/cdb-id.parameter.json"
+            {
+                "$ref": "../offer/parameters/cdb-id.parameter.json"
             },
-            { 
+            {
                 "$ref": "type-id.parameter.json"
             }
         ],

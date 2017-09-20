@@ -1,0 +1,25 @@
+{
+  "put": {
+    "tags": [
+      "Offer",
+      "Media"
+    ],
+    "summary": "Select the main image of an offer.",
+    "description": "Authentication is required",
+    "operationId": "SelectOfferMainImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/image.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}

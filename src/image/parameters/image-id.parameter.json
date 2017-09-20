@@ -1,0 +1,8 @@
+{
+  "name": "id",
+  "in": "path",
+  "description": "The universally unique identifier of the media object.",
+  "required": true,
+  "type": "string",
+  "format": "uuid"
+}

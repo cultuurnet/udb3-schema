@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "nl": {
+            "type": "string",
+            "example": "Name example"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "put": {
+    "tags": [
+      "Place"
+    ],
+    "summary": "Update the address of a place in a specific language.",
+    "operationId": "updatePlaceAddress",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "../offer/parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "../lang.parameter.json"
+      },
+      {
+        "$ref": "parameters/address.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "../offer/command-responses.json"
+    }
+  }
+}

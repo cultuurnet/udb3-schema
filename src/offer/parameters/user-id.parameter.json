@@ -1,0 +1,8 @@
+{
+    "name": "userId",
+    "in": "path",
+    "description": "The unique identifier of a user.",
+    "required": true,
+    "type": "string",
+    "format": "uuid"
+}

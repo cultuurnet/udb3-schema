@@ -1,0 +1,5 @@
+{
+  "type": "string",
+  "format": "date",
+  "example": "2015-05-07"
+}

@@ -1,0 +1,111 @@
+{
+  "required": [
+    "@id",
+    "name",
+    "description",
+    "creator",
+    "created",
+    "publisher",
+    "calendarType"
+  ],
+  "properties": {
+    "@id": {
+      "type": "string",
+      "example": "http://udb-backend.local/event/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+    },
+    "name": {
+      "$ref": "../offer/definitions/translatable-string.definition.json"
+    },
+    "description": {
+      "$ref": "../offer/definitions/translatable-string.definition.json"
+    },
+    "availableFrom": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "image": {
+      "type": "string",
+      "example": "http://media.uitdatabank.be/20150416/153cfa0f-0d22-451e-bfd1-490b7c4ef109.jpg"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "Voorbeeld label"
+      }
+    },
+    "calendarSummary": {
+      "type": "string",
+      "example": "Every first day of the month"
+    },
+    "location": {
+      "$ref": "../place/definitions/place.definition.json"
+    },
+    "organizer": {
+      "$ref": "../organizer/definitions/organization.definition.json"
+    },
+    "bookingInfo": {
+      "$ref": "../offer/definitions/booking-info.definition.json"
+    },
+    "priceInfo": {
+      "type": "array",
+      "items": {
+        "$ref": "../offer/definitions/price-info.definition.json"
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "$ref": "../offer/definitions/term.definition.json"
+      }
+    },
+    "creator": {
+      "type": "string",
+      "example": "user@example.com"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2015-05-07T14:30:00+00:00"
+    },
+    "modified": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "endDate": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "startDate": {
+      "$ref": "definitions/date-time.definition.json"
+    },
+    "calendarType": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "permanent",
+        "periodic",
+        "single"
+      ],
+      "example": "permanent"
+    },
+    "typicalAgeRange": {
+      "type": "string",
+      "example": "14-18"
+    },
+    "sameAs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "http://www.uitinvlaanderen.be/agenda/e/zomerse-vrijdagen-den-engel/0823f57e-a6bd-450a-b4f5-8459b4b11043"
+      }
+    },
+    "seeAlso": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "www.leuven.be"
+      }
+    },
+    "workflowStatus": {
+      "$ref": "../offer/definitions/workflow-status.definition.json"
+    }
+  }
+}

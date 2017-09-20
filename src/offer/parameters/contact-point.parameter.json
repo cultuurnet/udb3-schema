@@ -1,0 +1,16 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An object containing the contact point for an offer.",
+  "required": true,
+  "schema": {
+    "properties": {
+      "contactPoint": {
+        "$ref": "../definitions/contact-point.definition.json"
+      }
+    },
+    "required": [
+      "contactPoint"
+    ]
+  }
+}

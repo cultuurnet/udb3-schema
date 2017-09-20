@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "addressCountry": {
+      "type": "string",
+      "description": "The country code of the location.",
+      "example": "BE"
+    },
+    "addressLocality": {
+      "type": "string",
+      "description": "The locality name of the location.",
+      "example": "Scherpenheuvel-Zichem"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "The postalcode of the location.",
+      "example": "3271"
+    },
+    "streetAddress": {
+      "type": "string",
+      "description": "The street name and number information of the location.",
+      "example": "Hoornblaas 107"
+    }
+  },
+  "required": [
+    "addressCountry",
+    "addressLocality",
+    "postalCode",
+    "streetAddress"
+  ]
+}

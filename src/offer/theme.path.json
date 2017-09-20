@@ -10,10 +10,10 @@
             "application/json"
         ],
         "parameters": [
-            { 
-                "$ref": "cdb-id.parameter.json"
+            {
+                "$ref": "parameters/cdb-id.parameter.json"
             },
-            { 
+            {
                 "$ref": "theme-id.parameter.json"
             }
         ],

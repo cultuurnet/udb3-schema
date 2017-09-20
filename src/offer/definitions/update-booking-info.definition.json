@@ -1,0 +1,36 @@
+{
+  "required": [
+    "bookingInfo"
+  ],
+  "properties": {
+    "bookingInfo": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://www.domain.be/reservations/eventname"
+        },
+        "urlLabel": {
+          "type": "string",
+          "example": "Reserveer plaatsen"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "example": "user@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "0123456789"
+        },
+        "availabilityStarts": {
+          "$ref": "../../event/definitions/date-time.definition.json"
+        },
+        "availabilityEnds": {
+          "$ref": "../../event/definitions/date-time.definition.json"
+        }
+      }
+    }
+  }
+}

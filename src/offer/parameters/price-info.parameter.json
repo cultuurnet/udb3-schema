@@ -1,0 +1,12 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An array containing price info objects for an offer.",
+  "required": true,
+  "schema": {
+    "type": "array",
+    "items": {
+      "$ref": "../definitions/price-info-no-currency.definition.json"
+    }
+  }
+}

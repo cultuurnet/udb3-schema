@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification (for both events and places)",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "ekdc4ATGoUitCa0e6me6xA"
+    },
+    "label": {
+      "type": "string",
+      "example": "Horeca"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "eventtype"
+      ]
+    }
+  }
+}

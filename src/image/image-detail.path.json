@@ -1,0 +1,38 @@
+{
+  "get": {
+    "summary": "View the details of a specific image.",
+    "description": "Authentication is required",
+    "operationId": "getImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/image-id.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "An media object detail.",
+        "schema": {
+          "$ref": "image-detail.response.json"
+        }
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      },
+      "403": {
+        "$ref": "../authorization/forbidden.response.json"
+      },
+      "404": {
+        "$ref": "../offer/unknown-offer.response.json"
+      }
+    },
+    "tags": [
+      "Media"
+    ]
+  }
+}

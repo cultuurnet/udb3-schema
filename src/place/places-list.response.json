@@ -1,0 +1,39 @@
+{
+  "allOf": [
+    {
+      "properties": {
+        "itemsPerPage": {
+          "type": "integer",
+          "format": "int32",
+          "example": 30
+        },
+        "totalItems": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1
+        },
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "definitions/place.definition.json"
+          }
+        }
+      },
+      "required": [
+        "itemsPerPage",
+        "totalItems",
+        "member"
+      ]
+    },
+    {
+      "properties": {
+        "member": {
+          "type": "array",
+          "items": {
+            "$ref": "definitions/place.definition.json"
+          }
+        }
+      }
+    }
+  ]
+}

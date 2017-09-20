@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "enum": [
+    "single",
+    "multiple",
+    "periodic",
+    "permanent"
+  ],
+  "example": "permanent"
+}

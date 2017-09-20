@@ -10,11 +10,11 @@
             "application/json"
         ],
         "parameters": [
-            { 
+            {
                 "$ref": "../../lang.parameter.json"
             },
             {
-                "$ref": "../cdb-id.parameter.json"
+                "$ref": "../parameters/cdb-id.parameter.json"
             },
             {
                 "$ref": "name.parameter.json"

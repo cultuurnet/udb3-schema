@@ -1,0 +1,39 @@
+{
+  "post": {
+    "tags": [
+      "Offer",
+      "Media"
+    ],
+    "summary": "Add a MediaObject to an offer",
+    "description": "Authentication is required",
+    "operationId": "OfferAddImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/image.parameter.json"
+      }
+    ],
+    "responses": {
+      "202": {
+        "$ref": "../command/command-queued.response.json"
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      },
+      "403": {
+        "$ref": "../authorization/forbidden.response.json"
+      },
+      "404": {
+        "$ref": "unknown-image.response.json"
+      }
+    }
+  }
+}

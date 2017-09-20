@@ -1,0 +1,25 @@
+{
+  "required": [
+    "category",
+    "name",
+    "price"
+  ],
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "base",
+        "tariff"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "example": "Basistarief"
+    },
+    "price": {
+      "type": "number",
+      "format": "float",
+      "example": 10.0
+    }
+  }
+}

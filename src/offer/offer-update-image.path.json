@@ -1,0 +1,51 @@
+{
+  "delete": {
+    "tags": [
+      "Offer",
+      "Media"
+    ],
+    "summary": "Remove an image from an offer.",
+    "description": "Authentication is required",
+    "operationId": "RemoveOfferImage",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/media-object-id.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  },
+  "put": {
+    "tags": [
+      "Offer",
+      "Media"
+    ],
+    "summary": "Update the info of an image.",
+    "description": "Authentication is required.",
+    "operationId": "updateOfferImage",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/media-object-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/image-info.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}

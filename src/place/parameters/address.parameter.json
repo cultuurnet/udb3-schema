@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "An object containing the address info of a place.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/address.definition.json"
+  }
+}

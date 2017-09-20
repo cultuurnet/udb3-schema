@@ -1,0 +1,9 @@
+{
+  "name": "body",
+  "in": "body",
+  "description": "The age range to set for an offer.",
+  "required": true,
+  "schema": {
+    "$ref": "../definitions/typical-age-range.definition.json"
+  }
+}

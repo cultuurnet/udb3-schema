@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "A description of the image."
+    },
+    "copyrightHolder": {
+      "type": "string",
+      "example": "Dirk Dirkington",
+      "description": "The name of the copyright holder."
+    }
+  },
+  "required": [
+    "description",
+    "copyrightHolder"
+  ]
+}

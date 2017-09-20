@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "permissions": {
+      "type": "array",
+      "example": [
+        "Aanbod bewerken",
+        "Aanbod modereren",
+        "Aanbod verwijderen"
+      ]
+    }
+  }
+}

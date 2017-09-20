@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "0.50.4.0.0"
+    },
+    "label": {
+      "type": "string",
+      "example": "Concert"
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "eventtype"
+      ]
+    }
+  }
+}

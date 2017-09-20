@@ -1,0 +1,6 @@
+{
+  "name": "postalCode",
+  "in": "query",
+  "description": "Limit the list to places located in the area with this postal code.",
+  "type": "string"
+}

@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "mediaObjectId": {
+      "type": "string",
+      "example": "73695986-e4cf-4b29-8699-13d7cd77af8c"
+    }
+  },
+  "required": [
+    "mediaObjectId"
+  ]
+}

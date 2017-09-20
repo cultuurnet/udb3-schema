@@ -1,0 +1,23 @@
+{
+  "required": [
+    "nl"
+  ],
+  "properties": {
+    "nl": {
+      "type": "string",
+      "example": "Nederlands"
+    },
+    "de": {
+      "type": "string",
+      "example": "Deutsch"
+    },
+    "en": {
+      "type": "string",
+      "example": "English"
+    },
+    "fr": {
+      "type": "string",
+      "example": "Français"
+    }
+  }
+}

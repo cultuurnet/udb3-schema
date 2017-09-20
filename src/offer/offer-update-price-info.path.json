@@ -1,0 +1,23 @@
+{
+  "put": {
+    "tags": [
+      "Offer"
+    ],
+    "summary": "Update the price info of an offer.",
+    "operationId": "updateOfferPriceInfo",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/price-info.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}
