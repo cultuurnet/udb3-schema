@@ -91,7 +91,7 @@
         }
       }
     },
-    "/events/{cdbid}/name/{lang}": {
+    "/events/{cdbId}/name/{lang}": {
       "put": {
         "tags": [
           "Offer"
@@ -118,7 +118,7 @@
             ]
           },
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -550,7 +550,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1141,7 +1141,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1227,7 +1227,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1299,7 +1299,7 @@
         }
       }
     },
-    "/events/{cdbid}/audience": {
+    "/events/{cdbId}/audience": {
       "put": {
         "summary": "Set the target audience for an event.",
         "description": "Authentication is required.",
@@ -1309,7 +1309,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1396,7 +1396,7 @@
         ]
       }
     },
-    "/events/{cdbid}/bookingInfo": {
+    "/events/{cdbId}/bookingInfo": {
       "put": {
         "tags": [
           "Event"
@@ -1408,7 +1408,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1519,7 +1519,7 @@
         }
       }
     },
-    "/events/{cdbid}/contactPoint": {
+    "/events/{cdbId}/contactPoint": {
       "put": {
         "tags": [
           "Event"
@@ -1531,7 +1531,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1643,7 +1643,7 @@
         }
       }
     },
-    "/events/{cdbid}/labels/{label}": {
+    "/events/{cdbId}/labels/{label}": {
       "put": {
         "tags": [
           "Offer",
@@ -1657,7 +1657,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1741,7 +1741,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1813,7 +1813,7 @@
         }
       }
     },
-    "/events/{cdbid}/organizer/{organizerId}": {
+    "/events/{cdbId}/organizer/{organizerId}": {
       "put": {
         "tags": [
           "Offer",
@@ -1826,7 +1826,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1910,7 +1910,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1983,7 +1983,7 @@
         }
       }
     },
-    "/events/{cdbid}/priceInfo": {
+    "/events/{cdbId}/priceInfo": {
       "put": {
         "tags": [
           "Offer"
@@ -1995,7 +1995,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2094,7 +2094,7 @@
         }
       }
     },
-    "/events/{cdbid}/typicalAgeRange": {
+    "/events/{cdbId}/typicalAgeRange": {
       "put": {
         "tags": [
           "Offer"
@@ -2106,7 +2106,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2198,7 +2198,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2263,7 +2263,7 @@
         }
       }
     },
-    "/events/{cdbid}/{lang}/description": {
+    "/events/{cdbId}/{lang}/description": {
       "put": {
         "summary": "Translate the description of an offer.",
         "description": "Authentication is required.",
@@ -2273,7 +2273,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2371,7 +2371,7 @@
         ]
       }
     },
-    "/events/{cdbid}/{lang}/name": {
+    "/events/{cdbId}/{lang}/name": {
       "put": {
         "summary": "Translate the title of an offer.",
         "description": "Authentication is required.",
@@ -2381,7 +2381,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2479,7 +2479,7 @@
         ]
       }
     },
-    "/events/{cdbid}/images/": {
+    "/events/{cdbId}/images/": {
       "post": {
         "tags": [
           "Offer",
@@ -2493,7 +2493,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2575,7 +2575,7 @@
         }
       }
     },
-    "/events/{cdbid}/images/main": {
+    "/events/{cdbId}/images/main": {
       "put": {
         "tags": [
           "Offer",
@@ -2589,7 +2589,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2671,7 +2671,7 @@
         }
       }
     },
-    "/events/{cdbid}/images/{mediaObjectId}": {
+    "/events/{cdbId}/images/{mediaObjectId}": {
       "delete": {
         "tags": [
           "Offer",
@@ -2685,7 +2685,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2770,7 +2770,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2866,7 +2866,7 @@
         }
       }
     },
-    "/events/{cdbid}/permissions/": {
+    "/events/{cdbId}/permissions/": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissions",
@@ -2875,7 +2875,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2942,7 +2942,7 @@
         ]
       }
     },
-    "/events/{cdbid}/permissions/{userId}": {
+    "/events/{cdbId}/permissions/{userId}": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissionsPerUser",
@@ -2951,7 +2951,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -3119,7 +3119,7 @@
         ]
       }
     },
-    "/places/{cdbid}/labels/{label}": {
+    "/places/{cdbId}/labels/{label}": {
       "put": {
         "tags": [
           "Offer",
@@ -3133,7 +3133,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -3217,7 +3217,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -3946,7 +3946,7 @@
         }
       }
     },
-    "/places/{cdbid}": {
+    "/places/{cdbId}": {
       "get": {
         "tags": [
           "Place"
@@ -3958,7 +3958,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4195,7 +4195,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4267,7 +4267,7 @@
         }
       }
     },
-    "/places/{cdbid}/bookingInfo": {
+    "/places/{cdbId}/bookingInfo": {
       "put": {
         "tags": [
           "Place"
@@ -4279,7 +4279,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4390,7 +4390,7 @@
         }
       }
     },
-    "/places/{cdbid}/contactPoint": {
+    "/places/{cdbId}/contactPoint": {
       "put": {
         "tags": [
           "Place"
@@ -4402,7 +4402,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4514,7 +4514,7 @@
         }
       }
     },
-    "/places/{cdbid}/facilities/": {
+    "/places/{cdbId}/facilities/": {
       "put": {
         "tags": [
           "Place"
@@ -4526,7 +4526,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4611,7 +4611,7 @@
         }
       }
     },
-    "/places/{cdbid}/organizer/{organizerId}": {
+    "/places/{cdbId}/organizer/{organizerId}": {
       "put": {
         "tags": [
           "Offer",
@@ -4624,7 +4624,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4708,7 +4708,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4781,7 +4781,7 @@
         }
       }
     },
-    "/places/{cdbid}/priceInfo": {
+    "/places/{cdbId}/priceInfo": {
       "put": {
         "tags": [
           "Offer"
@@ -4793,7 +4793,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4892,7 +4892,7 @@
         }
       }
     },
-    "/places/{cdbid}/typicalAgeRange": {
+    "/places/{cdbId}/typicalAgeRange": {
       "put": {
         "tags": [
           "Offer"
@@ -4904,7 +4904,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4996,7 +4996,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5061,7 +5061,7 @@
         }
       }
     },
-    "/places/{cdbid}/{lang}/description": {
+    "/places/{cdbId}/{lang}/description": {
       "put": {
         "summary": "Translate the description of an offer.",
         "description": "Authentication is required.",
@@ -5071,7 +5071,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5169,7 +5169,7 @@
         ]
       }
     },
-    "/places/{cdbid}/{lang}/name": {
+    "/places/{cdbId}/{lang}/name": {
       "put": {
         "summary": "Translate the title of an offer.",
         "description": "Authentication is required.",
@@ -5179,7 +5179,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5277,7 +5277,7 @@
         ]
       }
     },
-    "/places/{cdbid}/address/{lang}": {
+    "/places/{cdbId}/address/{lang}": {
       "put": {
         "tags": [
           "Place"
@@ -5289,7 +5289,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5405,7 +5405,7 @@
         }
       }
     },
-    "/places/{cdbid}/images/": {
+    "/places/{cdbId}/images/": {
       "post": {
         "tags": [
           "Offer",
@@ -5419,7 +5419,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5501,7 +5501,7 @@
         }
       }
     },
-    "/places/{cdbid}/images/main": {
+    "/places/{cdbId}/images/main": {
       "put": {
         "tags": [
           "Offer",
@@ -5515,7 +5515,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5611,7 +5611,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5760,7 +5760,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5860,7 +5860,7 @@
             ]
           },
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5940,7 +5940,7 @@
         }
       }
     },
-    "/places/{cdbid}/images/{mediaObjectId}": {
+    "/places/{cdbId}/images/{mediaObjectId}": {
       "delete": {
         "tags": [
           "Offer",
@@ -5954,7 +5954,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -6039,7 +6039,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -6135,7 +6135,7 @@
         }
       }
     },
-    "/places/{cdbid}/permissions/": {
+    "/places/{cdbId}/permissions/": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissions",
@@ -6144,7 +6144,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -6225,7 +6225,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -6311,7 +6311,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -6442,7 +6442,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -6551,7 +6551,7 @@
         }
       }
     },
-    "/places/{cdbid}/permissions/{userId}": {
+    "/places/{cdbId}/permissions/{userId}": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissionsPerUser",
@@ -6560,7 +6560,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
