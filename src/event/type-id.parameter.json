@@ -1,0 +1,7 @@
+{
+    "name": "typeId",
+    "in": "path",
+    "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+    "required": true,
+    "type": "string"
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2015-05-07T12:02:53+00:00"
+        },
+        "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2015-05-07T12:02:53+00:00"
+        },
+        "openingHours": {
+            "$ref": "../offer/opening-hours.definition.json"
+        }
+    }
+}

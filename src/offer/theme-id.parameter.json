@@ -1,0 +1,7 @@
+{
+    "name": "themeId",
+    "in": "path",
+    "description": "One of the available themes from http://taxonomy.uitdatabank.be/api/domain/theme/classification",
+    "required": true,
+    "type": "string"
+}

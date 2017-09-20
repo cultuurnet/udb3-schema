@@ -1,0 +1,8 @@
+{
+    "name": "locationId",
+    "in": "path",
+    "description": "The universally unique identifier of a place.",
+    "required": true,
+    "type": "string",
+    "format": "uuid"
+}

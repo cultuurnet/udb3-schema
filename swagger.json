@@ -10,7 +10,7 @@
     },
     "version": "3.0.0"
   },
-  "host": "io.uitdatabank.be",
+  "host": "udb-silex.dev",
   "basePath": "/",
   "schemes": [
     "http"
@@ -87,6 +87,113 @@
           },
           "401": {
             "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        }
+      }
+    },
+    "/events/{cdbId}/name/{lang}": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Update the name of an offer in a given language.",
+        "description": "Authentication is required.",
+        "operationId": "OfferRestBaseController:updateName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The unique ISO 639-1 2 character language code.",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "en",
+              "du"
+            ]
+          },
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the name in the given language.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "De Sage van de Eenhoorn"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
           }
         }
       }
@@ -431,7 +538,7 @@
         }
       }
     },
-    "/events/{cdbid}": {
+    "/events/{cdbId}": {
       "get": {
         "tags": [
           "Event"
@@ -443,7 +550,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1021,7 +1128,178 @@
         }
       }
     },
-    "/events/{cdbid}/audience": {
+    "/events/{cdbId}/theme/{themeId}": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Update the theme of an offer.",
+        "description": "Authentication is required.",
+        "operationId": "OfferRestBaseController:updateName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "themeId",
+            "in": "path",
+            "description": "One of the available themes from http://taxonomy.uitdatabank.be/api/domain/theme/classification",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/events/{cdbId}/type/{typeId}": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Event"
+        ],
+        "summary": "Update the type of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateType",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "typeId",
+            "in": "path",
+            "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/events/{cdbId}/audience": {
       "put": {
         "summary": "Set the target audience for an event.",
         "description": "Authentication is required.",
@@ -1031,7 +1309,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1118,7 +1396,7 @@
         ]
       }
     },
-    "/events/{cdbid}/bookingInfo": {
+    "/events/{cdbId}/bookingInfo": {
       "put": {
         "tags": [
           "Event"
@@ -1130,7 +1408,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1241,7 +1519,7 @@
         }
       }
     },
-    "/events/{cdbid}/contactPoint": {
+    "/events/{cdbId}/contactPoint": {
       "put": {
         "tags": [
           "Event"
@@ -1253,7 +1531,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1365,7 +1643,7 @@
         }
       }
     },
-    "/events/{cdbid}/labels/{label}": {
+    "/events/{cdbId}/labels/{label}": {
       "put": {
         "tags": [
           "Offer",
@@ -1379,7 +1657,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1463,7 +1741,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1535,7 +1813,7 @@
         }
       }
     },
-    "/events/{cdbid}/organizer/{organizerId}": {
+    "/events/{cdbId}/organizer/{organizerId}": {
       "put": {
         "tags": [
           "Offer",
@@ -1548,7 +1826,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1632,7 +1910,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1705,7 +1983,7 @@
         }
       }
     },
-    "/events/{cdbid}/priceInfo": {
+    "/events/{cdbId}/priceInfo": {
       "put": {
         "tags": [
           "Offer"
@@ -1717,7 +1995,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1816,7 +2094,7 @@
         }
       }
     },
-    "/events/{cdbid}/typicalAgeRange": {
+    "/events/{cdbId}/typicalAgeRange": {
       "put": {
         "tags": [
           "Offer"
@@ -1828,7 +2106,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1920,7 +2198,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -1985,7 +2263,7 @@
         }
       }
     },
-    "/events/{cdbid}/{lang}/description": {
+    "/events/{cdbId}/{lang}/description": {
       "put": {
         "summary": "Translate the description of an offer.",
         "description": "Authentication is required.",
@@ -1995,7 +2273,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2093,7 +2371,7 @@
         ]
       }
     },
-    "/events/{cdbid}/{lang}/name": {
+    "/events/{cdbId}/{lang}/name": {
       "put": {
         "summary": "Translate the title of an offer.",
         "description": "Authentication is required.",
@@ -2103,7 +2381,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2201,7 +2479,7 @@
         ]
       }
     },
-    "/events/{cdbid}/images/": {
+    "/events/{cdbId}/images/": {
       "post": {
         "tags": [
           "Offer",
@@ -2215,7 +2493,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2297,7 +2575,7 @@
         }
       }
     },
-    "/events/{cdbid}/images/main": {
+    "/events/{cdbId}/images/main": {
       "put": {
         "tags": [
           "Offer",
@@ -2311,7 +2589,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2393,7 +2671,7 @@
         }
       }
     },
-    "/events/{cdbid}/images/{mediaObjectId}": {
+    "/events/{cdbId}/images/{mediaObjectId}": {
       "delete": {
         "tags": [
           "Offer",
@@ -2407,7 +2685,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2492,7 +2770,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2588,7 +2866,7 @@
         }
       }
     },
-    "/events/{cdbid}/permissions/": {
+    "/events/{cdbId}/permissions/": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissions",
@@ -2597,7 +2875,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2664,7 +2942,7 @@
         ]
       }
     },
-    "/events/{cdbid}/permissions/{userId}": {
+    "/events/{cdbId}/permissions/{userId}": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissionsPerUser",
@@ -2673,7 +2951,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2841,7 +3119,7 @@
         ]
       }
     },
-    "/places/{cdbid}/labels/{label}": {
+    "/places/{cdbId}/labels/{label}": {
       "put": {
         "tags": [
           "Offer",
@@ -2855,7 +3133,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -2939,7 +3217,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -3668,7 +3946,7 @@
         }
       }
     },
-    "/places/{cdbid}": {
+    "/places/{cdbId}": {
       "get": {
         "tags": [
           "Place"
@@ -3680,7 +3958,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -3904,7 +4182,92 @@
         }
       }
     },
-    "/places/{cdbid}/bookingInfo": {
+    "/places/{cdbId}/theme/{themeId}": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Update the theme of an offer.",
+        "description": "Authentication is required.",
+        "operationId": "OfferRestBaseController:updateName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "themeId",
+            "in": "path",
+            "description": "One of the available themes from http://taxonomy.uitdatabank.be/api/domain/theme/classification",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/bookingInfo": {
       "put": {
         "tags": [
           "Place"
@@ -3916,7 +4279,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4027,7 +4390,7 @@
         }
       }
     },
-    "/places/{cdbid}/contactPoint": {
+    "/places/{cdbId}/contactPoint": {
       "put": {
         "tags": [
           "Place"
@@ -4039,7 +4402,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4151,7 +4514,7 @@
         }
       }
     },
-    "/places/{cdbid}/facilities/": {
+    "/places/{cdbId}/facilities/": {
       "put": {
         "tags": [
           "Place"
@@ -4163,7 +4526,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4248,7 +4611,7 @@
         }
       }
     },
-    "/places/{cdbid}/organizer/{organizerId}": {
+    "/places/{cdbId}/organizer/{organizerId}": {
       "put": {
         "tags": [
           "Offer",
@@ -4261,7 +4624,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4345,7 +4708,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4418,7 +4781,7 @@
         }
       }
     },
-    "/places/{cdbid}/priceInfo": {
+    "/places/{cdbId}/priceInfo": {
       "put": {
         "tags": [
           "Offer"
@@ -4430,7 +4793,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4529,7 +4892,7 @@
         }
       }
     },
-    "/places/{cdbid}/typicalAgeRange": {
+    "/places/{cdbId}/typicalAgeRange": {
       "put": {
         "tags": [
           "Offer"
@@ -4541,7 +4904,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4633,7 +4996,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4698,7 +5061,7 @@
         }
       }
     },
-    "/places/{cdbid}/{lang}/description": {
+    "/places/{cdbId}/{lang}/description": {
       "put": {
         "summary": "Translate the description of an offer.",
         "description": "Authentication is required.",
@@ -4708,7 +5071,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4806,7 +5169,7 @@
         ]
       }
     },
-    "/places/{cdbid}/{lang}/name": {
+    "/places/{cdbId}/{lang}/name": {
       "put": {
         "summary": "Translate the title of an offer.",
         "description": "Authentication is required.",
@@ -4816,7 +5179,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -4914,7 +5277,7 @@
         ]
       }
     },
-    "/places/{cdbid}/address/{lang}": {
+    "/places/{cdbId}/address/{lang}": {
       "put": {
         "tags": [
           "Place"
@@ -4926,7 +5289,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5042,7 +5405,7 @@
         }
       }
     },
-    "/places/{cdbid}/images/": {
+    "/places/{cdbId}/images/": {
       "post": {
         "tags": [
           "Offer",
@@ -5056,7 +5419,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5138,7 +5501,7 @@
         }
       }
     },
-    "/places/{cdbid}/images/main": {
+    "/places/{cdbId}/images/main": {
       "put": {
         "tags": [
           "Offer",
@@ -5152,7 +5515,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5234,7 +5597,350 @@
         }
       }
     },
-    "/places/{cdbid}/images/{mediaObjectId}": {
+    "/events/{cdbId}/calendar": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Event"
+        ],
+        "summary": "Update the calendar of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateCalendar",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The data required to update the event calendar",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timeSpans": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2015-05-07T12:02:53+00:00"
+                      },
+                      "end": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2015-05-07T12:02:53+00:00"
+                      }
+                    }
+                  }
+                },
+                "startDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "endDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "openingHours": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dayOfWeek": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
+                      },
+                      "opens": {
+                        "type": "string",
+                        "example": "08:00"
+                      },
+                      "closes": {
+                        "type": "string",
+                        "example": "18:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/events/{cdbId}/location/{locationId}": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Event"
+        ],
+        "summary": "Update the location of an event.",
+        "description": "Authentication is required.",
+        "operationId": "EditEventRestController:updateLocation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "description": "The universally unique identifier of a place.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/name/{lang}": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Update the name of an offer in a given language.",
+        "description": "Authentication is required.",
+        "operationId": "OfferRestBaseController:updateName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The unique ISO 639-1 2 character language code.",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "en",
+              "du"
+            ]
+          },
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the name in the given language.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "De Sage van de Eenhoorn"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/images/{mediaObjectId}": {
       "delete": {
         "tags": [
           "Offer",
@@ -5248,7 +5954,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5333,7 +6039,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5429,7 +6135,7 @@
         }
       }
     },
-    "/places/{cdbid}/permissions/": {
+    "/places/{cdbId}/permissions/": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissions",
@@ -5438,7 +6144,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,
@@ -5505,7 +6211,347 @@
         ]
       }
     },
-    "/places/{cdbid}/permissions/{userId}": {
+    "/places/{cdbId}/type/{typeId}": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Place"
+        ],
+        "summary": "Update the type of a place.",
+        "description": "Authentication is required.",
+        "operationId": "EditPlaceRestController:updateType",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "typeId",
+            "in": "path",
+            "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/actortype/classification that have parent id 8.15.0.0.0",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/calendar": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Place"
+        ],
+        "summary": "Update the calendar of a place.",
+        "description": "Authentication is required.",
+        "operationId": "EditPlaceRestController:updateCalendar",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The data required to update the place calendar",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "startDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "endDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2015-05-07T12:02:53+00:00"
+                },
+                "openingHours": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dayOfWeek": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday",
+                            "sunday"
+                          ]
+                        }
+                      },
+                      "opens": {
+                        "type": "string",
+                        "example": "08:00"
+                      },
+                      "closes": {
+                        "type": "string",
+                        "example": "18:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/{lang}/address": {
+      "put": {
+        "tags": [
+          "Offer",
+          "Place"
+        ],
+        "summary": "Update the address of a place.",
+        "description": "Authentication is required.",
+        "operationId": "EditPlaceRestController:updateAddress",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The unique ISO 639-1 2 character language code.",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "en",
+              "du"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The new address info to update the place",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressCountry": {
+                  "type": "string",
+                  "example": "BE",
+                  "format": "ISO 3166-1 alpha-2"
+                },
+                "addressLocality": {
+                  "type": "string",
+                  "example": "Hasselt"
+                },
+                "postalCode": {
+                  "type": "string",
+                  "format": "postal code",
+                  "example": "3500"
+                },
+                "streetAddress": {
+                  "type": "string",
+                  "example": "Gouverneur Verwilghensingel 70",
+                  "format": "street name and number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
+    "/places/{cdbId}/permissions/{userId}": {
       "get": {
         "summary": "A list of permissions the current user has to an offer.",
         "operationId": "getOfferPermissionsPerUser",
@@ -5514,7 +6560,7 @@
         ],
         "parameters": [
           {
-            "name": "cdbid",
+            "name": "cdbId",
             "in": "path",
             "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
             "required": true,

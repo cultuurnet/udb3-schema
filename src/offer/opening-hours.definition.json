@@ -1,0 +1,31 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "dayOfWeek": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "enum": [
+                        "monday",
+                        "tuesday",
+                        "wednesday",
+                        "thursday",
+                        "friday",
+                        "saturday",
+                        "sunday"
+                    ]
+                }
+            },
+            "opens": {
+                "type": "string",
+                "example": "08:00"
+            },
+            "closes": {
+                "type": "string",
+                "example": "18:00"
+            }
+        }
+    }
+}

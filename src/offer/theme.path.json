@@ -1,0 +1,24 @@
+{
+    "put": {
+        "tags": [
+            "Offer"
+        ],
+        "summary": "Update the theme of an offer.",
+        "description": "Authentication is required.",
+        "operationId": "OfferRestBaseController:updateName",
+        "produces": [
+            "application/json"
+        ],
+        "parameters": [
+            {
+                "$ref": "parameters/cdb-id.parameter.json"
+            },
+            {
+                "$ref": "theme-id.parameter.json"
+            }
+        ],
+        "responses": {
+            "$ref": "command-responses.json"
+        }
+    }
+}
