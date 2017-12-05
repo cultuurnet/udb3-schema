@@ -8,7 +8,7 @@
     "swagger-cli": "^1.0.0-beta.2"
   },
   "scripts": {
-    "bundle": "swagger bundle -r -o swagger.json src/api.json",
+    "bundle": "swagger-cli bundle -r -o swagger.json src/api.json",
     "validate": "npm run validate-swagger-schema && npm run validate-swagger-lint",
     "validate-swagger-lint": "jsonlint -q swagger.json",
     "validate-swagger-schema": "swagger-tools validate swagger.json"
