@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "UDB3 API schema",
   "devDependencies": {
-    "jsonlint": "^1.6.2",
-    "swagger-tools": "^0.9.9",
-    "swagger-cli": "^1.0.0-beta.2"
+    "jsonlint": "^1.6.0",
+    "swagger-tools": "^0.10.3",
+    "swagger-cli": "^1.0.1"
   },
   "scripts": {
     "bundle": "swagger-cli bundle -r -o swagger.json src/api.json",
@@ -17,5 +17,8 @@
     "type": "git",
     "url": "git+https://github.com/cultuurnet/udb3-schema.git"
   },
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "8": "0.0.1"
+  }
 }
