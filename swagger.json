@@ -1643,6 +1643,102 @@
         }
       }
     },
+    "/events/{cdbId}/facilities/": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "Update the facilities of a specific offer.",
+        "operationId": "updateOfferFacilities",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An array containing the facilities to attach to the place.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "description": "Array of string ids of the facility types available at: http://taxonomy.uitdatabank.be/api/domain/facility/classification",
+              "properties": {
+                "facilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "3.13.3.0.0"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
     "/events/{cdbId}/labels/{label}": {
       "put": {
         "tags": [
@@ -4517,10 +4613,10 @@
     "/places/{cdbId}/facilities/": {
       "put": {
         "tags": [
-          "Place"
+          "Offer"
         ],
-        "summary": "Update the facilities of a specific place.",
-        "operationId": "updatePlaceFacilities",
+        "summary": "Update the facilities of a specific offer.",
+        "operationId": "updateOfferFacilities",
         "produces": [
           "application/json"
         ],
@@ -4540,15 +4636,14 @@
             "required": true,
             "schema": {
               "type": "object",
-              "description": "One of the facility types available at: http://taxonomy.uitdatabank.be/api/domain/facility/classification",
+              "description": "Array of string ids of the facility types available at: http://taxonomy.uitdatabank.be/api/domain/facility/classification",
               "properties": {
-                "id": {
-                  "type": "string",
-                  "example": "3.23.1.0.0"
-                },
-                "label": {
-                  "type": "string",
-                  "example": "Voorzieningen voor rolstoelgebruikers"
+                "facilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "3.13.3.0.0"
+                  }
                 }
               }
             }

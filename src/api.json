@@ -82,6 +82,9 @@
         "/events/{cdbId}/contactPoint": {
             "$ref": "event/event-contact-point.path.json"
         },
+        "/events/{cdbId}/facilities/": {
+            "$ref": "offer/offer-facilities.path.json"
+        },
         "/events/{cdbId}/labels/{label}": {
             "$ref": "offer/offer-manage-labels.path.json"
         },
@@ -137,7 +140,7 @@
             "$ref": "place/place-contact-point.path.json"
         },
         "/places/{cdbId}/facilities/": {
-            "$ref": "place/place-facilities.path.json"
+            "$ref": "offer/offer-facilities.path.json"
         },
         "/places/{cdbId}/organizer/{organizerId}": {
             "$ref": "offer/offer-organization.path.json"
