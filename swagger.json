@@ -3053,6 +3053,13 @@
             "type": "string"
           },
           {
+            "name": "copyrightHolder",
+            "in": "formData",
+            "description": "The copyright holder",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "language",
             "in": "formData",
             "description": "The language of the image",
