@@ -3122,6 +3122,111 @@
         ]
       }
     },
+    "/images/": {
+      "post": {
+        "summary": "Create a new media object for an image.",
+        "description": "Authentication is required",
+        "operationId": "createImage",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "The image",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "description": "The description",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "copyrightHolder",
+            "in": "formData",
+            "description": "The copyright holder",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "language",
+            "in": "formData",
+            "description": "The language of the image",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Image upload response.",
+            "schema": {
+              "required": [
+                "commandId",
+                "imageId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                },
+                "imageId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "43ebd908-aa67-4efc-8be3-ac9889c6a4a6"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          }
+        },
+        "tags": [
+          "Media"
+        ]
+      }
+    },
     "/images/{id}": {
       "get": {
         "summary": "View the details of a specific image.",
