@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "UiTdatabank v3",
-        "description": "Version 3 of the UiTdatabank, a central database of cultural offers in the Flanders region.\\n Most operations require that you authenticate first with your UiTID.",
+        "description": "Version 3 of the UiTdatabank, a central database of cultural offers in the Flanders region.\n\n Most operations require that you authenticate first with your UiTID.",
         "contact": {
             "name": "publiq vzw",
             "url": "http://www.publiq.be",
