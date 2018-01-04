@@ -13,7 +13,7 @@
     "host": "udb-silex.dev",
     "basePath": "/",
     "schemes": [
-        "http"
+        "https"
     ],
     "consumes": [
         "application/json"
