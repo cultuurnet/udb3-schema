@@ -325,7 +325,7 @@
         "parameters": [
           {
             "name": "embed",
-            "in": "path",
+            "in": "query",
             "description": "Whether to get the actual bodies of the results",
             "required": false,
             "default": false,
