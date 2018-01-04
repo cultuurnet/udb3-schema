@@ -313,117 +313,6 @@
       }
     },
     "/events/": {
-      "get": {
-        "tags": [
-          "Event"
-        ],
-        "summary": "Get a list of events",
-        "operationId": "getEvents",
-        "produces": [
-          "application/ld+json"
-        ],
-        "parameters": [
-          {
-            "name": "embed",
-            "in": "query",
-            "description": "Whether to get the actual bodies of the results",
-            "required": false,
-            "default": false,
-            "type": "boolean"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "PagedCollection of events",
-            "schema": {
-              "properties": {
-                "@context": {
-                  "type": "string",
-                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
-                },
-                "@type": {
-                  "type": "string",
-                  "example": "PagedCollection"
-                },
-                "itemsPerPage": {
-                  "type": "integer",
-                  "format": "int32",
-                  "example": 30
-                },
-                "totalItems": {
-                  "type": "integer",
-                  "format": "int32",
-                  "example": 1
-                },
-                "member": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "example": "http://udb-backend.local/event/7616a359-b95c-48c0-9981-502732b8d957"
-                      },
-                      "type": {
-                        "type": "string",
-                        "example": "Event"
-                      }
-                    }
-                  }
-                },
-                "firstPage": {
-                  "type": "string",
-                  "example": "http://udb-backend.local/user/offers?page=1"
-                },
-                "lastPage": {
-                  "type": "string",
-                  "example": "http://udb-backend.local/user/offers?page=29"
-                },
-                "nextPage": {
-                  "type": "string",
-                  "example": "http://udb-backend.local/user/offers?page=2"
-                }
-              },
-              "required": [
-                "itemsPerPage",
-                "totalItems",
-                "member"
-              ]
-            }
-          },
-          "400": {
-            "description": "An API specific problem occurred.",
-            "schema": {
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "format": "url"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "integer"
-                },
-                "validation_messages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "title",
-                "type",
-                "status"
-              ]
-            }
-          },
-          "401": {
-            "description": "Authentication with UiTID and a valid JWT is required."
-          }
-        }
-      },
       "post": {
         "tags": [
           "Event"
@@ -3804,454 +3693,72 @@
             "in": "query",
             "description": "Limit the list to places located in the area with this postal code.",
             "type": "string"
+          },
+          {
+            "name": "embed",
+            "in": "query",
+            "description": "Whether to get the actual bodies of the results",
+            "required": false,
+            "default": false,
+            "type": "boolean"
           }
         ],
         "responses": {
           "200": {
-            "description": "A list of places matching the supplied criteria.",
+            "description": "A PagedCollection of places matching the supplied criteria.",
             "schema": {
-              "allOf": [
-                {
-                  "properties": {
-                    "itemsPerPage": {
-                      "type": "integer",
-                      "format": "int32",
-                      "example": 30
-                    },
-                    "totalItems": {
-                      "type": "integer",
-                      "format": "int32",
-                      "example": 1
-                    },
-                    "member": {
-                      "type": "array",
-                      "items": {
-                        "required": [
-                          "name",
-                          "address"
-                        ],
-                        "properties": {
-                          "description": {
-                            "required": [
-                              "nl"
-                            ],
-                            "properties": {
-                              "nl": {
-                                "type": "string",
-                                "example": "Nederlands"
-                              },
-                              "de": {
-                                "type": "string",
-                                "example": "Deutsch"
-                              },
-                              "en": {
-                                "type": "string",
-                                "example": "English"
-                              },
-                              "fr": {
-                                "type": "string",
-                                "example": "Français"
-                              }
-                            }
-                          },
-                          "name": {
-                            "required": [
-                              "nl"
-                            ],
-                            "properties": {
-                              "nl": {
-                                "type": "string",
-                                "example": "Nederlands"
-                              },
-                              "de": {
-                                "type": "string",
-                                "example": "Deutsch"
-                              },
-                              "en": {
-                                "type": "string",
-                                "example": "English"
-                              },
-                              "fr": {
-                                "type": "string",
-                                "example": "Français"
-                              }
-                            }
-                          },
-                          "address": {
-                            "type": "object",
-                            "properties": {
-                              "addressCountry": {
-                                "type": "string",
-                                "description": "The country code of the location.",
-                                "example": "BE"
-                              },
-                              "addressLocality": {
-                                "type": "string",
-                                "description": "The locality name of the location.",
-                                "example": "Scherpenheuvel-Zichem"
-                              },
-                              "postalCode": {
-                                "type": "string",
-                                "description": "The postalcode of the location.",
-                                "example": "3271"
-                              },
-                              "streetAddress": {
-                                "type": "string",
-                                "description": "The street name and number information of the location.",
-                                "example": "Hoornblaas 107"
-                              }
-                            },
-                            "required": [
-                              "addressCountry",
-                              "addressLocality",
-                              "postalCode",
-                              "streetAddress"
-                            ]
-                          },
-                          "geo": {
-                            "properties": {
-                              "latitude": {
-                                "type": "string",
-                                "description": "The latitude of the location.",
-                                "example": "40.75"
-                              },
-                              "longitude": {
-                                "type": "string",
-                                "description": "The longitude of the location.",
-                                "example": "73.98"
-                              }
-                            }
-                          },
-                          "bookingInfo": {
-                            "required": [
-                              "bookingInfo"
-                            ],
-                            "properties": {
-                              "bookingInfo": {
-                                "type": "object",
-                                "properties": {
-                                  "url": {
-                                    "type": "string",
-                                    "format": "url",
-                                    "example": "https://www.domain.be/reservations/eventname"
-                                  },
-                                  "urlLabel": {
-                                    "type": "string",
-                                    "example": "Reserveer plaatsen"
-                                  },
-                                  "email": {
-                                    "type": "string",
-                                    "format": "email",
-                                    "example": "user@example.com"
-                                  },
-                                  "phone": {
-                                    "type": "string",
-                                    "example": "0123456789"
-                                  },
-                                  "availabilityStarts": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "example": "2015-05-07T14:30:00+00:00"
-                                  },
-                                  "availabilityEnds": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "example": "2015-05-07T14:30:00+00:00"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "priceInfo": {
-                            "type": "array",
-                            "items": {
-                              "required": [
-                                "category",
-                                "name",
-                                "price",
-                                "priceCurrency"
-                              ],
-                              "properties": {
-                                "category": {
-                                  "type": "string",
-                                  "enum": [
-                                    "base",
-                                    "tariff"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "example": "Basistarief"
-                                },
-                                "price": {
-                                  "type": "number",
-                                  "format": "float",
-                                  "example": 10
-                                },
-                                "priceCurrency": {
-                                  "type": "string",
-                                  "example": "EUR"
-                                }
-                              }
-                            }
-                          },
-                          "terms": {
-                            "type": "array",
-                            "items": {
-                              "required": [
-                                "label",
-                                "domain",
-                                "id"
-                              ],
-                              "properties": {
-                                "label": {
-                                  "type": "string",
-                                  "example": "Cycling"
-                                },
-                                "domain": {
-                                  "type": "string",
-                                  "example": "activities"
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "example": "10.0.0.1"
-                                }
-                              }
-                            }
-                          },
-                          "workflowStatus": {
-                            "type": "string",
-                            "enum": [
-                              "DRAFT",
-                              "READY_FOR_VALIDATION",
-                              "APPROVED",
-                              "REJECTED",
-                              "DELETED"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "required": [
-                    "itemsPerPage",
-                    "totalItems",
-                    "member"
-                  ]
+              "properties": {
+                "@context": {
+                  "type": "string",
+                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
                 },
-                {
-                  "properties": {
-                    "member": {
-                      "type": "array",
-                      "items": {
-                        "required": [
-                          "name",
-                          "address"
-                        ],
-                        "properties": {
-                          "description": {
-                            "required": [
-                              "nl"
-                            ],
-                            "properties": {
-                              "nl": {
-                                "type": "string",
-                                "example": "Nederlands"
-                              },
-                              "de": {
-                                "type": "string",
-                                "example": "Deutsch"
-                              },
-                              "en": {
-                                "type": "string",
-                                "example": "English"
-                              },
-                              "fr": {
-                                "type": "string",
-                                "example": "Français"
-                              }
-                            }
-                          },
-                          "name": {
-                            "required": [
-                              "nl"
-                            ],
-                            "properties": {
-                              "nl": {
-                                "type": "string",
-                                "example": "Nederlands"
-                              },
-                              "de": {
-                                "type": "string",
-                                "example": "Deutsch"
-                              },
-                              "en": {
-                                "type": "string",
-                                "example": "English"
-                              },
-                              "fr": {
-                                "type": "string",
-                                "example": "Français"
-                              }
-                            }
-                          },
-                          "address": {
-                            "type": "object",
-                            "properties": {
-                              "addressCountry": {
-                                "type": "string",
-                                "description": "The country code of the location.",
-                                "example": "BE"
-                              },
-                              "addressLocality": {
-                                "type": "string",
-                                "description": "The locality name of the location.",
-                                "example": "Scherpenheuvel-Zichem"
-                              },
-                              "postalCode": {
-                                "type": "string",
-                                "description": "The postalcode of the location.",
-                                "example": "3271"
-                              },
-                              "streetAddress": {
-                                "type": "string",
-                                "description": "The street name and number information of the location.",
-                                "example": "Hoornblaas 107"
-                              }
-                            },
-                            "required": [
-                              "addressCountry",
-                              "addressLocality",
-                              "postalCode",
-                              "streetAddress"
-                            ]
-                          },
-                          "geo": {
-                            "properties": {
-                              "latitude": {
-                                "type": "string",
-                                "description": "The latitude of the location.",
-                                "example": "40.75"
-                              },
-                              "longitude": {
-                                "type": "string",
-                                "description": "The longitude of the location.",
-                                "example": "73.98"
-                              }
-                            }
-                          },
-                          "bookingInfo": {
-                            "required": [
-                              "bookingInfo"
-                            ],
-                            "properties": {
-                              "bookingInfo": {
-                                "type": "object",
-                                "properties": {
-                                  "url": {
-                                    "type": "string",
-                                    "format": "url",
-                                    "example": "https://www.domain.be/reservations/eventname"
-                                  },
-                                  "urlLabel": {
-                                    "type": "string",
-                                    "example": "Reserveer plaatsen"
-                                  },
-                                  "email": {
-                                    "type": "string",
-                                    "format": "email",
-                                    "example": "user@example.com"
-                                  },
-                                  "phone": {
-                                    "type": "string",
-                                    "example": "0123456789"
-                                  },
-                                  "availabilityStarts": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "example": "2015-05-07T14:30:00+00:00"
-                                  },
-                                  "availabilityEnds": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "example": "2015-05-07T14:30:00+00:00"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "priceInfo": {
-                            "type": "array",
-                            "items": {
-                              "required": [
-                                "category",
-                                "name",
-                                "price",
-                                "priceCurrency"
-                              ],
-                              "properties": {
-                                "category": {
-                                  "type": "string",
-                                  "enum": [
-                                    "base",
-                                    "tariff"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "example": "Basistarief"
-                                },
-                                "price": {
-                                  "type": "number",
-                                  "format": "float",
-                                  "example": 10
-                                },
-                                "priceCurrency": {
-                                  "type": "string",
-                                  "example": "EUR"
-                                }
-                              }
-                            }
-                          },
-                          "terms": {
-                            "type": "array",
-                            "items": {
-                              "required": [
-                                "label",
-                                "domain",
-                                "id"
-                              ],
-                              "properties": {
-                                "label": {
-                                  "type": "string",
-                                  "example": "Cycling"
-                                },
-                                "domain": {
-                                  "type": "string",
-                                  "example": "activities"
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "example": "10.0.0.1"
-                                }
-                              }
-                            }
-                          },
-                          "workflowStatus": {
-                            "type": "string",
-                            "enum": [
-                              "DRAFT",
-                              "READY_FOR_VALIDATION",
-                              "APPROVED",
-                              "REJECTED",
-                              "DELETED"
-                            ]
-                          }
-                        }
+                "@type": {
+                  "type": "string",
+                  "example": "PagedCollection"
+                },
+                "itemsPerPage": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 30
+                },
+                "totalItems": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 1
+                },
+                "member": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "http://udb-backend.local/place/7616a359-b95c-48c0-9981-502732b8d957"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "Place"
                       }
                     }
                   }
+                },
+                "firstPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=1"
+                },
+                "lastPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=29"
+                },
+                "nextPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=2"
                 }
+              },
+              "required": [
+                "itemsPerPage",
+                "totalItems",
+                "member"
               ]
             }
           }
@@ -6944,6 +6451,120 @@
         "tags": [
           "Offer"
         ]
+      }
+    },
+    "/organizers/": {
+      "get": {
+        "tags": [
+          "Organizer"
+        ],
+        "summary": "Search organizers.",
+        "description": "",
+        "operationId": "searchOrganizers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name of the organizer to be used for fuzzy search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "website",
+            "in": "query",
+            "description": "The url of the organizer website",
+            "required": false,
+            "type": "string",
+            "format": "url"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The limit of organizers included in the result set. When omitted it defaults to 30 items.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "The number of organizers to skip from the start of the result set.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "embed",
+            "in": "query",
+            "description": "Whether to get the actual bodies of the results",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A PagedCollection of organizers matching the supplied criteria.",
+            "schema": {
+              "properties": {
+                "@context": {
+                  "type": "string",
+                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "PagedCollection"
+                },
+                "itemsPerPage": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 30
+                },
+                "totalItems": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 1
+                },
+                "member": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "http://udb-backend.local/organizers/7616a359-b95c-48c0-9981-502732b8d957"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "Organizer"
+                      }
+                    }
+                  }
+                },
+                "firstPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=1"
+                },
+                "lastPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=29"
+                },
+                "nextPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=2"
+                }
+              },
+              "required": [
+                "itemsPerPage",
+                "totalItems",
+                "member"
+              ]
+            }
+          }
+        }
       }
     }
   }

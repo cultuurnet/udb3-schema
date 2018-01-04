@@ -1,33 +1,4 @@
 {
-  "get": {
-    "tags": [
-      "Event"
-    ],
-    "summary": "Get a list of events",
-    "operationId": "getEvents",
-    "produces": [
-      "application/ld+json"
-    ],
-    "parameters": [
-      {
-        "$ref": "../offer/parameters/embed.parameter.json"
-      }
-    ],
-    "responses": {
-      "200": {
-        "description": "PagedCollection of events",
-        "schema": {
-          "$ref": "../offer/offer-list.response.json"
-        }
-      },
-      "400": {
-        "$ref": "../validation/api-problem.response.json"
-      },
-      "401": {
-        "$ref": "../authorization/unauthorized.response.json"
-      }
-    }
-  },
   "post": {
     "tags": [
       "Event"

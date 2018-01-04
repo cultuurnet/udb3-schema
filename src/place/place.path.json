@@ -41,13 +41,16 @@
     "parameters": [
       {
         "$ref": "parameters/postal-code.parameter.json"
+      },
+      {
+        "$ref": "../offer/parameters/embed.parameter.json"
       }
     ],
     "responses": {
       "200": {
-        "description": "A list of places matching the supplied criteria.",
+        "description": "A PagedCollection of places matching the supplied criteria.",
         "schema": {
-          "$ref": "places-list.response.json"
+          "$ref": "places-list-unembed.response.json"
         }
       }
     }
