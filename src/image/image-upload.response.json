@@ -1,0 +1,6 @@
+{
+  "description": "Successful Image upload response.",
+  "schema": {
+    "$ref": "image-upload.definition.json"
+  }
+}

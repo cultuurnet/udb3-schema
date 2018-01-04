@@ -1,0 +1,60 @@
+{
+  "post": {
+    "summary": "Create a new media object for an image.",
+    "description": "Authentication is required",
+    "operationId": "createImage",
+    "consumes": [
+      "multipart/form-data"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "name": "file",
+        "in": "formData",
+        "description": "The image",
+        "required": true,
+        "type": "file"
+      },
+      {
+        "name": "description",
+        "in": "formData",
+        "description": "The description",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "copyrightHolder",
+        "in": "formData",
+        "description": "The copyright holder",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "language",
+        "in": "formData",
+        "description": "The language of the image",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "responses": {
+      "202": {
+        "$ref": "image-upload.response.json"
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      },
+      "403": {
+        "$ref": "../authorization/forbidden.response.json"
+      }
+    },
+    "tags": [
+      "Media"
+    ]
+  }
+}
