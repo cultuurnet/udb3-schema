@@ -4,9 +4,9 @@
     "title": "UiTdatabank v3",
     "description": "Version 3 of the UiTdatabank, a central database of cultural offers in the Flanders region.\\n Most operations require that you authenticate first with your UiTID.",
     "contact": {
-      "name": "CultuurNet Vlaanderen vzw",
-      "url": "http://www.cultuurnet.be",
-      "email": "info@uitdatabank.be"
+      "name": "publiq vzw",
+      "url": "http://www.publiq.be",
+      "email": "vragen@uitdatabank.be"
     },
     "version": "3.0.0"
   },
