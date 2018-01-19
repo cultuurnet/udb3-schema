@@ -6533,13 +6533,13 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
+                      "@id": {
                         "type": "string",
                         "example": "http://udb-backend.local/organizers/7616a359-b95c-48c0-9981-502732b8d957"
                       },
-                      "type": {
+                      "@context": {
                         "type": "string",
-                        "example": "Organizer"
+                        "example": "/contexts/organizer"
                       }
                     }
                   }
