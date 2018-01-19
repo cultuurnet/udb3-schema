@@ -49,7 +49,7 @@
       "200": {
         "description": "A PagedCollection of organizers matching the supplied criteria.",
         "schema": {
-          "$ref": "organizer-list-unembed.response.json"
+          "$ref": "organizer-list.response.json"
         }
       }
     }
