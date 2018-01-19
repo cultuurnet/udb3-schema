@@ -50,7 +50,7 @@
       "200": {
         "description": "A PagedCollection of places matching the supplied criteria.",
         "schema": {
-          "$ref": "places-list-unembed.response.json"
+          "$ref": "places-list-paged-collection.response.json"
         }
       }
     }
