@@ -1,0 +1,55 @@
+{
+  "properties": {
+    "@context": {
+      "type": "string",
+      "example": "http://www.w3.org/ns/hydra/context.jsonld"
+    },
+    "@type": {
+      "type": "string",
+      "example": "PagedCollection"
+    },
+    "itemsPerPage": {
+      "type": "integer",
+      "format": "int32",
+      "example": 30
+    },
+    "totalItems": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "member": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "example": "http://udb-backend.local/place/7616a359-b95c-48c0-9981-502732b8d957"
+          },
+          "@context": {
+            "type": "string",
+            "example": "/contexts/place"
+          }
+        }
+      }
+    },
+    "firstPage": {
+      "type": "string",
+      "example": "http://udb-backend.local/user/places?page=1"
+    },
+    "lastPage": {
+      "type": "string",
+      "example": "http://udb-backend.local/user/places?page=29"
+    },
+    "nextPage": {
+      "type": "string",
+      "example": "http://udb-backend.local/user/places?page=2"
+    }
+  },
+  "required": [
+    "itemsPerPage",
+    "totalItems",
+    "member"
+  ]
+}

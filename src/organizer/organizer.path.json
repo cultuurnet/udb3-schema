@@ -1,0 +1,57 @@
+{
+  "get": {
+    "tags": [
+      "Organizer"
+    ],
+    "summary": "Search organizers.",
+    "description": "",
+    "operationId": "searchOrganizers",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "name": "name",
+        "in": "query",
+        "description": "The name of the organizer to be used for fuzzy search",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "website",
+        "in": "query",
+        "description": "The url of the organizer website",
+        "required": false,
+        "type": "string",
+        "format": "url"
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "description": "The limit of organizers included in the result set. When omitted it defaults to 30 items.",
+        "required": false,
+        "type": "integer",
+        "format": "int32"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "description": "The number of organizers to skip from the start of the result set.",
+        "required": false,
+        "type": "integer",
+        "format": "int32"
+      },
+      {
+        "$ref": "../offer/parameters/embed.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A PagedCollection of organizers matching the supplied criteria.",
+        "schema": {
+          "$ref": "organizer-paged-collection.response.json"
+        }
+      }
+    }
+  }
+}
