@@ -97,7 +97,7 @@
         "/events/{cdbId}/typicalAgeRange": {
             "$ref": "offer/offer-typical-age-range.path.json"
         },
-        "/events/{cdbId}/{lang}/description": {
+        "/events/{cdbId}/description/{lang}": {
             "$ref": "offer/offer-update-description.path.json"
         },
         "/events/{cdbId}/images/": {

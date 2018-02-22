@@ -2460,7 +2460,7 @@
         }
       }
     },
-    "/events/{cdbId}/{lang}/description": {
+    "/events/{cdbId}/description/{lang}": {
       "put": {
         "summary": "Translate the description of an offer.",
         "description": "Authentication is required.",
