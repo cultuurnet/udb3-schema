@@ -11,7 +11,7 @@
       "$ref": "../../offer/definitions/translatable-string.definition.json"
     },
     "address": {
-      "$ref": "address.definition.json"
+      "$ref": "translatable-address.definition.json"
     },
     "geo": {
       "$ref": "geo-coordinates.definition.json"

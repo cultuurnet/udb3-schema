@@ -1,0 +1,20 @@
+{
+  "required": [
+    "nl"
+  ],
+  "type": "object",
+  "properties": {
+    "nl": {
+      "$ref": "address.definition.json"
+    },
+    "de": {
+      "$ref": "address.definition.json"
+    },
+    "en": {
+      "$ref": "address.definition.json"
+    },
+    "fr": {
+      "$ref": "address.definition.json"
+    }
+  }
+}

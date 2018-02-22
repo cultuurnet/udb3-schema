@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "UiTdatabank v3",
-    "description": "Version 3 of the UiTdatabank, a central database of cultural offers in the Flanders region.\n\nMost operations require that you authenticate first with your UiTID.",
+    "description": "Version 3 of the UiTdatabank, a central database of cultural offers in the Flanders region.\n\n Most operations require that you authenticate first with your UiTID.",
     "contact": {
       "name": "publiq vzw",
       "url": "http://www.publiq.be",
@@ -695,35 +695,136 @@
                       }
                     },
                     "address": {
+                      "required": [
+                        "nl"
+                      ],
                       "type": "object",
                       "properties": {
-                        "addressCountry": {
-                          "type": "string",
-                          "description": "The country code of the location.",
-                          "example": "BE"
+                        "nl": {
+                          "type": "object",
+                          "properties": {
+                            "addressCountry": {
+                              "type": "string",
+                              "description": "The country code of the location.",
+                              "example": "BE"
+                            },
+                            "addressLocality": {
+                              "type": "string",
+                              "description": "The locality name of the location.",
+                              "example": "Scherpenheuvel-Zichem"
+                            },
+                            "postalCode": {
+                              "type": "string",
+                              "description": "The postalcode of the location.",
+                              "example": "3271"
+                            },
+                            "streetAddress": {
+                              "type": "string",
+                              "description": "The street name and number information of the location.",
+                              "example": "Hoornblaas 107"
+                            }
+                          },
+                          "required": [
+                            "addressCountry",
+                            "addressLocality",
+                            "postalCode",
+                            "streetAddress"
+                          ]
                         },
-                        "addressLocality": {
-                          "type": "string",
-                          "description": "The locality name of the location.",
-                          "example": "Scherpenheuvel-Zichem"
+                        "de": {
+                          "type": "object",
+                          "properties": {
+                            "addressCountry": {
+                              "type": "string",
+                              "description": "The country code of the location.",
+                              "example": "BE"
+                            },
+                            "addressLocality": {
+                              "type": "string",
+                              "description": "The locality name of the location.",
+                              "example": "Scherpenheuvel-Zichem"
+                            },
+                            "postalCode": {
+                              "type": "string",
+                              "description": "The postalcode of the location.",
+                              "example": "3271"
+                            },
+                            "streetAddress": {
+                              "type": "string",
+                              "description": "The street name and number information of the location.",
+                              "example": "Hoornblaas 107"
+                            }
+                          },
+                          "required": [
+                            "addressCountry",
+                            "addressLocality",
+                            "postalCode",
+                            "streetAddress"
+                          ]
                         },
-                        "postalCode": {
-                          "type": "string",
-                          "description": "The postalcode of the location.",
-                          "example": "3271"
+                        "en": {
+                          "type": "object",
+                          "properties": {
+                            "addressCountry": {
+                              "type": "string",
+                              "description": "The country code of the location.",
+                              "example": "BE"
+                            },
+                            "addressLocality": {
+                              "type": "string",
+                              "description": "The locality name of the location.",
+                              "example": "Scherpenheuvel-Zichem"
+                            },
+                            "postalCode": {
+                              "type": "string",
+                              "description": "The postalcode of the location.",
+                              "example": "3271"
+                            },
+                            "streetAddress": {
+                              "type": "string",
+                              "description": "The street name and number information of the location.",
+                              "example": "Hoornblaas 107"
+                            }
+                          },
+                          "required": [
+                            "addressCountry",
+                            "addressLocality",
+                            "postalCode",
+                            "streetAddress"
+                          ]
                         },
-                        "streetAddress": {
-                          "type": "string",
-                          "description": "The street name and number information of the location.",
-                          "example": "Hoornblaas 107"
+                        "fr": {
+                          "type": "object",
+                          "properties": {
+                            "addressCountry": {
+                              "type": "string",
+                              "description": "The country code of the location.",
+                              "example": "BE"
+                            },
+                            "addressLocality": {
+                              "type": "string",
+                              "description": "The locality name of the location.",
+                              "example": "Scherpenheuvel-Zichem"
+                            },
+                            "postalCode": {
+                              "type": "string",
+                              "description": "The postalcode of the location.",
+                              "example": "3271"
+                            },
+                            "streetAddress": {
+                              "type": "string",
+                              "description": "The street name and number information of the location.",
+                              "example": "Hoornblaas 107"
+                            }
+                          },
+                          "required": [
+                            "addressCountry",
+                            "addressLocality",
+                            "postalCode",
+                            "streetAddress"
+                          ]
                         }
-                      },
-                      "required": [
-                        "addressCountry",
-                        "addressLocality",
-                        "postalCode",
-                        "streetAddress"
-                      ]
+                      }
                     },
                     "geo": {
                       "properties": {
@@ -3731,13 +3832,13 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": {
+                      "@id": {
                         "type": "string",
                         "example": "http://udb-backend.local/place/7616a359-b95c-48c0-9981-502732b8d957"
                       },
-                      "type": {
+                      "@context": {
                         "type": "string",
-                        "example": "Place"
+                        "example": "/contexts/place"
                       }
                     }
                   }
