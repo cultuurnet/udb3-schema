@@ -5460,23 +5460,15 @@
             "schema": {
               "type": "object",
               "properties": {
-                "timeSpans": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "start": {
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2015-05-07T12:02:53+00:00"
-                      },
-                      "end": {
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2015-05-07T12:02:53+00:00"
-                      }
-                    }
-                  }
+                "calendarType": {
+                  "example": "periodic",
+                  "type": "string",
+                  "enum": [
+                    "single",
+                    "multiple",
+                    "periodic",
+                    "permanent"
+                  ]
                 },
                 "startDate": {
                   "type": "string",
@@ -5486,7 +5478,7 @@
                 "endDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-06-22T12:02:53+00:00"
                 },
                 "openingHours": {
                   "type": "array",
