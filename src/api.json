@@ -100,9 +100,6 @@
         "/events/{cdbId}/{lang}/description": {
             "$ref": "offer/offer-update-description.path.json"
         },
-        "/events/{cdbId}/{lang}/name": {
-            "$ref": "offer/offer-update-name.path.json"
-        },
         "/events/{cdbId}/images/": {
             "$ref": "offer/offer-add-image.path.json"
         },
