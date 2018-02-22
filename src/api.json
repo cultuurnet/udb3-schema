@@ -68,7 +68,7 @@
             "$ref": "event/event-detail.path.json"
         },
         "/events/{cdbId}/theme/{themeId}": {
-          "$ref": "offer/theme.path.json"
+          "$ref": "event/theme.path.json"
         },
         "/events/{cdbId}/type/{typeId}": {
           "$ref": "event/type.path.json"
@@ -132,9 +132,6 @@
         },
         "/places/{cdbId}": {
             "$ref": "place/place-detail.path.json"
-        },
-        "/places/{cdbId}/theme/{themeId}": {
-          "$ref": "offer/theme.path.json"
         },
         "/places/{cdbId}/bookingInfo": {
             "$ref": "place/place-booking-info.path.json"
