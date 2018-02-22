@@ -1338,7 +1338,7 @@
           {
             "name": "typeId",
             "in": "path",
-            "description": "One of the event types available at: http://taxonomy.uitdatabank.be/api/domain/eventtype/classification",
+            "description": "Refer to documentation for list of applicable event type id's at: http://documentatie.uitdatabank.be/content/json-ld/latest/events/event-type/",
             "required": true,
             "type": "string"
           }
