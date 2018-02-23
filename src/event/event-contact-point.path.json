@@ -1,7 +1,7 @@
 {
   "put": {
     "tags": [
-      "Event"
+      "Offer"
     ],
     "summary": "Update the contact point of an event.",
     "operationId": "updateEventContactPoint",

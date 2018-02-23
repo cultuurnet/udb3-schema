@@ -1,7 +1,7 @@
 {
   "put": {
     "tags": [
-      "Event"
+      "Offer"
     ],
     "summary": "Update the event booking info.",
     "operationId": "updateEventBookingInfo",

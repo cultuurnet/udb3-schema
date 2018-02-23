@@ -1,8 +1,7 @@
 {
     "put": {
         "tags": [
-            "Offer",
-            "Place"
+            "Offer"
         ],
         "summary": "Update the calendar of a place.",
         "description": "Authentication is required.",
