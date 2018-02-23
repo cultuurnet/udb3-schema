@@ -6028,7 +6028,7 @@
           {
             "name": "typeId",
             "in": "path",
-            "description": "One of the types available at: http://taxonomy.uitdatabank.be/api/domain/actortype/classification that have parent id 8.15.0.0.0",
+            "description": "Refer to documentation for list of applicable place type id's at: http://documentatie.uitdatabank.be/content/json-ld/latest/places/place-type/",
             "required": true,
             "type": "string"
           }
@@ -6119,6 +6119,16 @@
             "schema": {
               "type": "object",
               "properties": {
+                "calendarType": {
+                  "example": "periodic",
+                  "type": "string",
+                  "enum": [
+                    "single",
+                    "multiple",
+                    "periodic",
+                    "permanent"
+                  ]
+                },
                 "startDate": {
                   "type": "string",
                   "format": "date-time",
@@ -6127,7 +6137,7 @@
                 "endDate": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2015-05-07T12:02:53+00:00"
+                  "example": "2015-06-22T12:02:53+00:00"
                 },
                 "openingHours": {
                   "type": "array",

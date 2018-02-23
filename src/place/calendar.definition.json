@@ -1,6 +1,10 @@
 {
     "type": "object",
     "properties": {
+        "calendarType": {
+          "$ref": "definitions/calendar-type.definition.json",
+          "example": "periodic"
+        },
         "startDate": {
             "type": "string",
             "format": "date-time",
@@ -9,7 +13,7 @@
         "endDate": {
             "type": "string",
             "format": "date-time",
-            "example": "2015-05-07T12:02:53+00:00"
+            "example": "2015-06-22T12:02:53+00:00"
         },
         "openingHours": {
             "$ref": "../offer/opening-hours.definition.json"
