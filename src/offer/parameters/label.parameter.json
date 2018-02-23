@@ -1,7 +1,7 @@
 {
   "name": "label",
   "in": "path",
-  "description": "The label to remove from an offer.",
+  "description": "The label to add or remove from an offer.",
   "required": true,
   "type": "string"
 }
