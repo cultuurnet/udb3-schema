@@ -1766,7 +1766,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An array containing the facilities to attach to the place.",
+            "description": "An array containing the facilities to attach to the offer. Consult documentation for the active facilities for events and places: http://documentatie.uitdatabank.be/content/json-ld/latest/index.html",
             "required": true,
             "schema": {
               "type": "object",
@@ -1864,7 +1864,7 @@
           {
             "name": "label",
             "in": "path",
-            "description": "The label to remove from an offer.",
+            "description": "The label to add or remove from an offer.",
             "required": true,
             "type": "string"
           }
@@ -1948,7 +1948,7 @@
           {
             "name": "label",
             "in": "path",
-            "description": "The label to remove from an offer.",
+            "description": "The label to add or remove from an offer.",
             "required": true,
             "type": "string"
           }
@@ -3337,7 +3337,7 @@
           {
             "name": "label",
             "in": "path",
-            "description": "The label to remove from an offer.",
+            "description": "The label to add or remove from an offer.",
             "required": true,
             "type": "string"
           }
@@ -3421,7 +3421,7 @@
           {
             "name": "label",
             "in": "path",
-            "description": "The label to remove from an offer.",
+            "description": "The label to add or remove from an offer.",
             "required": true,
             "type": "string"
           }
@@ -4263,7 +4263,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An array containing the facilities to attach to the place.",
+            "description": "An array containing the facilities to attach to the offer. Consult documentation for the active facilities for events and places: http://documentatie.uitdatabank.be/content/json-ld/latest/index.html",
             "required": true,
             "schema": {
               "type": "object",
