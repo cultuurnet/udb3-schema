@@ -330,6 +330,7 @@
             "required": true,
             "schema": {
               "required": [
+                "mainLanguage",
                 "name",
                 "type",
                 "theme",
@@ -338,14 +339,15 @@
                 "startDate"
               ],
               "properties": {
+                "mainLanguage": {
+                  "type": "string",
+                  "description": "The unique ISO 639-1 2 character language code.",
+                  "example": "nl"
+                },
                 "name": {
-                  "type": "object",
-                  "properties": {
-                    "nl": {
-                      "type": "string",
-                      "example": "Name example"
-                    }
-                  }
+                  "type": "string",
+                  "description": "The name of the event to create",
+                  "example": "Name example"
                 },
                 "type": {
                   "type": "object",
@@ -3609,6 +3611,7 @@
             "required": true,
             "schema": {
               "required": [
+                "mainLanguage",
                 "name",
                 "type",
                 "address",
@@ -3616,14 +3619,15 @@
                 "openingHours"
               ],
               "properties": {
+                "mainLanguage": {
+                  "type": "string",
+                  "description": "The unique ISO 639-1 2 character language code.",
+                  "example": "nl"
+                },
                 "name": {
-                  "type": "object",
-                  "properties": {
-                    "nl": {
-                      "type": "string",
-                      "example": "Name example"
-                    }
-                  }
+                  "type": "string",
+                  "description": "The name of the place to create",
+                  "example": "Name example"
                 },
                 "type": {
                   "type": "object",

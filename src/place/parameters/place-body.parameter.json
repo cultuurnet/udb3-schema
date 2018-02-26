@@ -4,6 +4,6 @@
   "description": "An object containing the necessary information to create a new place.",
   "required": true,
   "schema": {
-    "$ref": "../definitions/place-major-info.definition.json"
+    "$ref": "../definitions/create-place.definition.json"
   }
 }
