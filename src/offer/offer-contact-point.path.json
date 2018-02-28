@@ -1,0 +1,23 @@
+{
+  "put": {
+    "tags": [
+      "Offer"
+    ],
+    "summary": "Update the contact point of an offer.",
+    "operationId": "updateOfferContactPoint",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/contact-point.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}
