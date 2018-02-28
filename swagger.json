@@ -1585,7 +1585,7 @@
     "/events/{cdbId}/calendar": {
       "put": {
         "tags": [
-          "Offer"
+          "Event"
         ],
         "summary": "Update the calendar of an event.",
         "description": "Authentication is required.",
@@ -1910,8 +1910,8 @@
         "tags": [
           "Offer"
         ],
-        "summary": "Update the contact point of an event.",
-        "operationId": "updateEventContactPoint",
+        "summary": "Update the contact point of an offer.",
+        "operationId": "updateOfferContactPoint",
         "produces": [
           "application/json"
         ],
@@ -3701,8 +3701,6 @@
                 "calendarType": {
                   "type": "string",
                   "enum": [
-                    "single",
-                    "multiple",
                     "periodic",
                     "permanent"
                   ],
@@ -4555,7 +4553,7 @@
     "/places/{cdbId}/calendar": {
       "put": {
         "tags": [
-          "Offer"
+          "Place"
         ],
         "summary": "Update the calendar of a place.",
         "description": "Authentication is required.",
@@ -4584,8 +4582,6 @@
                   "example": "periodic",
                   "type": "string",
                   "enum": [
-                    "single",
-                    "multiple",
                     "periodic",
                     "permanent"
                   ]
@@ -4697,8 +4693,8 @@
         "tags": [
           "Offer"
         ],
-        "summary": "Update the place contact point.",
-        "operationId": "updatePlaceContactPoint",
+        "summary": "Update the contact point of an offer.",
+        "operationId": "updateOfferContactPoint",
         "produces": [
           "application/json"
         ],
