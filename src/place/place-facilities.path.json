@@ -1,10 +1,10 @@
 {
   "put": {
     "tags": [
-      "Event"
+      "Place"
     ],
-    "summary": "Update the contact point of an event.",
-    "operationId": "updateEventContactPoint",
+    "summary": "Update the facilities of a place.",
+    "operationId": "updatePlaceFacilities",
     "produces": [
       "application/json"
     ],
@@ -13,7 +13,7 @@
         "$ref": "../offer/parameters/cdb-id.parameter.json"
       },
       {
-        "$ref": "../offer/parameters/contact-point.parameter.json"
+        "$ref": "parameters/facilities.parameter.json"
       }
     ],
     "responses": {

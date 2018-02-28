@@ -1,0 +1,7 @@
+{
+    "name": "themeId",
+    "in": "path",
+    "description": "Refer to documentation for list of applicable event theme id's at: http://documentatie.uitdatabank.be/content/json-ld/latest/events/event-theme/",
+    "required": true,
+    "type": "string"
+}

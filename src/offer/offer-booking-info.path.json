@@ -3,8 +3,8 @@
     "tags": [
       "Offer"
     ],
-    "summary": "Update the facilities of a specific offer.",
-    "operationId": "updateOfferFacilities",
+    "summary": "Update booking info of an offer.",
+    "operationId": "updateOfferBookingInfo",
     "produces": [
       "application/json"
     ],
@@ -13,11 +13,11 @@
         "$ref": "parameters/cdb-id.parameter.json"
       },
       {
-        "$ref": "parameters/facilities.parameter.json"
+        "$ref": "parameters/booking-info.parameter.json"
       }
     ],
     "responses": {
-      "$ref": "../offer/command-responses.json"
+      "$ref": "command-responses.json"
     }
   }
 }

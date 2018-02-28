@@ -1,7 +1,6 @@
 {
     "put": {
         "tags": [
-            "Offer",
             "Event"
         ],
         "summary": "Update the calendar of an event.",

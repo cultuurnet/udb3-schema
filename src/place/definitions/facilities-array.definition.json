@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "Array of string ids of the facility types available at: http://documentatie.uitdatabank.be/content/json-ld/latest/places/place-facility/",
+  "properties": {
+    "facilities": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "3.13.1.0.0",
+            "3.23.3.0.0",
+            "3.25.0.0.0",
+            "3.26.0.0.0"
+          ],
+          "example": [
+            "3.13.1.0.0",
+            "3.23.3.0.0"
+          ]
+      }
+    }
+  }
+}

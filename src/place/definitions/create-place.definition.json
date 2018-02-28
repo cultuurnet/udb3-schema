@@ -25,7 +25,7 @@
       "$ref": "address.definition.json"
     },
     "calendarType": {
-      "$ref": "../../place/definitions/calender-type.definition.json"
+      "$ref": "../../place/definitions/calendar-type.definition.json"
     },
     "openingHours": {
       "$ref": "../../place/definitions/opening-hours.definition.json"

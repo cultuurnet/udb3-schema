@@ -29,7 +29,7 @@
       "$ref": "../../offer/definitions/location.definition.json"
     },
     "calendarType": {
-      "$ref": "calender-type.definition.json"
+      "$ref": "calendar-type.definition.json"
     },
     "timestamps": {
       "type": "array",
