@@ -2034,8 +2034,8 @@
         "tags": [
           "Offer"
         ],
-        "summary": "Update the event booking info.",
-        "operationId": "updateEventBookingInfo",
+        "summary": "Update booking info of an offer.",
+        "operationId": "updateOfferBookingInfo",
         "produces": [
           "application/json"
         ],
@@ -4817,8 +4817,8 @@
         "tags": [
           "Offer"
         ],
-        "summary": "Update the place booking info.",
-        "operationId": "updatePlaceBookingInfo",
+        "summary": "Update booking info of an offer.",
+        "operationId": "updateOfferBookingInfo",
         "produces": [
           "application/json"
         ],

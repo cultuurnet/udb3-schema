@@ -89,7 +89,7 @@
             "$ref": "offer/offer-contact-point.path.json"
         },
         "/events/{cdbId}/bookingInfo": {
-            "$ref": "event/event-booking-info.path.json"
+            "$ref": "offer/offer-booking-info.path.json"
         },
         "/events/{cdbId}/facilities/": {
             "$ref": "offer/offer-facilities.path.json"
@@ -152,7 +152,7 @@
             "$ref": "offer/offer-contact-point.path.json"
         },
         "/places/{cdbId}/bookingInfo": {
-            "$ref": "place/place-booking-info.path.json"
+            "$ref": "offer/offer-booking-info.path.json"
         },
         "/places/{cdbId}/facilities/": {
             "$ref": "offer/offer-facilities.path.json"

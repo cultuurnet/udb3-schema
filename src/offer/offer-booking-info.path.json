@@ -1,0 +1,23 @@
+{
+  "put": {
+    "tags": [
+      "Offer"
+    ],
+    "summary": "Update booking info of an offer.",
+    "operationId": "updateOfferBookingInfo",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "parameters/booking-info.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "command-responses.json"
+    }
+  }
+}
