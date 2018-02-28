@@ -2157,10 +2157,10 @@
     "/events/{cdbId}/facilities/": {
       "put": {
         "tags": [
-          "Offer"
+          "Event"
         ],
-        "summary": "Update the facilities of a specific offer.",
-        "operationId": "updateOfferFacilities",
+        "summary": "Update the facilities of an event.",
+        "operationId": "updateEventFacilities",
         "produces": [
           "application/json"
         ],
@@ -2176,17 +2176,45 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An array containing the facilities to attach to the offer. Consult documentation for the active facilities for events and places: http://documentatie.uitdatabank.be/content/json-ld/latest/index.html",
+            "description": "An array containing the facilities to attach to an event. Consult documentation for the active facilities for events: http://documentatie.uitdatabank.be/content/json-ld/latest/index.html",
             "required": true,
             "schema": {
               "type": "object",
-              "description": "Array of string ids of the facility types available at: http://taxonomy.uitdatabank.be/api/domain/facility/classification",
+              "description": "Array of string ids of the facility types available at: http://documentatie.uitdatabank.be/content/json-ld/latest/events/event-facility/",
               "properties": {
                 "facilities": {
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "example": "3.13.3.0.0"
+                    "enum": [
+                      "3.13.1.0.0",
+                      "3.13.2.0.0",
+                      "3.17.1.0.0",
+                      "3.17.2.0.0",
+                      "3.17.3.0.0",
+                      "3.23.2.0.0",
+                      "3.26.0.0.0",
+                      "3.27.0.0.0",
+                      "3.28.0.0.0",
+                      "3.29.0.0.0",
+                      "3.30.0.0.0",
+                      "3.31.0.0.0",
+                      "3.32.0.0.0",
+                      "3.33.0.0.0",
+                      "3.34.0.0.0",
+                      "3.35.0.0.0",
+                      "3.36.0.0.0",
+                      "3.37.0.0.0",
+                      "3.38.0.0.0",
+                      "3.39.0.0.0",
+                      "3.40.0.0.0"
+                    ],
+                    "example": [
+                      "3.13.1.0.0",
+                      "3.13.2.0.0",
+                      "3.17.1.0.0",
+                      "3.17.2.0.0"
+                    ]
                   }
                 }
               }
@@ -4942,10 +4970,10 @@
     "/places/{cdbId}/facilities/": {
       "put": {
         "tags": [
-          "Offer"
+          "Place"
         ],
-        "summary": "Update the facilities of a specific offer.",
-        "operationId": "updateOfferFacilities",
+        "summary": "Update the facilities of a place.",
+        "operationId": "updatePlaceFacilities",
         "produces": [
           "application/json"
         ],
@@ -4961,17 +4989,26 @@
           {
             "name": "body",
             "in": "body",
-            "description": "An array containing the facilities to attach to the offer. Consult documentation for the active facilities for events and places: http://documentatie.uitdatabank.be/content/json-ld/latest/index.html",
+            "description": "An array containing the facilities to attach to a place. Consult documentation for the active facilities for places: http://documentatie.uitdatabank.be/content/json-ld/latest/index.html",
             "required": true,
             "schema": {
               "type": "object",
-              "description": "Array of string ids of the facility types available at: http://taxonomy.uitdatabank.be/api/domain/facility/classification",
+              "description": "Array of string ids of the facility types available at: http://documentatie.uitdatabank.be/content/json-ld/latest/places/place-facility/",
               "properties": {
                 "facilities": {
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "example": "3.13.3.0.0"
+                    "enum": [
+                      "3.13.1.0.0",
+                      "3.23.3.0.0",
+                      "3.25.0.0.0",
+                      "3.26.0.0.0"
+                    ],
+                    "example": [
+                      "3.13.1.0.0",
+                      "3.23.3.0.0"
+                    ]
                   }
                 }
               }

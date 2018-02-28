@@ -1,16 +1,16 @@
 {
   "put": {
     "tags": [
-      "Offer"
+      "Place"
     ],
-    "summary": "Update the facilities of a specific offer.",
-    "operationId": "updateOfferFacilities",
+    "summary": "Update the facilities of a place.",
+    "operationId": "updatePlaceFacilities",
     "produces": [
       "application/json"
     ],
     "parameters": [
       {
-        "$ref": "parameters/cdb-id.parameter.json"
+        "$ref": "../offer/parameters/cdb-id.parameter.json"
       },
       {
         "$ref": "parameters/facilities.parameter.json"
