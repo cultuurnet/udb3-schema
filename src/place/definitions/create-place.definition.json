@@ -1,0 +1,34 @@
+{
+  "required": [
+    "mainLanguage",
+    "name",
+    "type",
+    "address",
+    "calendarType",
+    "openingHours"
+  ],
+  "properties": {
+    "mainLanguage": {
+      "type": "string",
+      "description": "The unique ISO 639-1 2 character language code.",
+      "example": "nl"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the place to create",
+      "example": "Name example"
+    },
+    "type": {
+      "$ref": "../../place/definitions/type.definition.json"
+    },
+    "address": {
+      "$ref": "address.definition.json"
+    },
+    "calendarType": {
+      "$ref": "../../place/definitions/calendar-type.definition.json"
+    },
+    "openingHours": {
+      "$ref": "../../place/definitions/opening-hours.definition.json"
+    }
+  }
+}

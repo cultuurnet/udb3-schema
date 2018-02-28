@@ -1,0 +1,58 @@
+{
+  "required": [
+    "mainLanguage",
+    "name",
+    "type",
+    "theme",
+    "location",
+    "calendarType",
+    "startDate"
+  ],
+  "properties": {
+    "mainLanguage": {
+      "type": "string",
+      "description": "The unique ISO 639-1 2 character language code.",
+      "example": "nl"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the event to create",
+      "example": "Name example"
+    },
+    "type": {
+      "$ref": "../../event/definitions/type.definition.json"
+    },
+    "theme": {
+      "$ref": "../../event/definitions/theme.definition.json"
+    },
+    "location": {
+      "$ref": "../../offer/definitions/location.definition.json"
+    },
+    "calendarType": {
+      "$ref": "calendar-type.definition.json"
+    },
+    "timestamps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "date.definition.json"
+          },
+          "startHour": {
+            "$ref": "time.definition.json"
+          },
+          "endHour": {
+            "$ref": "time.definition.json"
+          }
+        }
+      }
+    },
+    "startDate": {
+      "$ref": "date-time.definition.json"
+    },
+    "endDate": {
+      "$ref": "date-time.definition.json"
+    }
+  }
+}
