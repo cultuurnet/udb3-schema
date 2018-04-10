@@ -807,8 +807,27 @@
                             ]
                           },
                           "name": {
-                            "type": "string",
-                            "example": "Basistarief"
+                            "required": [
+                              "nl"
+                            ],
+                            "properties": {
+                              "nl": {
+                                "type": "string",
+                                "example": "Nederlands"
+                              },
+                              "de": {
+                                "type": "string",
+                                "example": "Deutsch"
+                              },
+                              "en": {
+                                "type": "string",
+                                "example": "English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "example": "Français"
+                              }
+                            }
                           },
                           "price": {
                             "type": "number",
@@ -1042,8 +1061,27 @@
                         ]
                       },
                       "name": {
-                        "type": "string",
-                        "example": "Basistarief"
+                        "required": [
+                          "nl"
+                        ],
+                        "properties": {
+                          "nl": {
+                            "type": "string",
+                            "example": "Nederlands"
+                          },
+                          "de": {
+                            "type": "string",
+                            "example": "Deutsch"
+                          },
+                          "en": {
+                            "type": "string",
+                            "example": "English"
+                          },
+                          "fr": {
+                            "type": "string",
+                            "example": "Français"
+                          }
+                        }
                       },
                       "price": {
                         "type": "number",
@@ -2347,8 +2385,27 @@
                     ]
                   },
                   "name": {
-                    "type": "string",
-                    "example": "Basistarief"
+                    "required": [
+                      "nl"
+                    ],
+                    "properties": {
+                      "nl": {
+                        "type": "string",
+                        "example": "Nederlands"
+                      },
+                      "de": {
+                        "type": "string",
+                        "example": "Deutsch"
+                      },
+                      "en": {
+                        "type": "string",
+                        "example": "English"
+                      },
+                      "fr": {
+                        "type": "string",
+                        "example": "Français"
+                      }
+                    }
                   },
                   "price": {
                     "type": "number",
@@ -4138,8 +4195,27 @@
                         ]
                       },
                       "name": {
-                        "type": "string",
-                        "example": "Basistarief"
+                        "required": [
+                          "nl"
+                        ],
+                        "properties": {
+                          "nl": {
+                            "type": "string",
+                            "example": "Nederlands"
+                          },
+                          "de": {
+                            "type": "string",
+                            "example": "Deutsch"
+                          },
+                          "en": {
+                            "type": "string",
+                            "example": "English"
+                          },
+                          "fr": {
+                            "type": "string",
+                            "example": "Français"
+                          }
+                        }
                       },
                       "price": {
                         "type": "number",
@@ -5155,8 +5231,27 @@
                     ]
                   },
                   "name": {
-                    "type": "string",
-                    "example": "Basistarief"
+                    "required": [
+                      "nl"
+                    ],
+                    "properties": {
+                      "nl": {
+                        "type": "string",
+                        "example": "Nederlands"
+                      },
+                      "de": {
+                        "type": "string",
+                        "example": "Deutsch"
+                      },
+                      "en": {
+                        "type": "string",
+                        "example": "English"
+                      },
+                      "fr": {
+                        "type": "string",
+                        "example": "Français"
+                      }
+                    }
                   },
                   "price": {
                     "type": "number",
