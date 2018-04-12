@@ -8,7 +8,7 @@
       "example": "STUK"
     },
     "address": {
-      "$ref": "../../place/definitions/address.definition.json"
+      "$ref": "../../place/definitions/translatable-address.definition.json"
     },
     "contactPoint": {
       "$ref": "contact-point.definition.json"
