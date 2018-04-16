@@ -26,6 +26,13 @@
         "format": "url"
       },
       {
+        "name": "postalCode",
+        "in": "query",
+        "description": "The postal code of the organizer address",
+        "required": false,
+        "type": "string"
+      },
+      {
         "name": "limit",
         "in": "query",
         "description": "The limit of organizers included in the result set. When omitted it defaults to 30 items.",
