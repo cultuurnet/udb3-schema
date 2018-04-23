@@ -13,8 +13,7 @@
       ]
     },
     "name": {
-      "type": "string",
-      "example": "Basistarief"
+      "$ref": "translatable-string.definition.json"
     },
     "price": {
       "type": "number",
