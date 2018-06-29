@@ -2236,8 +2236,27 @@
                       "example": "https://www.domain.be/reservations/eventname"
                     },
                     "urlLabel": {
-                      "type": "string",
-                      "example": "Reserveer plaatsen"
+                      "required": [
+                        "nl"
+                      ],
+                      "properties": {
+                        "nl": {
+                          "type": "string",
+                          "example": "Nederlands"
+                        },
+                        "de": {
+                          "type": "string",
+                          "example": "Deutsch"
+                        },
+                        "en": {
+                          "type": "string",
+                          "example": "English"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Français"
+                        }
+                      }
                     },
                     "email": {
                       "type": "string",
@@ -5101,8 +5120,27 @@
                       "example": "https://www.domain.be/reservations/eventname"
                     },
                     "urlLabel": {
-                      "type": "string",
-                      "example": "Reserveer plaatsen"
+                      "required": [
+                        "nl"
+                      ],
+                      "properties": {
+                        "nl": {
+                          "type": "string",
+                          "example": "Nederlands"
+                        },
+                        "de": {
+                          "type": "string",
+                          "example": "Deutsch"
+                        },
+                        "en": {
+                          "type": "string",
+                          "example": "English"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Français"
+                        }
+                      }
                     },
                     "email": {
                       "type": "string",
