@@ -2242,19 +2242,19 @@
                       "properties": {
                         "nl": {
                           "type": "string",
-                          "example": "Nederlands"
+                          "example": "Reserveer plaatsen"
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutsch"
+                          "example": "Reservieren Sie"
                         },
                         "en": {
                           "type": "string",
-                          "example": "English"
+                          "example": "Make a reservation"
                         },
                         "fr": {
                           "type": "string",
-                          "example": "Français"
+                          "example": "Faire une réservation"
                         }
                       }
                     },
@@ -4260,19 +4260,19 @@
                       "properties": {
                         "nl": {
                           "type": "string",
-                          "example": "Nederlands"
+                          "example": "Reserveer plaatsen"
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutsch"
+                          "example": "Reservieren Sie"
                         },
                         "en": {
                           "type": "string",
-                          "example": "English"
+                          "example": "Make a reservation"
                         },
                         "fr": {
                           "type": "string",
-                          "example": "Français"
+                          "example": "Faire une réservation"
                         }
                       }
                     },
