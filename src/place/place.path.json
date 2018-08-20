@@ -43,6 +43,9 @@
         "$ref": "parameters/postal-code.parameter.json"
       },
       {
+        "$ref": "parameters/country.parameter.json"
+      },
+      {
         "$ref": "../offer/parameters/embed.parameter.json"
       }
     ],

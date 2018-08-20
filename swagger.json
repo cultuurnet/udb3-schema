@@ -4034,6 +4034,14 @@
             "type": "string"
           },
           {
+            "name": "country",
+            "in": "query",
+            "description": "Limit the list to places in the given country. This is optional. When no country parameter is provided, default 'BE' will be used.",
+            "required": false,
+            "default": "BE",
+            "type": "string"
+          },
+          {
             "name": "embed",
             "in": "query",
             "description": "Whether to get the actual bodies of the results",
