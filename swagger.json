@@ -228,8 +228,7 @@
                 "type",
                 "theme",
                 "location",
-                "calendarType",
-                "startDate"
+                "calendar"
               ],
               "properties": {
                 "mainLanguage": {
@@ -330,46 +329,50 @@
                     }
                   }
                 },
-                "calendarType": {
-                  "type": "string",
-                  "enum": [
-                    "single",
-                    "multiple",
-                    "periodic",
-                    "permanent"
-                  ],
-                  "example": "single"
-                },
-                "timestamps": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2015-05-07"
-                      },
-                      "startHour": {
-                        "type": "string",
-                        "example": "14:30"
-                      },
-                      "endHour": {
-                        "type": "string",
-                        "example": "14:30"
+                "calendar": {
+                  "properties": {
+                    "calendarType": {
+                      "type": "string",
+                      "enum": [
+                        "single",
+                        "multiple",
+                        "periodic",
+                        "permanent"
+                      ],
+                      "example": "single"
+                    },
+                    "timeSpans": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "allDay": {
+                            "type": "boolean"
+                          },
+                          "start": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2015-05-07T14:30:00+00:00"
+                          },
+                          "end": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2015-05-07T14:30:00+00:00"
+                          }
+                        }
                       }
+                    },
+                    "startDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T14:30:00+00:00"
+                    },
+                    "endDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T14:30:00+00:00"
                     }
                   }
-                },
-                "startDate": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2015-05-07T14:30:00+00:00"
-                },
-                "endDate": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2015-05-07T14:30:00+00:00"
                 }
               }
             }

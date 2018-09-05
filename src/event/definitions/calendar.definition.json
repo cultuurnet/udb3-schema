@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "calendarType": {
+      "$ref": "calendar-type.definition.json"
+    },
+    "timeSpans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "allDay": {
+            "type": "boolean"
+          },
+          "start": {
+            "$ref": "date-time.definition.json"
+          },
+          "end": {
+            "$ref": "date-time.definition.json"
+          }
+        }
+      }
+    },
+    "startDate": {
+      "$ref": "date-time.definition.json"
+    },
+    "endDate": {
+      "$ref": "date-time.definition.json"
+    }
+  }
+}
