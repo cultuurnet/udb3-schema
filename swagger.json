@@ -755,19 +755,19 @@
                           "properties": {
                             "nl": {
                               "type": "string",
-                              "example": "Nederlands"
+                              "example": "Reserveer plaatsen"
                             },
                             "de": {
                               "type": "string",
-                              "example": "Deutsch"
+                              "example": "Reservieren Sie"
                             },
                             "en": {
                               "type": "string",
-                              "example": "English"
+                              "example": "Make a reservation"
                             },
                             "fr": {
                               "type": "string",
-                              "example": "Français"
+                              "example": "Faire une réservation"
                             }
                           }
                         },
@@ -1110,19 +1110,19 @@
                       "properties": {
                         "nl": {
                           "type": "string",
-                          "example": "Nederlands"
+                          "example": "Reserveer plaatsen"
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutsch"
+                          "example": "Reservieren Sie"
                         },
                         "en": {
                           "type": "string",
-                          "example": "English"
+                          "example": "Make a reservation"
                         },
                         "fr": {
                           "type": "string",
-                          "example": "Français"
+                          "example": "Faire une réservation"
                         }
                       }
                     },
@@ -2239,8 +2239,27 @@
                       "example": "https://www.domain.be/reservations/eventname"
                     },
                     "urlLabel": {
-                      "type": "string",
-                      "example": "Reserveer plaatsen"
+                      "required": [
+                        "nl"
+                      ],
+                      "properties": {
+                        "nl": {
+                          "type": "string",
+                          "example": "Reserveer plaatsen"
+                        },
+                        "de": {
+                          "type": "string",
+                          "example": "Reservieren Sie"
+                        },
+                        "en": {
+                          "type": "string",
+                          "example": "Make a reservation"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Faire une réservation"
+                        }
+                      }
                     },
                     "email": {
                       "type": "string",
@@ -4266,19 +4285,19 @@
                       "properties": {
                         "nl": {
                           "type": "string",
-                          "example": "Nederlands"
+                          "example": "Reserveer plaatsen"
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutsch"
+                          "example": "Reservieren Sie"
                         },
                         "en": {
                           "type": "string",
-                          "example": "English"
+                          "example": "Make a reservation"
                         },
                         "fr": {
                           "type": "string",
-                          "example": "Français"
+                          "example": "Faire une réservation"
                         }
                       }
                     },
@@ -5126,8 +5145,27 @@
                       "example": "https://www.domain.be/reservations/eventname"
                     },
                     "urlLabel": {
-                      "type": "string",
-                      "example": "Reserveer plaatsen"
+                      "required": [
+                        "nl"
+                      ],
+                      "properties": {
+                        "nl": {
+                          "type": "string",
+                          "example": "Nederlands"
+                        },
+                        "de": {
+                          "type": "string",
+                          "example": "Deutsch"
+                        },
+                        "en": {
+                          "type": "string",
+                          "example": "English"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Français"
+                        }
+                      }
                     },
                     "email": {
                       "type": "string",

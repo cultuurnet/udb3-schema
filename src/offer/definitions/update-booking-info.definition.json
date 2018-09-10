@@ -12,8 +12,7 @@
           "example": "https://www.domain.be/reservations/eventname"
         },
         "urlLabel": {
-          "type": "string",
-          "example": "Reserveer plaatsen"
+          "$ref": "translatable-string.definition.json"
         },
         "email": {
           "type": "string",
