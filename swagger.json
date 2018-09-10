@@ -228,8 +228,7 @@
                 "type",
                 "theme",
                 "location",
-                "calendarType",
-                "startDate"
+                "calendar"
               ],
               "properties": {
                 "mainLanguage": {
@@ -330,46 +329,50 @@
                     }
                   }
                 },
-                "calendarType": {
-                  "type": "string",
-                  "enum": [
-                    "single",
-                    "multiple",
-                    "periodic",
-                    "permanent"
-                  ],
-                  "example": "single"
-                },
-                "timestamps": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "date": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2015-05-07"
-                      },
-                      "startHour": {
-                        "type": "string",
-                        "example": "14:30"
-                      },
-                      "endHour": {
-                        "type": "string",
-                        "example": "14:30"
+                "calendar": {
+                  "properties": {
+                    "calendarType": {
+                      "type": "string",
+                      "enum": [
+                        "single",
+                        "multiple",
+                        "periodic",
+                        "permanent"
+                      ],
+                      "example": "single"
+                    },
+                    "timeSpans": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "allDay": {
+                            "type": "boolean"
+                          },
+                          "start": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2015-05-07T14:30:00+00:00"
+                          },
+                          "end": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2015-05-07T14:30:00+00:00"
+                          }
+                        }
                       }
+                    },
+                    "startDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T14:30:00+00:00"
+                    },
+                    "endDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T14:30:00+00:00"
                     }
                   }
-                },
-                "startDate": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2015-05-07T14:30:00+00:00"
-                },
-                "endDate": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2015-05-07T14:30:00+00:00"
                 }
               }
             }
@@ -3851,8 +3854,7 @@
                 "name",
                 "type",
                 "address",
-                "calendarType",
-                "openingHours"
+                "calendar"
               ],
               "properties": {
                 "mainLanguage": {
@@ -3916,41 +3918,56 @@
                     "streetAddress"
                   ]
                 },
-                "calendarType": {
-                  "type": "string",
-                  "enum": [
-                    "periodic",
-                    "permanent"
-                  ],
-                  "example": "permanent"
-                },
-                "openingHours": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "dayOfWeek": {
-                        "type": "array",
-                        "items": {
-                          "type": "string",
-                          "enum": [
-                            "monday",
-                            "tuesday",
-                            "wednesday",
-                            "thursday",
-                            "friday",
-                            "saturday",
-                            "sunday"
-                          ]
+                "calendar": {
+                  "type": "object",
+                  "properties": {
+                    "calendarType": {
+                      "example": "periodic",
+                      "type": "string",
+                      "enum": [
+                        "periodic",
+                        "permanent"
+                      ]
+                    },
+                    "startDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-05-07T12:02:53+00:00"
+                    },
+                    "endDate": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2015-06-22T12:02:53+00:00"
+                    },
+                    "openingHours": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dayOfWeek": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "monday",
+                                "tuesday",
+                                "wednesday",
+                                "thursday",
+                                "friday",
+                                "saturday",
+                                "sunday"
+                              ]
+                            }
+                          },
+                          "opens": {
+                            "type": "string",
+                            "example": "08:00"
+                          },
+                          "closes": {
+                            "type": "string",
+                            "example": "18:00"
+                          }
                         }
-                      },
-                      "opens": {
-                        "type": "string",
-                        "example": "14:30"
-                      },
-                      "closes": {
-                        "type": "string",
-                        "example": "17:00"
                       }
                     }
                   }

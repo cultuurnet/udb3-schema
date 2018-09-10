@@ -5,8 +5,7 @@
     "type",
     "theme",
     "location",
-    "calendarType",
-    "startDate"
+    "calendar"
   ],
   "properties": {
     "mainLanguage": {
@@ -28,31 +27,8 @@
     "location": {
       "$ref": "../../offer/definitions/location.definition.json"
     },
-    "calendarType": {
-      "$ref": "calendar-type.definition.json"
-    },
-    "timestamps": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "$ref": "date.definition.json"
-          },
-          "startHour": {
-            "$ref": "time.definition.json"
-          },
-          "endHour": {
-            "$ref": "time.definition.json"
-          }
-        }
-      }
-    },
-    "startDate": {
-      "$ref": "date-time.definition.json"
-    },
-    "endDate": {
-      "$ref": "date-time.definition.json"
+    "calendar": {
+      "$ref": "../../event/definitions/calendar.definition.json"
     }
   }
 }

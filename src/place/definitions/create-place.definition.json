@@ -4,8 +4,7 @@
     "name",
     "type",
     "address",
-    "calendarType",
-    "openingHours"
+    "calendar",
   ],
   "properties": {
     "mainLanguage": {
@@ -24,11 +23,8 @@
     "address": {
       "$ref": "address.definition.json"
     },
-    "calendarType": {
-      "$ref": "../../place/definitions/calendar-type.definition.json"
-    },
-    "openingHours": {
-      "$ref": "../../place/definitions/opening-hours.definition.json"
+    "calendar": {
+      "$ref": "../../place/calendar.definition.json"
     }
   }
 }
