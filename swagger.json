@@ -205,6 +205,120 @@
         ]
       }
     },
+    "/user/organizers/": {
+      "get": {
+        "summary": "Retrieve all organizers owned by the current user",
+        "description": "Authentication required",
+        "operationId": "getUserOrganizers",
+        "produces": [
+          "application/ld+json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The number of the page which the paged result should return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of organizers",
+            "schema": {
+              "properties": {
+                "@context": {
+                  "type": "string",
+                  "example": "http://www.w3.org/ns/hydra/context.jsonld"
+                },
+                "@type": {
+                  "type": "string",
+                  "example": "PagedCollection"
+                },
+                "itemsPerPage": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 30
+                },
+                "totalItems": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 1
+                },
+                "member": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "example": "http://udb-backend.local/organizers/7616a359-b95c-48c0-9981-502732b8d957"
+                      },
+                      "@context": {
+                        "type": "string",
+                        "example": "/contexts/organizer"
+                      }
+                    }
+                  }
+                },
+                "firstPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=1"
+                },
+                "lastPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=29"
+                },
+                "nextPage": {
+                  "type": "string",
+                  "example": "http://udb-backend.local/user/places?page=2"
+                }
+              },
+              "required": [
+                "itemsPerPage",
+                "totalItems",
+                "member"
+              ]
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
     "/events/": {
       "post": {
         "tags": [
@@ -6659,6 +6773,80 @@
             }
           }
         }
+      }
+    },
+    "/organizers/{cdbId}/permissions/": {
+      "get": {
+        "summary": "A list of permissions the current user has to an organizer.",
+        "operationId": "getOrganizerPermissions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an organizer. The uuid of older items might deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of permissions",
+            "schema": {
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "example": [
+                    "Organisaties bewerken"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Organizer not found."
+          }
+        },
+        "tags": [
+          "User"
+        ]
       }
     }
   }

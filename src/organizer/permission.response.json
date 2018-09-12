@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "permissions": {
+      "type": "array",
+      "example": [
+        "Organisaties bewerken"
+      ]
+    }
+  }
+}

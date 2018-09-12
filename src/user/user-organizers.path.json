@@ -1,0 +1,32 @@
+{
+  "get": {
+    "summary": "Retrieve all organizers owned by the current user",
+    "description": "Authentication required",
+    "operationId": "getUserOrganizers",
+    "produces": [
+      "application/ld+json"
+    ],
+    "parameters": [
+      {
+        "$ref": "../pager.parameter.json"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "A list of organizers",
+        "schema": {
+          "$ref": "../organizer/organizer-paged-collection.response.json"
+        }
+      },
+      "400": {
+        "$ref": "../validation/api-problem.response.json"
+      },
+      "401": {
+        "$ref": "../authorization/unauthorized.response.json"
+      }
+    },
+    "tags": [
+      "User"
+    ]
+  }
+}

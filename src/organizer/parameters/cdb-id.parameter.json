@@ -1,0 +1,8 @@
+{
+    "name": "cdbId",
+    "in": "path",
+    "description": "The unique identifier of an organizer. The uuid of older items might deviate from the format specification.",
+    "required": true,
+    "type": "string",
+    "format": "uuid"
+}

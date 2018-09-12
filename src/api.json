@@ -58,6 +58,9 @@
         "/user/offers/": {
             "$ref": "user/user-offers.path.json"
         },
+        "/user/organizers/": {
+            "$ref": "user/user-organizers.path.json"
+        },
         "/events/": {
             "$ref": "event/event.path.json"
         },
@@ -186,6 +189,9 @@
         },
         "/organizers/": {
             "$ref": "organizer/organizer.path.json"
+        },
+        "/organizers/{cdbId}/permissions/": {
+            "$ref": "organizer/organizer-permissions.path.json"
         }
     }
 }
