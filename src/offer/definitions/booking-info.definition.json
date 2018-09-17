@@ -9,7 +9,7 @@
       "example": "https://www.domain.be/reservations/eventname"
     },
     "urlLabel": {
-      "$ref": "translatable-string.definition.json"
+      "$ref": "url-label.definition.json"
     },
     "email": {
       "type": "string",

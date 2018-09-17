@@ -67,6 +67,9 @@
         "/events/{cdbId}": {
             "$ref": "event/event-detail.path.json"
         },
+        "/events/{cdbId}/calsum": {
+            "$ref": "offer/calsum.path.json"
+        },
         "/events/{cdbId}/name/{lang}": {
             "$ref": "offer/name/name.path.json"
         },
@@ -135,6 +138,9 @@
         },
         "/places/{cdbId}": {
             "$ref": "place/place-detail.path.json"
+        },
+        "/places/{cdbId}/calsum": {
+            "$ref": "offer/calsum.path.json"
         },
         "/places/{cdbId}/name/{lang}": {
             "$ref": "offer/name/name.path.json"

@@ -1483,6 +1483,99 @@
         }
       }
     },
+    "/events/{cdbId}/calsum": {
+      "get": {
+        "tags": [
+          "Event",
+          "Place"
+        ],
+        "summary": "Calendar summary of a specific offer.",
+        "operationId": "getCalendarSummary",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "style",
+            "in": "query",
+            "description": "The style of the calendar summary output. Can be 'text' or 'html'.",
+            "required": false,
+            "default": "text",
+            "type": "string",
+            "enum": [
+              "text",
+              "html"
+            ]
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "description": "The language code which needs to be used to format calendar data.",
+            "required": false,
+            "default": "nl_BE",
+            "type": "string",
+            "enum": [
+              "nl_BE",
+              "fr_BE",
+              "de_BE",
+              "en_BE"
+            ]
+          },
+          {
+            "name": "hidePast",
+            "in": "query",
+            "description": "Whether or not it should hide dates that are in the past. Only works on multiple dates.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "timeZone",
+            "in": "query",
+            "description": "The timezone which needs to be used to format calendar data.",
+            "required": false,
+            "default": "Europe/Brussels",
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "The format which needs to be used to format calendar data.",
+            "required": false,
+            "default": "lg",
+            "type": "string",
+            "enum": [
+              "lg",
+              "md",
+              "sm",
+              "xs"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Calendar summary of an offer",
+            "examples": {
+              "text/plain": {
+                "type": "string",
+                "example": "zondag 7 oktober 2018 van 12:15 tot 18:00"
+              }
+            }
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
     "/events/{cdbId}/name/{lang}": {
       "put": {
         "tags": [
@@ -4531,6 +4624,99 @@
         }
       }
     },
+    "/places/{cdbId}/calsum": {
+      "get": {
+        "tags": [
+          "Event",
+          "Place"
+        ],
+        "summary": "Calendar summary of a specific offer.",
+        "operationId": "getCalendarSummary",
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an offer. The uuid of older items will deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "style",
+            "in": "query",
+            "description": "The style of the calendar summary output. Can be 'text' or 'html'.",
+            "required": false,
+            "default": "text",
+            "type": "string",
+            "enum": [
+              "text",
+              "html"
+            ]
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "description": "The language code which needs to be used to format calendar data.",
+            "required": false,
+            "default": "nl_BE",
+            "type": "string",
+            "enum": [
+              "nl_BE",
+              "fr_BE",
+              "de_BE",
+              "en_BE"
+            ]
+          },
+          {
+            "name": "hidePast",
+            "in": "query",
+            "description": "Whether or not it should hide dates that are in the past. Only works on multiple dates.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "timeZone",
+            "in": "query",
+            "description": "The timezone which needs to be used to format calendar data.",
+            "required": false,
+            "default": "Europe/Brussels",
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "The format which needs to be used to format calendar data.",
+            "required": false,
+            "default": "lg",
+            "type": "string",
+            "enum": [
+              "lg",
+              "md",
+              "sm",
+              "xs"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Calendar summary of an offer",
+            "examples": {
+              "text/plain": {
+                "type": "string",
+                "example": "zondag 7 oktober 2018 van 12:15 tot 18:00"
+              }
+            }
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
+    },
     "/places/{cdbId}/name/{lang}": {
       "put": {
         "tags": [
@@ -5265,19 +5451,19 @@
                       "properties": {
                         "nl": {
                           "type": "string",
-                          "example": "Nederlands"
+                          "example": "Reserveer plaatsen"
                         },
                         "de": {
                           "type": "string",
-                          "example": "Deutsch"
+                          "example": "Reservieren Sie"
                         },
                         "en": {
                           "type": "string",
-                          "example": "English"
+                          "example": "Make a reservation"
                         },
                         "fr": {
                           "type": "string",
-                          "example": "Français"
+                          "example": "Faire une réservation"
                         }
                       }
                     },

@@ -1,0 +1,23 @@
+{
+  "required": [
+    "nl"
+  ],
+  "properties": {
+    "nl": {
+      "type": "string",
+      "example": "Reserveer plaatsen"
+    },
+    "de": {
+      "type": "string",
+      "example": "Reservieren Sie"
+    },
+    "en": {
+      "type": "string",
+      "example": "Make a reservation"
+    },
+    "fr": {
+      "type": "string",
+      "example": "Faire une réservation"
+    }
+  }
+}
