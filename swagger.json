@@ -4271,9 +4271,9 @@
         ],
         "parameters": [
           {
-            "name": "postalCode",
+            "name": "zipcode",
             "in": "query",
-            "description": "Limit the list to places located in the area with this postal code.",
+            "description": "Limit the list to places located in the area with this zip code.",
             "type": "string"
           },
           {
@@ -4285,12 +4285,10 @@
             "type": "string"
           },
           {
-            "name": "embed",
+            "name": "city",
             "in": "query",
-            "description": "Whether to get the actual bodies of the results",
-            "required": false,
-            "default": false,
-            "type": "boolean"
+            "description": "Limit the list to places located in the area with this city.",
+            "type": "string"
           }
         ],
         "responses": {
