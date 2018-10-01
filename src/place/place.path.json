@@ -40,13 +40,13 @@
     ],
     "parameters": [
       {
-        "$ref": "parameters/postal-code.parameter.json"
+        "$ref": "parameters/zipcode.parameter.json"
       },
       {
         "$ref": "parameters/country.parameter.json"
       },
       {
-        "$ref": "../offer/parameters/embed.parameter.json"
+        "$ref": "parameters/city.parameter.json"
       }
     ],
     "responses": {
