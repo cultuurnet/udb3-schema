@@ -198,6 +198,9 @@
         },
         "/organizers/{cdbId}/permissions/": {
             "$ref": "organizer/organizer-permissions.path.json"
+        },
+        "/organizers/{cdbId}/address/{lang}": {
+            "$ref": "organizer/organizer-place.path.json"
         }
     }
 }

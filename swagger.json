@@ -7032,6 +7032,134 @@
           "User"
         ]
       }
+    },
+    "/organizers/{cdbId}/address/{lang}": {
+      "put": {
+        "tags": [
+          "Organizer"
+        ],
+        "summary": "Update or translate the address of an organizer in a specific language.",
+        "operationId": "updateOrganizerAddress",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cdbId",
+            "in": "path",
+            "description": "The unique identifier of an organizer. The uuid of older items might deviate from the format specification.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "The unique ISO 639-1 2 character language code.",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "nl",
+              "fr",
+              "en",
+              "de"
+            ]
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "An object containing the address info of a place.",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressCountry": {
+                  "type": "string",
+                  "description": "The country code of the location.",
+                  "example": "BE"
+                },
+                "addressLocality": {
+                  "type": "string",
+                  "description": "The locality name of the location.",
+                  "example": "Scherpenheuvel-Zichem"
+                },
+                "postalCode": {
+                  "type": "string",
+                  "description": "The postalcode of the location.",
+                  "example": "3271"
+                },
+                "streetAddress": {
+                  "type": "string",
+                  "description": "The street name and number information of the location.",
+                  "example": "Hoornblaas 107"
+                }
+              },
+              "required": [
+                "addressCountry",
+                "addressLocality",
+                "postalCode",
+                "streetAddress"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Info on the command that was queued.",
+            "schema": {
+              "required": [
+                "commandId"
+              ],
+              "properties": {
+                "commandId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "An API specific problem occurred.",
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer"
+                },
+                "validation_messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "type",
+                "status"
+              ]
+            }
+          },
+          "401": {
+            "description": "Authentication with UiTID and a valid JWT is required."
+          },
+          "403": {
+            "description": "Access is not allowed for the provided authorization."
+          },
+          "404": {
+            "description": "Offer not found."
+          }
+        }
+      }
     }
   }
 }

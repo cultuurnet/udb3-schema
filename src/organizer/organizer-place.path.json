@@ -1,0 +1,26 @@
+{
+  "put": {
+    "tags": [
+      "Organizer"
+    ],
+    "summary": "Update or translate the address of an organizer in a specific language.",
+    "operationId": "updateOrganizerAddress",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "$ref": "../organizer/parameters/cdb-id.parameter.json"
+      },
+      {
+        "$ref": "../lang.parameter.json"
+      },
+      {
+        "$ref": "../place/parameters/address.parameter.json"
+      }
+    ],
+    "responses": {
+      "$ref": "../offer/command-responses.json"
+    }
+  }
+}
