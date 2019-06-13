@@ -1,6 +1,0 @@
-{
-  "name": "city",
-  "in": "query",
-  "description": "Limit the list to places located in the area with this city.",
-  "type": "string"
-}

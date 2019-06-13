@@ -27,35 +27,5 @@
         "$ref": "../authorization/unauthorized.response.json"
       }
     }
-  },
-  "get": {
-    "tags": [
-      "Place"
-    ],
-    "summary": "List places.",
-    "description": "",
-    "operationId": "listPlaces",
-    "produces": [
-      "application/json"
-    ],
-    "parameters": [
-      {
-        "$ref": "parameters/zipcode.parameter.json"
-      },
-      {
-        "$ref": "parameters/country.parameter.json"
-      },
-      {
-        "$ref": "parameters/city.parameter.json"
-      }
-    ],
-    "responses": {
-      "200": {
-        "description": "A PagedCollection of places matching the supplied criteria.",
-        "schema": {
-          "$ref": "places-list-paged-collection.response.json"
-        }
-      }
-    }
   }
 }
