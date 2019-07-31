@@ -1,6 +1,0 @@
-{
-  "name": "zipcode",
-  "in": "query",
-  "description": "Limit the list to places located in the area with this zip code.",
-  "type": "string"
-}
