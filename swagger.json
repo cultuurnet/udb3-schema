@@ -493,7 +493,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Details of the created event.",
             "schema": {
               "required": [
@@ -1427,21 +1427,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -1627,21 +1614,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -1732,21 +1706,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -1820,21 +1781,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -1905,21 +1853,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2045,21 +1980,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2131,21 +2053,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2225,21 +2134,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2352,21 +2248,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2494,21 +2377,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2618,21 +2488,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2748,21 +2605,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2842,21 +2686,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -2917,21 +2748,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3003,21 +2821,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3087,21 +2892,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3173,21 +2965,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3257,21 +3036,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3353,21 +3119,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3404,7 +3157,7 @@
             "description": "Access is not allowed for the provided authorization."
           },
           "404": {
-            "description": "Image not found."
+            "description": "Offer not found."
           }
         }
       }
@@ -3449,21 +3202,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3536,21 +3276,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3644,21 +3371,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -3906,16 +3620,9 @@
             "description": "Successful Image upload response.",
             "schema": {
               "required": [
-                "commandId",
                 "imageId"
               ],
               "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                },
                 "imageId": {
                   "type": "string",
                   "format": "uuid",
@@ -4766,21 +4473,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -4871,21 +4565,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -4959,21 +4640,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5087,21 +4755,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5225,21 +4880,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5349,21 +4991,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5491,21 +5120,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5596,21 +5212,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5726,21 +5329,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5820,21 +5410,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5895,21 +5472,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -5981,21 +5545,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6065,21 +5616,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6151,21 +5689,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6235,21 +5760,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6331,21 +5843,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6382,7 +5881,7 @@
             "description": "Access is not allowed for the provided authorization."
           },
           "404": {
-            "description": "Image not found."
+            "description": "Offer not found."
           }
         }
       }
@@ -6427,21 +5926,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6514,21 +6000,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",
@@ -6622,21 +6095,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Info on the command that was queued.",
-            "schema": {
-              "required": [
-                "commandId"
-              ],
-              "properties": {
-                "commandId": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "A universally unique identifier.",
-                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                }
-              }
-            }
+          "204": {
+            "description": "The action was successfully executed."
           },
           "400": {
             "description": "An API specific problem occurred.",

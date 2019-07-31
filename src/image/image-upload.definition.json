@@ -1,12 +1,8 @@
 {
   "required": [
-    "commandId",
     "imageId"
   ],
   "properties": {
-    "commandId": {
-      "$ref": "../uuid.definition.json"
-    },
     "imageId": {
       "type": "string",
       "format": "uuid",

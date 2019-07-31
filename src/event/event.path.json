@@ -14,7 +14,7 @@
       }
     ],
     "responses": {
-      "200": {
+      "201": {
         "description": "Details of the created event.",
         "schema": {
           "$ref": "event.response.json"
