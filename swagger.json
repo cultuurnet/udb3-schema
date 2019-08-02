@@ -397,51 +397,10 @@
                   }
                 },
                 "location": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid",
-                      "description": "A universally unique identifier.",
-                      "example": "6f072ba8-c510-40ac-b387-51f582650e27"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "The name of the location.",
-                      "example": "Café Den Hemel"
-                    },
-                    "address": {
-                      "type": "object",
-                      "properties": {
-                        "addressCountry": {
-                          "type": "string",
-                          "description": "The country code of the location.",
-                          "example": "BE"
-                        },
-                        "addressLocality": {
-                          "type": "string",
-                          "description": "The locality name of the location.",
-                          "example": "Scherpenheuvel-Zichem"
-                        },
-                        "postalCode": {
-                          "type": "string",
-                          "description": "The postalcode of the location.",
-                          "example": "3271"
-                        },
-                        "streetAddress": {
-                          "type": "string",
-                          "description": "The street name and number information of the location.",
-                          "example": "Hoornblaas 107"
-                        }
-                      },
-                      "required": [
-                        "addressCountry",
-                        "addressLocality",
-                        "postalCode",
-                        "streetAddress"
-                      ]
-                    }
-                  }
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "A universally unique identifier.",
+                  "example": "6f072ba8-c510-40ac-b387-51f582650e27"
                 },
                 "calendar": {
                   "properties": {
@@ -4203,7 +4162,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Details of the created event.",
             "schema": {
               "required": [
