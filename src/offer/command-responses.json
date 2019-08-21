@@ -1,6 +1,6 @@
 {
-    "202": {
-        "$ref": "../command/command-queued.response.json"
+    "204": {
+        "description": "The action was successfully executed."
     },
     "400": {
         "$ref": "../validation/api-problem.response.json"
