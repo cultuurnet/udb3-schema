@@ -1,3 +1,7 @@
+# WARNING!
+
+This repository is obsolete. See https://docs.publiq.be for the latest UiTdatabank API documentation.
+
 # UDB3 Schema
 
 [![Build Status](https://travis-ci.org/cultuurnet/udb3-schema.svg?branch=master)](https://travis-ci.org/cultuurnet/udb3-schema)
